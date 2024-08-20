@@ -18,13 +18,12 @@ def encode_problem(tasks, resources):
     
     # Constraint A1: Task i should not access two resources at the same time
     for i in range(len(tasks)):
-        for j in range(resources):
-            for jp in range(j+1, resources):
-                for t1 in range(time):
-                    for t2 in range(time):
-                        cnf.append([-x[i][j][t1], -x[i][jp][t2]])
+        for t in range(time):
+            for j in range(resources):
+                for jp in range(j+1, resources):
+                    cnf.append([-x[i][j][t], -x[i][jp][t]])
 
-    # Constraint A2: Each task must get some resource
+    # Constraint A2: Each task must get some resource at some time
     for i in range(len(tasks)):
         clause = []
         for j in range(resources):
@@ -33,10 +32,10 @@ def encode_problem(tasks, resources):
         cnf.append(clause)
 
     # Constraint A3: A resource can only be held by one task at a time
-    for i in range(len(tasks)):
-        for ip in range(i+1, len(tasks)):
-            for j in range(resources):
-                for t in range(time):
+    for j in range(resources):
+        for t in range(time):
+            for i in range(len(tasks)):
+                for ip in range(i+1, len(tasks)):
                     cnf.append([-x[i][j][t], -x[ip][j][t]])
 
     # Constraint A4: Each task must have exactly one start time for accessing a resource non-preemptively
@@ -56,7 +55,7 @@ def encode_problem(tasks, resources):
                     cnf.append([-a[i][j][t], x[i][j][tp]])
 
                 # If a[i][j][t] is true, the task must not hold the resource before t
-                for tp in range(0, t):
+                for tp in range(t):
                     cnf.append([-a[i][j][t], -x[i][j][tp]])
 
                 # If a[i][j][t] is true, the task must not hold the resource after t + e_i - 1
