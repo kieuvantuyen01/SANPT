@@ -66,7 +66,7 @@ def encode_problem(tasks, resources):
     return cnf, time, x
 
 # Use the encoding function with a SAT solver
-tasks = [(0, 2, 3), (0, 2, 3)]  # Each task is a tuple (ri, ei, di)
+tasks = [(0, 2, 2), (0, 2, 3)]  # Each task is a tuple (ri, ei, di)
 resources = 2
 cnf, time, x = encode_problem(tasks, resources)
 
