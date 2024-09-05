@@ -59,38 +59,43 @@ def encode_problem_es3(tasks, resources):
     for i in range(len(tasks)):
         for j in range(resources):
             for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1):
+                # Reverse implication
+                clause = [D[i][j][t]]
+                clause.extend([-u[i][j]])
+                clause_str = []
+                clause_str.append(f"D{i+1}{j+1}{t}")
+                clause_str.append(f"-u{i+1}{j+1}")
+
                 # If D[i][j][t] is true, the task must hold the resource for its entire duration
                 for tp in range(t, t + tasks[i][1]):
                     if tp < max_time:
                         cnf.append([-D[i][j][t], z[i][tp]])
-                        print(f"Added clause: -D{i+1}{j+1}{t} z{i+1}{tp}")
+                        clause.append(-z[i][tp])
+                        clause_str.append(f"-z{i+1}{tp}")
+                        print(f"Added clause D5: -D{i+1}{j+1}{t} z{i+1}{tp}")
                 cnf.append([-D[i][j][t], u[i][j]])
+                # clause.append(-u[i][j])
+                # clause_str.append(f"-u{i+1}{j+1}")
                 print(f"Added clause D5: -D{i+1}{j+1}{t} u{i+1}{j+1}")
 
                 # If D[i][j][t] is true, the task must not hold the resource before t
                 for tp in range(tasks[i][0], t):
                     cnf.append([-D[i][j][t], -z[i][tp]])
+                    clause.append(z[i][tp])
+                    clause_str.append(f"z{i+1}{tp}")
                     print(f"Added clause D5: -D{i+1}{j+1}{t} -z{i+1}{tp}")
 
                 # If D[i][j][t] is true, the task must not hold the resource after t + e_i - 1
                 for tp in range(t + tasks[i][1], tasks[i][2]):
                     if tp < max_time:
                         cnf.append([-D[i][j][t], -z[i][tp]])
+                        clause.append(z[i][tp])
+                        clause_str.append(f"z{i+1}{tp}")
                         print(f"Added clause D5: -D{i+1}{j+1}{t} -z{i+1}{tp}")
-                        
-                # Reverse implication
-                clause = [D[i][j][t]]
-                clause.extend([-u[i][j]])
-                # clause.extend([-z[i][tp] for tp in range(t, min(t + tasks[i][1], max_time))])
-                # cnf.append(clause)
-                clause_str = []
-                clause_str.append(f"D{i+1}{j+1}{t}")
-                clause_str.append(f"-u{i+1}{j+1}")
-                for tp in range(t, min(t + tasks[i][1], max_time)):
-                    clause.append(-z[i][tp])
-                    clause_str.append(f"-z{i+1}{tp}")
+
                 cnf.append(clause)
                 print(f"Added clause D5: {clause_str}")
+                        
     return cnf, max_time, u, z, D
 
 # Example usage
