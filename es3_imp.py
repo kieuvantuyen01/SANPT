@@ -7,9 +7,8 @@ import os
 import ast
 
 sat_solver = Glucose3
-time_budget = 60  # Set your desired time budget in seconds
+time_budget = 600  # Set your desired time budget in seconds
 
-# def check_overlap(task1, task2):
 def check_overlap(task1, task2):
     # Suppose: task1 = (r1, e1, d1), task2 = (r2, e2, d2)
     # r1_min = r1, r1_max = d1 - e1, d1_min = r1 + e1, d1_max = d1
@@ -31,15 +30,19 @@ def encode_problem_es3(tasks, resources):
     u = [[i * resources + j + 1 for j in range(resources)] for i in range(len(tasks))]
 
     # Variables z[i][t] for task i accessing some resource at time t
-    z = [[len(tasks) * resources + i * max_time + t + 1 for t in range(tasks[i][2])] for i in range(len(tasks))]
+    z = [[len(tasks) * resources + i * tasks[i][2] + t + 1 for t in range(tasks[i][2])] for i in range(len(tasks))]
 
-    # Overlapping: check each pair of tasks to see if they are overlap time, u_i1j -> -u_i2j
+    # Variables D[i][j][t] for non-preemptive access of resource j by task i starting at time t
+    D = [[[len(tasks) * (resources + max_time) + i * resources * max_time + j * max_time + t + 1 
+          for t in range(max_time)] for j in range(resources)] for i in range(len(tasks))]
+
+   # Overlapping: check each pair of tasks to see if they are overlap time, u_i1j -> -u_i2j
     for i in range(len(tasks)):
         for ip in range(i + 1, len(tasks)):
             if check_overlap(tasks[i], tasks[ip]):
                 for j in range(resources):
                     sat_solver.add_clause([-u[i][j], -u[ip][j]])
-                    print(f"Added clause D0: -u{i+1}{j+1} -u{ip+1}{j+1}")
+                    # print(f"Added clause D0: -u{i+1}{j+1} -u{ip+1}{j+1}")
 
     # Symmetry breaking 1: Assign the tasks to resources if have r_max <= d_min (min of all tasks)
     d_min = min(task[2] for task in tasks)
@@ -51,112 +54,96 @@ def encode_problem_es3(tasks, resources):
     for j, i in enumerate(fixed_tasks):
         if j < resources:
             sat_solver.add_clause([u[i][j]])
-        print(f"Added clause S1: u{i+1}{j+1}")
+        # print(f"Added clause S1: u{i+1}{j+1}")
     
     # Symmetry breaking 2: if each task i has t in range(r_max, d_min), then z[i][t] = True
     for i in range(len(tasks)):
         for t in range(tasks[i][2] - tasks[i][1], tasks[i][2]):
             sat_solver.add_clause([z[i][t]])
-            print(f"Added clause S2: z{i+1}{t}")
+            # print(f"Added clause S2: z{i+1}{t}")
 
     # D1: Task i should not access two resources at the same time
     for i in range(len(tasks)):
         for j in range(resources):
             for jp in range(j + 1, resources):
                 sat_solver.add_clause([-u[i][j], -u[i][jp]])
-                print(f"Added clause D1: -u{i+1}{j+1} -u{i+1}{jp+1}")
+                # print(f"Added clause D1: -u{i+1}{j+1} -u{i+1}{jp+1}")
 
     # D2: Each task must get some resource
     for i in range(len(tasks)):
         # sat_solver.add_clause([u[i][j] for j in range(resources)])
-        print(f"Added clause: u{i}0 u{i}1")
+        # print(f"Added clause: u{i}0 u{i}1")
         clause = []
         clause_str = []
         for j in range(resources):
             clause.append(u[i][j])
             clause_str.append(f"u{i+1}{j+1}")
         sat_solver.add_clause(clause)
-        print(f"Added clause D2: {clause_str}")
+        # print(f"Added clause D2: {clause_str}")
 
-     # D3: A resource can only be held by one task at a time
+    # D3: A resource can only be held by one task at a time
     for i in range(len(tasks)):
         for ip in range(i + 1, len(tasks)):
             for j in range(resources):
                 for t in range(tasks[i][0], min(tasks[i][2], tasks[ip][2])):
                     sat_solver.add_clause([-z[i][t], -u[i][j], -z[ip][t], -u[ip][j]])
-                    print(f"Added clause D3: -z{i+1}{t} -u{i+1}{j+1} -z{ip+1}{t} -u{ip+1}{j+1}")
-    
-    # C3: Non-preemptive resource access
+                    # print(f"Added clause D3: -z{i+1}{t} -u{i+1}{j+1} -z{ip+1}{t} -u{ip+1}{j+1}")
+
+    # D4: Each task must have exactly one start time for accessing a resource non-preemptively
     for i in range(len(tasks)):
-        z_list = [[[] for _ in range(tasks[i][2] - tasks[i][0])] for _ in range(tasks[i][2] - tasks[i][1] - tasks[i][0] + 1)]
+        # sat_solver.add_clause([D[i][j][t] for j in range(resources) for t in range(tasks[i][2] - tasks[i][1] + 1)])
+        # print(f"Added clause D4: D{i}{j}{t}")
+        clause = []
+        clause_str = []
+        for j in range(resources):
+            for t in range(tasks[i][2] - tasks[i][1] + 1):
+                clause.append(D[i][j][t])
+                clause_str.append(f"D{i+1}{j+1}{t}")
+        sat_solver.add_clause(clause)
+        # print(f"Added clause D4: {clause_str}")
 
-        row = 0
-        for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1):
-            col = 0
-            for tp in range(tasks[i][0], tasks[i][2]):
-                if tp < max_time:
-                    # print(f"col: {col}, row: {row}")
-                    if tp < t:
-                        z_list[row][col] = -z[i][tp]
-                        # print(f"z_list[row][col]: {z_list[row][col]}")
-                    elif tp < t + tasks[i][1]:
-                        z_list[row][col] = z[i][tp]
-                        # print(f"z_list[row][col]: {z_list[row][col]}")
-                    else:
-                        z_list[row][col] = -z[i][tp] 
-                        # print(f"z_list[row][col]: {z_list[row][col]}")
-                    col += 1
-            # z_list[row][col] = u[i][j]
-            row += 1
-
-        # # Ensure that each task need to get access to a resource at least once
-        # clause = []
-        # clause_str = []
-        # for t in range(tasks[i][0], tasks[i][2]):
-        #     clause.append(z[i][t])
-        #     clause_str.append(f"z{i+1}{t}")
-        # sat_solver.add_clause(clause)
-        # print(f"Added clause C5: {clause_str}")
-
-        print(z_list)
-        # for j in range(len(z_list)):
-        for combination in product(*z_list):
-            clause = list(combination)
-            # clause_str = [f"z{i+1}{j+1}" for i, j in enumerate(range(len(combination)))]
-            sat_solver.add_clause(clause)
-            print(f"Added clause C6: {clause}")
-
-    # Link u and z variables
+    # D5: Linking start variable to z and u variables
     for i in range(len(tasks)):
-        for t in range(tasks[i][0], tasks[i][2]):
-            # If z[i][t] is true, exactly one u[i][j] must be true
-            # clause = [-z[i][t]] + [u[i][j] for j in range(resources)]
-            clause = [-z[i][t]]
-            clause_str = [f"-z{i+1}{t}"]
-            for j in range(resources):
-                clause.append(u[i][j])
-                clause_str.append(f"u{i+1}{j+1}")
-            sat_solver.add_clause(clause)
-            print(f"Added clause C7: {clause_str}")
+        for j in range(resources):
+            for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1):
+                # Reverse implication
+                clause = [D[i][j][t]]
+                # clause.extend([-u[i][j]])
+                clause_str = []
+                clause_str.append(f"D{i+1}{j+1}{t}")
+                # clause_str.append(f"-u{i+1}{j+1}")
 
-            for j in range(resources):
-                for jp in range(j + 1, resources):
-                    clause = [-z[i][t], -u[i][j], -u[i][jp]]
-                    clause_str = [f"-z{i+1}{t} -u{i+1}{j+1} -u{i+1}{jp+1}"]
-                    sat_solver.add_clause(clause)
-                    print(f"Added clause C8: {clause_str}")
+                # If D[i][j][t] is true, the task must hold the resource for its entire duration
+                for tp in range(t, t + tasks[i][1]):
+                    if tp < max_time:
+                        sat_solver.add_clause([-D[i][j][t], z[i][tp]])
+                        clause.append(-z[i][tp])
+                        clause_str.append(f"-z{i+1}{tp}")
+                        # print(f"Added clause D5: -D{i+1}{j+1}{t} z{i+1}{tp}")
+                # sat_solver.add_clause([-D[i][j][t], u[i][j]])
+                # clause.append(-u[i][j])
+                # clause_str.append(f"-u{i+1}{j+1}")
+                # print(f"Added clause D5: -D{i+1}{j+1}{t} u{i+1}{j+1}")
 
-    # sat_solver.add_clause([z[0][0]])
-    # sat_solver.add_clause([-z[1][0]])
-    # print(f"Added clause C8: z{2}{0}")
+                # If D[i][j][t] is true, the task must not hold the resource before t
+                for tp in range(tasks[i][0], t):
+                    sat_solver.add_clause([-D[i][j][t], -z[i][tp]])
+                    clause.append(z[i][tp])
+                    clause_str.append(f"z{i+1}{tp}")
+                    # print(f"Added clause D5: -D{i+1}{j+1}{t} -z{i+1}{tp}")
 
-    # num_variables = cnf.nv
-    # num_clauses = len(cnf.clauses)
+                # If D[i][j][t] is true, the task must not hold the resource after t + e_i - 1
+                for tp in range(t + tasks[i][1], tasks[i][2]):
+                    if tp < max_time:
+                        sat_solver.add_clause([-D[i][j][t], -z[i][tp]])
+                        clause.append(z[i][tp])
+                        clause_str.append(f"z{i+1}{tp}")
+                        # print(f"Added clause D5: -D{i+1}{j+1}{t} -z{i+1}{tp}")
 
-    # print(f"Num of variables: {num_variables}")
-    # print(f"Num of clauses: {num_clauses}")
-    
-    return u, z
+                sat_solver.add_clause(clause)
+                # print(f"Added clause D5: {clause_str}")
+
+    return u, z, D
 
 def interrupt(solver):
     solver.interrupt()
@@ -166,7 +153,7 @@ def solve_es3(tasks, resources):
     # with Solver(name="glucose4") as solver:
     sat_solver = Glucose3(use_timer=True)
     
-    u, z = encode_problem_es3(tasks, resources)
+    u, z, D = encode_problem_es3(tasks, resources)
 
     # start_time = time.time()
     num_variables = sat_solver.nof_vars()
@@ -181,16 +168,8 @@ def solve_es3(tasks, resources):
 
     solve_time = float(format(sat_solver.time(), ".6f"))
 
-    
-    # print(f"Time: {solve_time} s")
-    
-    # end_time = time.time()
-    # solve_time = end_time - start_time
-    # print(f"Time: {solve_time:.6f} s")
-
     res = ""
-
-    if result is True:
+    if result:
         model = sat_solver.get_model()
         if model is None:
             print("Time out")
@@ -203,9 +182,12 @@ def solve_es3(tasks, resources):
                     if model[u[i][j] - 1] > 0:
                         print(f"Task {i} is assigned to resource {j}")
                 for t in range(tasks[i][0], tasks[i][2]):
-                    # print(f"model[z[i][t] - 1]: {model[z[i][t] - 1]}, z[i][t]: {i+1}{t}")
                     if model[z[i][t] - 1] > 0:
                         print(f"Task {i} is accessing a resource at time {t}")
+                for j in range(resources):
+                    for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1):
+                        if model[D[i][j][t] - 1] > 0:
+                            print(f"Task {i} starts non-preemptive access of resource {j} at time {t}")
     else:
         print("UNSAT")
         res = "UNSAT"
@@ -218,7 +200,7 @@ def solve_es3(tasks, resources):
 def process_input_files(input_folder, resources=2):
     results = {}
     for filename in os.listdir(input_folder):
-        if filename.startswith("small_") and filename.endswith(".txt"):
+        if filename.startswith("large_") and filename.endswith(".txt"):
             file_path = os.path.join(input_folder, filename)
             with open(file_path, 'r') as f:
                 num_tasks = int(f.readline().strip())
@@ -237,7 +219,7 @@ def process_input_files(input_folder, resources=2):
     return results
 
 # Main execution
-input_folder = "input"
+input_folder = "input/large"
 results = process_input_files(input_folder)
 
 # Print summary of results
