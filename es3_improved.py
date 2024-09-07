@@ -53,11 +53,11 @@ def encode_problem_es3(tasks, resources):
             sat_solver.add_clause([u[i][j]])
         print(f"Added clause S1: u{i+1}{j+1}")
     
-    # Symmetry breaking 2: if each task i has t in range(r_max, d_min), then z[i][t] = True
-    for i in range(len(tasks)):
-        for t in range(tasks[i][2] - tasks[i][1], tasks[i][2]):
-            sat_solver.add_clause([z[i][t]])
-            print(f"Added clause S2: z{i+1}{t}")
+    # # Symmetry breaking 2: if each task i has t in range(r_max, d_min), then z[i][t] = True
+    # for i in range(len(tasks)):
+    #     for t in range(tasks[i][2] - tasks[i][1], tasks[i][2]):
+    #         sat_solver.add_clause([z[i][t]])
+    #         print(f"Added clause S2: z{i+1}{t}")
 
     # D1: Task i should not access two resources at the same time
     for i in range(len(tasks)):

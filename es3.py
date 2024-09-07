@@ -36,31 +36,32 @@ def encode_problem_es3(tasks, resources):
     D = [[[len(tasks) * (resources + max_time) + i * resources * max_time + j * max_time + t + 1 
           for t in range(max_time)] for j in range(resources)] for i in range(len(tasks))]
 
-#    # Overlapping: check each pair of tasks to see if they are overlap time, u_i1j -> -u_i2j
-#     for i in range(len(tasks)):
-#         for ip in range(i + 1, len(tasks)):
-#             if check_overlap(tasks[i], tasks[ip]):
-#                 for j in range(resources):
-#                     sat_solver.add_clause([-u[i][j], -u[ip][j]])
-#                     print(f"Added clause D0: -u{i+1}{j+1} -u{ip+1}{j+1}")
+   # Overlapping: check each pair of tasks to see if they are overlap time, u_i1j -> -u_i2j
+    for i in range(len(tasks)):
+        for ip in range(i + 1, len(tasks)):
+            if check_overlap(tasks[i], tasks[ip]):
+                for j in range(resources):
+                    sat_solver.add_clause([-u[i][j], -u[ip][j]])
+                    # print(f"Added clause D0: -u{i+1}{j+1} -u{ip+1}{j+1}")
 
-#     # Symmetry breaking 1: Assign the tasks to resources if have r_max <= d_min (min of all tasks)
-#     d_min = min(task[2] for task in tasks)
-#     fixed_tasks = []
-#     for i in range(len(tasks)):
-#         if tasks[i][2] - tasks[i][1] <= d_min:
-#             fixed_tasks.append(i)
-#     # Assign each task in fixed_tasks to a resource
-#     for j, i in enumerate(fixed_tasks):
-#         if j < resources:
-#             sat_solver.add_clause([u[i][j]])
-#         print(f"Added clause S1: u{i+1}{j+1}")
+    # Symmetry breaking 1: Assign the tasks to resources if have r_max <= d_min (min of all tasks)
+    d_min = min(task[2] for task in tasks)
+    fixed_tasks = []
+    for i in range(len(tasks)):
+        if tasks[i][2] - tasks[i][1] <= d_min:
+            fixed_tasks.append(i)
+    # Assign each task in fixed_tasks to a resource
+    for j, i in enumerate(fixed_tasks):
+        if j < resources:
+            sat_solver.add_clause([u[i][j]])
+        # print(f"Added clause S1: u{i+1}{j+1}")
     
-#     # Symmetry breaking 2: if each task i has t in range(r_max, d_min), then z[i][t] = True
-#     for i in range(len(tasks)):
-#         for t in range(tasks[i][2] - tasks[i][1], tasks[i][2]):
-#             sat_solver.add_clause([z[i][t]])
-#             print(f"Added clause S2: z{i+1}{t}")
+    # # Symmetry breaking 2: if each task i has t in range(r_max, d_min), then z[i][t] = True
+    # for j in range(resources):
+    #     for i in range(len(tasks)):
+    #         for t in range(tasks[i][2] - tasks[i][1], tasks[i][2]):
+    #             sat_solver.add_clause([-u[i][j], z[i][t]])
+                # print(f"Added clause S2: -u{i+1}{j+1}, z{i+1}{t}")
 
     # D1: Task i should not access two resources at the same time
     for i in range(len(tasks)):
@@ -200,7 +201,7 @@ def solve_es3(tasks, resources):
 def process_input_files(input_folder, resources=2):
     results = {}
     for filename in os.listdir(input_folder):
-        if filename.startswith("small_") and filename.endswith(".txt"):
+        if filename.endswith(".txt"):
             file_path = os.path.join(input_folder, filename)
             with open(file_path, 'r') as f:
                 num_tasks = int(f.readline().strip())
@@ -219,7 +220,7 @@ def process_input_files(input_folder, resources=2):
     return results
 
 # Main execution
-input_folder = "input"
+input_folder = "input/large"
 results = process_input_files(input_folder)
 
 # Print summary of results
