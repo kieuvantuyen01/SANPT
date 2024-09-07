@@ -1,5 +1,7 @@
 from pysat.formula import CNF
 from pysat.solvers import Solver
+import time
+from threading import Timer
 
 def encode_problem_es3(tasks, resources):
     cnf = CNF()
@@ -96,6 +98,12 @@ def encode_problem_es3(tasks, resources):
                 cnf.append(clause)
                 print(f"Added clause D5: {clause_str}")
                         
+    num_variables = cnf.nv
+    num_clauses = len(cnf.clauses)
+
+    print(f"Num of variables: {num_variables}")
+    print(f"Num of clauses: {num_clauses}")
+
     return cnf, max_time, u, z, D
 
 # Example usage
@@ -103,22 +111,49 @@ tasks = [(0, 2, 2), (0, 2, 3)]  # Each task is a tuple (ri, ei, di)
 resources = 2
 cnf, max_time, u, z, D = encode_problem_es3(tasks, resources)
 
+def interrupt(solver):
+    solver.interrupt()
+
 with Solver(name="glucose4") as solver:
     solver.append_formula(cnf.clauses)
-    result = solver.solve()
+    
+    time_budget = 60  # Set your desired time budget in seconds
+    timer = Timer(time_budget, interrupt, [solver])
+    timer.start()
+
+    start_time = time.time()
+    
+    try:
+        result = solver.solve_limited(expect_interrupt = True)
+    except Exception as e:
+        print(f"Solver was interrupted: {e}")
+        result = None
+    finally:
+        timer.cancel()
+ 
+    # solve_time = format(solver.time(), ".6f")
+    
+    # print(f"Time: {solve_time} s")
+    
+    end_time = time.time()
+    solve_time = end_time - start_time
+    print(f"Time: {solve_time:.6f} s")
     if result:
         model = solver.get_model()
-        print("Satisfiable")
-        for i in range(len(tasks)):
-            for j in range(resources):
-                if model[u[i][j] - 1] > 0:
-                    print(f"Task {i} is assigned to resource {j}")
-            for t in range(tasks[i][2]):
-                if model[z[i][t] - 1] > 0:
-                    print(f"Task {i} is accessing a resource at time {t}")
-            for j in range(resources):
-                for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1):
-                    if model[D[i][j][t] - 1] > 0:
-                        print(f"Task {i} starts non-preemptive access of resource {j} at time {t}")
+        if model is None:
+            print("Time out")
+        else:
+            print("Satisfiable")
+            for i in range(len(tasks)):
+                for j in range(resources):
+                    if model[u[i][j] - 1] > 0:
+                        print(f"Task {i} is assigned to resource {j}")
+                for t in range(tasks[i][2]):
+                    if model[z[i][t] - 1] > 0:
+                        print(f"Task {i} is accessing a resource at time {t}")
+                for j in range(resources):
+                    for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1):
+                        if model[D[i][j][t] - 1] > 0:
+                            print(f"Task {i} starts non-preemptive access of resource {j} at time {t}")
     else:
         print("No solution found")
