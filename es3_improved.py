@@ -1,10 +1,13 @@
-from pysat.formula import CNF
-from pysat.solvers import Solver
+# from pysat.formula import CNF
+from pysat.solvers import Glucose3, Solver
 from itertools import product
-import time
+# import time
 from threading import Timer
 import os
 import ast
+
+sat_solver = Glucose3
+time_budget = 600  # Set your desired time budget in seconds
 
 # def check_overlap(task1, task2):
 def check_overlap(task1, task2):
@@ -22,7 +25,6 @@ def check_overlap(task1, task2):
     return False
 
 def encode_problem_es3(tasks, resources):
-    cnf = CNF()
     max_time = max(task[2] for task in tasks)
 
     # Variables u[i][j] for task i accessing resource j
@@ -36,7 +38,7 @@ def encode_problem_es3(tasks, resources):
         for ip in range(i + 1, len(tasks)):
             if check_overlap(tasks[i], tasks[ip]):
                 for j in range(resources):
-                    cnf.append([-u[i][j], -u[ip][j]])
+                    sat_solver.add_clause([-u[i][j], -u[ip][j]])
                     # print(f"Added clause D0: -u{i+1}{j+1} -u{ip+1}{j+1}")
 
     # Symmetry breaking 1: Assign the tasks to resources if have r_max <= d_min (min of all tasks)
@@ -48,7 +50,7 @@ def encode_problem_es3(tasks, resources):
     # Assign each task in fixed_tasks to a resource
     for j, i in enumerate(fixed_tasks):
         if j < resources:
-            cnf.append([u[i][j]])
+            sat_solver.add_clause([u[i][j]])
         # print(f"Added clause S1: u{i+1}{j+1}")
     
     # Symmetry breaking 2: 
@@ -57,19 +59,19 @@ def encode_problem_es3(tasks, resources):
     for i in range(len(tasks)):
         for j in range(resources):
             for jp in range(j + 1, resources):
-                cnf.append([-u[i][j], -u[i][jp]])
+                sat_solver.add_clause([-u[i][j], -u[i][jp]])
                 # print(f"Added clause D1: -u{i+1}{j+1} -u{i+1}{jp+1}")
 
     # D2: Each task must get some resource
     for i in range(len(tasks)):
-        # cnf.append([u[i][j] for j in range(resources)])
+        # sat_solver.add_clause([u[i][j] for j in range(resources)])
         # print(f"Added clause: u{i}0 u{i}1")
         clause = []
         clause_str = []
         for j in range(resources):
             clause.append(u[i][j])
             clause_str.append(f"u{i+1}{j+1}")
-        cnf.append(clause)
+        sat_solver.add_clause(clause)
         # print(f"Added clause D2: {clause_str}")
 
      # D3: A resource can only be held by one task at a time
@@ -77,7 +79,7 @@ def encode_problem_es3(tasks, resources):
         for ip in range(i + 1, len(tasks)):
             for j in range(resources):
                 for t in range(tasks[i][2]):
-                    cnf.append([-z[i][t], -u[i][j], -z[ip][t], -u[ip][j]])
+                    sat_solver.add_clause([-z[i][t], -u[i][j], -z[ip][t], -u[ip][j]])
                     # print(f"Added clause D3: -z{i+1}{t} -u{i+1}{j+1} -z{ip+1}{t} -u{ip+1}{j+1}")
 
     
@@ -109,7 +111,7 @@ def encode_problem_es3(tasks, resources):
         for t in range(tasks[i][0], tasks[i][2]):
             clause.append(z[i][t])
             clause_str.append(f"z{i+1}{t}")
-        cnf.append(clause)
+        sat_solver.add_clause(clause)
         # print(f"Added clause C5: {clause_str}")
 
         # print(z_list)
@@ -117,7 +119,7 @@ def encode_problem_es3(tasks, resources):
         for combination in product(*z_list):
             clause = list(combination)
             # clause_str = [f"z{i+1}{j+1}" for i, j in enumerate(range(len(combination)))]
-            cnf.append(clause)
+            sat_solver.add_clause(clause)
             # print(f"Added clause C6: {clause}")
 
     # Link u and z variables
@@ -131,18 +133,18 @@ def encode_problem_es3(tasks, resources):
             for j in range(resources):
                 clause.append(u[i][j])
                 clause_str.append(f"u{i+1}{j+1}")
-            cnf.append(clause)
+            sat_solver.add_clause(clause)
             # print(f"Added clause C7: {clause_str}")
 
             for j in range(resources):
                 for jp in range(j + 1, resources):
                     clause = [-z[i][t], -u[i][j], -u[i][jp]]
                     clause_str = [f"-z{i+1}{t} -u{i+1}{j+1} -u{i+1}{jp+1}"]
-                    cnf.append(clause)
+                    sat_solver.add_clause(clause)
                     # print(f"Added clause C8: {clause_str}")
 
-    # cnf.append([z[0][0]])
-    # cnf.append([-z[1][0]])
+    # sat_solver.add_clause([z[0][0]])
+    # sat_solver.add_clause([-z[1][0]])
     # print(f"Added clause C8: z{2}{0}")
 
     # num_variables = cnf.nv
@@ -151,67 +153,66 @@ def encode_problem_es3(tasks, resources):
     # print(f"Num of variables: {num_variables}")
     # print(f"Num of clauses: {num_clauses}")
     
-    return cnf, max_time, u, z
+    return max_time, u, z
 
 def interrupt(solver):
     solver.interrupt()
 
-def solve_es3(tasks, resources, time_budget=60):
-    cnf, max_time, u, z = encode_problem_es3(tasks, resources)
-
-
-    with Solver(name="glucose4") as solver:
-        solver.append_formula(cnf.clauses)
-        
-        time_budget = 60  # Set your desired time budget in seconds
-        timer = Timer(time_budget, interrupt, [solver])
-        timer.start()
-
-        start_time = time.time()
-
-        try:
-            result = solver.solve_limited(expect_interrupt = True)
-        except Exception as e:
-            print(f"Solver was interrupted: {e}")
-            result = None
-        finally:
-            timer.cancel()
+def solve_es3(tasks, resources):
+    global sat_solver
+    # with Solver(name="glucose4") as solver:
+    sat_solver = Glucose3(use_timer=True)
     
-        solve_time = float(format(solver.time(), ".6f"))
-        num_variables = solver.nof_vars()
-        num_clauses = solver.nof_clauses()
-        
-        # print(f"Time: {solve_time} s")
-        
-        # end_time = time.time()
-        # solve_time = end_time - start_time
-        # print(f"Time: {solve_time:.6f} s")
+    max_time, u, z = encode_problem_es3(tasks, resources)
 
-        res = ""
+    # start_time = time.time()
+    num_variables = sat_solver.nof_vars()
+    num_clauses = sat_solver.nof_clauses()
 
-        if result is True:
-            model = solver.get_model()
-            if model is None:
-                print("Time out")
-                res = "Time out"
-            else:
-                print("SAT")
-                res = "SAT"
-                for i in range(len(tasks)):
-                    for j in range(resources):
-                        if model[u[i][j] - 1] > 0:
-                            print(f"Task {i} is assigned to resource {j}")
-                    for t in range(max_time):
-                        # print(f"model[z[i][t] - 1]: {model[z[i][t] - 1]}, z[i][t]: {i+1}{t}")
-                        if model[z[i][t] - 1] > 0:
-                            print(f"Task {i} is accessing a resource at time {t}")
+    print(f"Num of variables: {num_variables}")
+    print(f"Num of clauses: {num_clauses}")
+
+    timer = Timer(time_budget, interrupt, [sat_solver])
+    timer.start()
+    result = sat_solver.solve_limited(expect_interrupt = True)
+
+    solve_time = float(format(sat_solver.time(), ".6f"))
+
+    
+    # print(f"Time: {solve_time} s")
+    
+    # end_time = time.time()
+    # solve_time = end_time - start_time
+    # print(f"Time: {solve_time:.6f} s")
+
+    res = ""
+
+    if result is True:
+        model = sat_solver.get_model()
+        if model is None:
+            print("Time out")
+            res = "Time out"
         else:
-            print("UNSAT")
-            res = "UNSAT"
+            print("SAT")
+            res = "SAT"
+            for i in range(len(tasks)):
+                for j in range(resources):
+                    if model[u[i][j] - 1] > 0:
+                        print(f"Task {i} is assigned to resource {j}")
+                for t in range(max_time):
+                    # print(f"model[z[i][t] - 1]: {model[z[i][t] - 1]}, z[i][t]: {i+1}{t}")
+                    if model[z[i][t] - 1] > 0:
+                        print(f"Task {i} is accessing a resource at time {t}")
+    else:
+        print("UNSAT")
+        res = "UNSAT"
 
-        return res, solve_time, num_variables, num_clauses
+    timer.cancel()
+    sat_solver.delete()
+
+    return res, solve_time, num_variables, num_clauses
     
-def process_input_files(input_folder, resources=2, time_budget=60):
+def process_input_files(input_folder, resources=2):
     results = {}
     for filename in os.listdir(input_folder):
         if filename.startswith("small_") and filename.endswith(".txt"):
@@ -222,7 +223,7 @@ def process_input_files(input_folder, resources=2, time_budget=60):
                 print(f"tasks: {tasks}")
 
             print(f"Processing {filename}...")
-            res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources, time_budget)
+            res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
             results[filename] = {
                 "result": res,
                 "time": float(solve_time),
