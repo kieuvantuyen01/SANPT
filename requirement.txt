@@ -1,0 +1,4 @@
+pandas
+datetime
+openpyxl
+python-sat
