@@ -1,6 +1,11 @@
+import pandas as pd
+from datetime import datetime
+from openpyxl import load_workbook, Workbook
+from openpyxl.utils.dataframe import dataframe_to_rows
+from zipfile import BadZipFile
+
 # from pysat.formula import CNF
 from pysat.solvers import Glucose3, Solver
-from itertools import product
 # import time
 from threading import Timer
 import os
@@ -8,6 +13,51 @@ import ast
 
 sat_solver = Glucose3
 time_budget = 600  # Set your desired time budget in seconds
+type = "es3_imp"
+id_counter = 1
+
+# Open the log file in append mode
+log_file = open('console.log', 'a')
+
+def write_to_xlsx(result_dict):
+    # Append the result to a list
+    excel_results = []
+    excel_results.append(result_dict)
+
+    output_path =  'out/'
+
+    # Write the results to an Excel file
+    if not os.path.exists(output_path): os.makedirs(output_path)
+
+    df = pd.DataFrame(excel_results)
+    current_date = datetime.now().strftime('%Y-%m-%d')
+    excel_file_path = f"{output_path}/results_{current_date}.xlsx"
+
+    # Check if the file already exists
+    if os.path.exists(excel_file_path):
+        try:
+            book = load_workbook(excel_file_path)
+        except BadZipFile:
+            book = Workbook()  # Create a new workbook if the file is not a valid Excel file
+
+        # Check if the 'Results' sheet exists
+        if 'Results' not in book.sheetnames:
+            book.create_sheet('Results')  # Create 'Results' sheet if it doesn't exist
+
+        sheet = book['Results']
+        for row in dataframe_to_rows(df, index=False, header=False): sheet.append(row)
+        book.save(excel_file_path)
+
+    else: df.to_excel(excel_file_path, index=False, sheet_name='Results', header=False)
+
+    print_to_console_and_log(f"Result added to Excel file: {os.path.abspath(excel_file_path)}\n")
+
+
+# Define a custom print function that writes to both console and log file
+def print_to_console_and_log(*args, **kwargs):
+    print(*args, **kwargs)
+    print(*args, file = log_file, **kwargs)
+    log_file.flush()
 
 def check_overlap(task1, task2):
     # Suppose: task1 = (r1, e1, d1), task2 = (r2, e2, d2)
@@ -17,9 +67,9 @@ def check_overlap(task1, task2):
     # 1. d2_min >= r1_max and r2_max <= d1_min
     # 2. d1_min >= r2_max and r1_max <= d2_min
     # => r2 + e2 >= d1 - e1 and d2 - e2 <= r1 + e1 or r1 + e1 >= d2 - e2 and d1 - e1 <= r2 + e2
-    if task2[0] + task2[1] >= task1[2] - task1[1] and task2[2] - task2[1] <= task1[0] + task1[1]:
+    if task2[0] + task2[1] > task1[2] - task1[1] and task2[2] - task2[1] < task1[0] + task1[1]:
         return True
-    if task1[0] + task1[1] >= task2[2] - task2[1] and task1[2] - task1[1] <= task2[0] + task2[1]:
+    if task1[0] + task1[1] > task2[2] - task2[1] and task1[2] - task1[1] < task2[0] + task2[1]:
         return True
     return False
 
@@ -36,7 +86,7 @@ def encode_problem_es3(tasks, resources):
     D = [[[len(tasks) * (resources + max_time) + i * resources * max_time + j * max_time + t + 1 
           for t in range(max_time)] for j in range(resources)] for i in range(len(tasks))]
 
-   # Overlapping: check each pair of tasks to see if they are overlap time, u_i1j -> -u_i2j
+    # Overlapping: check each pair of tasks to see if they are overlap time, u_i1j -> -u_i2j
     for i in range(len(tasks)):
         for ip in range(i + 1, len(tasks)):
             if check_overlap(tasks[i], tasks[ip]):
@@ -56,11 +106,12 @@ def encode_problem_es3(tasks, resources):
             sat_solver.add_clause([u[i][j]])
         # print(f"Added clause S1: u{i+1}{j+1}")
     
-    # # Symmetry breaking 2: if each task i has t in range(r_max, d_min), then z[i][t] = True
-    # for i in range(len(tasks)):
-    #     for t in range(tasks[i][2] - tasks[i][1], tasks[i][2]):
-    #         sat_solver.add_clause([z[i][t]])
-    #         # print(f"Added clause S2: z{i+1}{t}")
+    # Symmetry breaking 2: if each task i has t in range(r_max, d_min), then z[i][t] = True
+    # for j in range(resources):
+    for i in range(len(tasks)):
+        for t in range(tasks[i][2] - tasks[i][1], tasks[i][0] + tasks[i][1]):
+            sat_solver.add_clause([z[i][t]])
+            # print(f"Added clause S2: -u{i+1}{j+1}, z{i+1}{t}")
 
     # D1: Task i should not access two resources at the same time
     for i in range(len(tasks)):
@@ -108,7 +159,7 @@ def encode_problem_es3(tasks, resources):
             for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1):
                 # Reverse implication
                 clause = [D[i][j][t]]
-                # clause.extend([-u[i][j]])
+                clause.extend([-u[i][j]])
                 clause_str = []
                 clause_str.append(f"D{i+1}{j+1}{t}")
                 # clause_str.append(f"-u{i+1}{j+1}")
@@ -120,8 +171,8 @@ def encode_problem_es3(tasks, resources):
                         clause.append(-z[i][tp])
                         clause_str.append(f"-z{i+1}{tp}")
                         # print(f"Added clause D5: -D{i+1}{j+1}{t} z{i+1}{tp}")
-                # sat_solver.add_clause([-D[i][j][t], u[i][j]])
-                # clause.append(-u[i][j])
+                sat_solver.add_clause([-D[i][j][t], u[i][j]])
+                clause.append(-u[i][j])
                 # clause_str.append(f"-u{i+1}{j+1}")
                 # print(f"Added clause D5: -D{i+1}{j+1}{t} u{i+1}{j+1}")
 
@@ -150,6 +201,7 @@ def interrupt(solver):
 
 def solve_es3(tasks, resources):
     global sat_solver
+
     # with Solver(name="glucose4") as solver:
     sat_solver = Glucose3(use_timer=True)
     
@@ -159,8 +211,8 @@ def solve_es3(tasks, resources):
     num_variables = sat_solver.nof_vars()
     num_clauses = sat_solver.nof_clauses()
 
-    print(f"Num of variables: {num_variables}")
-    print(f"Num of clauses: {num_clauses}")
+    print_to_console_and_log(f"Num of variables: {num_variables}")
+    print_to_console_and_log(f"Num of clauses: {num_clauses}")
 
     timer = Timer(time_budget, interrupt, [sat_solver])
     timer.start()
@@ -180,14 +232,14 @@ def solve_es3(tasks, resources):
             for i in range(len(tasks)):
                 for j in range(resources):
                     if model[u[i][j] - 1] > 0:
-                        print(f"Task {i} is assigned to resource {j}")
+                        print_to_console_and_log(f"Task {i} is assigned to resource {j}")
                 for t in range(tasks[i][0], tasks[i][2]):
                     if model[z[i][t] - 1] > 0:
-                        print(f"Task {i} is accessing a resource at time {t}")
+                        print_to_console_and_log(f"Task {i} is accessing a resource at time {t}")
                 for j in range(resources):
                     for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1):
                         if model[D[i][j][t] - 1] > 0:
-                            print(f"Task {i} starts non-preemptive access of resource {j} at time {t}")
+                            print_to_console_and_log(f"Task {i} starts non-preemptive access of resource {j} at time {t}")
     else:
         print("UNSAT")
         res = "UNSAT"
@@ -198,9 +250,11 @@ def solve_es3(tasks, resources):
     return res, solve_time, num_variables, num_clauses
     
 def process_input_files(input_folder, resources=2):
-    results = {}
+    global id_counter, type
+
+    # results = {}
     for filename in os.listdir(input_folder):
-        if filename.startswith("large_") and filename.endswith(".txt"):
+        if filename.endswith(".txt"):
             file_path = os.path.join(input_folder, filename)
             with open(file_path, 'r') as f:
                 num_tasks = int(f.readline().strip())
@@ -209,26 +263,41 @@ def process_input_files(input_folder, resources=2):
 
             print(f"Processing {filename}...")
             res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
-            results[filename] = {
-                "result": res,
-                "time": float(solve_time),
-                "num_variables": num_variables,
-                "num_clauses": num_clauses
+            # results[filename] = {
+            #     "result": res,
+            #     "time": float(solve_time),
+            #     "num_variables": num_variables,
+            #     "num_clauses": num_clauses
+            # }
+            result_dict = {
+                "ID": id_counter,
+                "Problem": os.path.basename(filename),
+                "Type": type,
+                "Time": solve_time,
+                "Result": res,
+                "Variables": num_variables,
+                "Clauses": num_clauses
             }
+            write_to_xlsx(result_dict)
+            id_counter += 1
 
-    return results
+    # return results
 
 # Main execution
-input_folder = "input/large"
-results = process_input_files(input_folder)
+input_folder = "input/small"
+process_input_files(input_folder)
 
-# Print summary of results
-print("\nSummary of results:")
-# Print average time of satisfiable results, average number of variables, average number of clauses
-satisfiable_results = [result for result in results.values() if result["result"] == "SAT"]
-sum_of_time = sum(result["time"] for result in satisfiable_results)
-sum_of_variables = sum(result["num_variables"] for result in satisfiable_results)
-sum_of_clauses = sum(result["num_clauses"] for result in satisfiable_results)
-print(f"Average time of satisfiable results: {sum_of_time:.6f} s")
-print(f"Average number of variables: {sum_of_variables}")
-print(f"Average number of clauses: {sum_of_clauses}")
+log_file.close()
+
+# export results to excel
+
+# # Print summary of results
+# print("\nSummary of results:")
+# # Print sum time of satisfiable results, sum number of variables, sum number of clauses of all problems
+# satisfiable_results = [result for result in results.values() if result["result"] == "SAT"]
+# sum_of_time = sum(result["time"] for result in satisfiable_results)
+# sum_of_variables = sum(result["num_variables"] for result in results.values())
+# sum_of_clauses = sum(result["num_clauses"] for result in results.values())
+# print(f"Average time of satisfiable results: {sum_of_time:.6f} s")
+# print(f"Average number of variables: {sum_of_variables}")
+# print(f"Average number of clauses: {sum_of_clauses}")

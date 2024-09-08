@@ -1,0 +1,3802 @@
+Num of variables: 21
+Num of clauses: 4
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 0
+Task 0 is accessing a resource at time 1
+Task 0 starts non-preemptive access of resource 0 at time 0
+Task 1 is assigned to resource 1
+Task 1 is accessing a resource at time 1
+Task 1 is accessing a resource at time 2
+Task 1 starts non-preemptive access of resource 1 at time 1
+Num of variables: 21
+Num of clauses: 4
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 0
+Task 0 is accessing a resource at time 1
+Task 0 starts non-preemptive access of resource 0 at time 0
+Task 1 is assigned to resource 1
+Task 1 is accessing a resource at time 1
+Task 1 is accessing a resource at time 2
+Task 1 starts non-preemptive access of resource 1 at time 1
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1782
+Num of clauses: 10419
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 1
+Task 2 is assigned to resource 2
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 3
+Task 5 is assigned to resource 1
+Task 5 is accessing a resource at time 3
+Task 5 is accessing a resource at time 10
+Task 5 is accessing a resource at time 11
+Task 5 is accessing a resource at time 12
+Task 5 is accessing a resource at time 13
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 5
+Task 6 is accessing a resource at time 6
+Task 7 is assigned to resource 0
+Task 7 is accessing a resource at time 0
+Task 7 is accessing a resource at time 1
+Task 7 is accessing a resource at time 2
+Task 7 is accessing a resource at time 3
+Task 7 starts non-preemptive access of resource 0 at time 0
+Task 8 is assigned to resource 4
+Task 8 is accessing a resource at time 2
+Task 8 is accessing a resource at time 9
+Task 8 is accessing a resource at time 10
+Task 8 is accessing a resource at time 11
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 870
+Num of clauses: 5894
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 1
+Task 0 is accessing a resource at time 2
+Task 0 is accessing a resource at time 3
+Task 0 is accessing a resource at time 4
+Task 0 is accessing a resource at time 5
+Task 0 starts non-preemptive access of resource 0 at time 1
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 0
+Task 1 starts non-preemptive access of resource 0 at time 0
+Task 2 is assigned to resource 2
+Task 2 is accessing a resource at time 2
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 1
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 is accessing a resource at time 2
+Task 4 starts non-preemptive access of resource 1 at time 0
+Task 5 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 616
+Num of clauses: 3662
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 0
+Task 0 is accessing a resource at time 1
+Task 0 is accessing a resource at time 2
+Task 0 starts non-preemptive access of resource 0 at time 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 6
+Task 1 is accessing a resource at time 7
+Task 1 is accessing a resource at time 8
+Task 1 is accessing a resource at time 9
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 0
+Task 2 is accessing a resource at time 1
+Task 2 is accessing a resource at time 2
+Task 2 is accessing a resource at time 3
+Task 2 starts non-preemptive access of resource 1 at time 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 2
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2072
+Num of clauses: 18798
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 1
+Task 1 is accessing a resource at time 2
+Task 1 starts non-preemptive access of resource 0 at time 1
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 0
+Task 5 starts non-preemptive access of resource 0 at time 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 1
+Task 8 is assigned to resource 2
+Task 9 is assigned to resource 3
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1878
+Num of clauses: 17821
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 8
+Task 2 is accessing a resource at time 9
+Task 2 is accessing a resource at time 10
+Task 2 is accessing a resource at time 11
+Task 2 starts non-preemptive access of resource 1 at time 8
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 9
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 1
+Task 6 is accessing a resource at time 5
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1499
+Num of clauses: 10967
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 0
+Task 1 is accessing a resource at time 1
+Task 1 is accessing a resource at time 2
+Task 1 is accessing a resource at time 3
+Task 1 starts non-preemptive access of resource 0 at time 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 3 is accessing a resource at time 0
+Task 3 starts non-preemptive access of resource 1 at time 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 2
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 is accessing a resource at time 3
+Task 6 is accessing a resource at time 4
+Task 6 starts non-preemptive access of resource 2 at time 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 826
+Num of clauses: 4317
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 8
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 0
+Task 2 starts non-preemptive access of resource 0 at time 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 13
+Task 3 is accessing a resource at time 14
+Task 3 is accessing a resource at time 15
+Task 3 is accessing a resource at time 16
+Task 4 is assigned to resource 1
+Task 5 is assigned to resource 2
+Task 5 is accessing a resource at time 0
+Task 5 is accessing a resource at time 1
+Task 5 is accessing a resource at time 2
+Task 5 is accessing a resource at time 3
+Task 5 starts non-preemptive access of resource 2 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1211
+Num of clauses: 3219
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 8
+Task 1 is assigned to resource 1
+Task 1 is accessing a resource at time 0
+Task 1 is accessing a resource at time 1
+Task 1 starts non-preemptive access of resource 1 at time 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 2
+Task 4 is assigned to resource 3
+Task 5 is assigned to resource 4
+Task 6 is assigned to resource 5
+Task 7 is assigned to resource 6
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1424
+Num of clauses: 6660
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 2
+Task 5 is accessing a resource at time 0
+Task 5 is accessing a resource at time 1
+Task 5 is accessing a resource at time 2
+Task 5 is accessing a resource at time 3
+Task 5 starts non-preemptive access of resource 2 at time 0
+Task 6 is assigned to resource 3
+Task 7 is assigned to resource 4
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1167
+Num of clauses: 7051
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 1
+Task 1 is accessing a resource at time 6
+Task 1 is accessing a resource at time 7
+Task 1 is accessing a resource at time 8
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 2
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 0
+Task 5 starts non-preemptive access of resource 0 at time 0
+Task 6 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 561
+Num of clauses: 4622
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 592
+Num of clauses: 4377
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1881
+Num of clauses: 3322
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1495
+Num of clauses: 10571
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 4
+Task 4 is accessing a resource at time 5
+Task 4 is accessing a resource at time 16
+Task 4 is accessing a resource at time 17
+Task 4 is accessing a resource at time 18
+Task 4 is accessing a resource at time 19
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 6
+Task 5 is accessing a resource at time 7
+Task 5 is accessing a resource at time 8
+Task 5 is accessing a resource at time 9
+Task 5 is accessing a resource at time 10
+Task 5 starts non-preemptive access of resource 0 at time 6
+Task 6 is assigned to resource 1
+Task 6 is accessing a resource at time 6
+Task 6 is accessing a resource at time 7
+Task 6 is accessing a resource at time 8
+Task 6 is accessing a resource at time 9
+Task 6 is accessing a resource at time 10
+Task 7 is assigned to resource 2
+Task 7 is accessing a resource at time 0
+Task 7 is accessing a resource at time 1
+Task 7 starts non-preemptive access of resource 2 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2073
+Num of clauses: 8878
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 8
+Task 1 is assigned to resource 1
+Task 2 is assigned to resource 2
+Task 3 is assigned to resource 3
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 is accessing a resource at time 4
+Task 3 starts non-preemptive access of resource 3 at time 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 4
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 is accessing a resource at time 3
+Task 6 starts non-preemptive access of resource 4 at time 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 5
+Task 9 is assigned to resource 6
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1493
+Num of clauses: 11793
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 12
+Task 0 is accessing a resource at time 13
+Task 0 is accessing a resource at time 14
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 1
+Task 1 is accessing a resource at time 2
+Task 1 is accessing a resource at time 3
+Task 1 starts non-preemptive access of resource 0 at time 1
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 starts non-preemptive access of resource 0 at time 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 2
+Task 7 is assigned to resource 3
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1111
+Num of clauses: 6288
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 2
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 0
+Task 5 is accessing a resource at time 1
+Task 5 is accessing a resource at time 2
+Task 5 starts non-preemptive access of resource 0 at time 0
+Task 6 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1787
+Num of clauses: 13806
+Task 0 is assigned to resource 1
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 5
+Task 1 starts non-preemptive access of resource 0 at time 5
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 13
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 is accessing a resource at time 2
+Task 4 is accessing a resource at time 3
+Task 4 is accessing a resource at time 4
+Task 4 starts non-preemptive access of resource 0 at time 0
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 6
+Task 6 is assigned to resource 1
+Task 6 is accessing a resource at time 10
+Task 7 is assigned to resource 2
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 618
+Num of clauses: 4116
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 12
+Task 0 is accessing a resource at time 13
+Task 0 is accessing a resource at time 14
+Task 0 is accessing a resource at time 15
+Task 0 is accessing a resource at time 16
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 0
+Task 1 is accessing a resource at time 1
+Task 1 is accessing a resource at time 2
+Task 1 is accessing a resource at time 3
+Task 1 is accessing a resource at time 4
+Task 1 starts non-preemptive access of resource 0 at time 0
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 6
+Task 2 is accessing a resource at time 7
+Task 2 is accessing a resource at time 8
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1499
+Num of clauses: 13837
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 1
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 13
+Task 6 is accessing a resource at time 14
+Task 6 is accessing a resource at time 15
+Task 6 is accessing a resource at time 16
+Task 6 is accessing a resource at time 17
+Task 7 is assigned to resource 0
+Task 7 is accessing a resource at time 0
+Task 7 is accessing a resource at time 1
+Task 7 is accessing a resource at time 2
+Task 7 is accessing a resource at time 3
+Task 7 is accessing a resource at time 4
+Task 7 starts non-preemptive access of resource 0 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1105
+Num of clauses: 6246
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 11
+Task 1 is accessing a resource at time 12
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 0
+Task 2 is accessing a resource at time 1
+Task 2 is accessing a resource at time 2
+Task 2 is accessing a resource at time 3
+Task 2 is accessing a resource at time 4
+Task 2 starts non-preemptive access of resource 1 at time 0
+Task 3 is assigned to resource 2
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 3
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 865
+Num of clauses: 6675
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 871
+Num of clauses: 5683
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 15
+Task 4 is accessing a resource at time 16
+Task 4 is accessing a resource at time 17
+Task 4 is accessing a resource at time 18
+Task 4 is accessing a resource at time 19
+Task 5 is assigned to resource 2
+Task 5 is accessing a resource at time 0
+Task 5 is accessing a resource at time 1
+Task 5 is accessing a resource at time 2
+Task 5 is accessing a resource at time 3
+Task 5 is accessing a resource at time 4
+Task 5 starts non-preemptive access of resource 2 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1105
+Num of clauses: 8578
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 5
+Task 0 is accessing a resource at time 6
+Task 0 is accessing a resource at time 7
+Task 0 starts non-preemptive access of resource 0 at time 5
+Task 1 is assigned to resource 1
+Task 1 is accessing a resource at time 5
+Task 1 is accessing a resource at time 6
+Task 1 is accessing a resource at time 7
+Task 1 is accessing a resource at time 8
+Task 1 is accessing a resource at time 9
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 0
+Task 2 is accessing a resource at time 1
+Task 2 is accessing a resource at time 2
+Task 2 is accessing a resource at time 3
+Task 2 is accessing a resource at time 4
+Task 2 starts non-preemptive access of resource 1 at time 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 is accessing a resource at time 4
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 2
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1425
+Num of clauses: 11328
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 6
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 14
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 503
+Num of clauses: 2565
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 7
+Task 1 is accessing a resource at time 8
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 2
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1497
+Num of clauses: 11009
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1423
+Num of clauses: 7742
+Task 0 is assigned to resource 3
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 5
+Task 4 is accessing a resource at time 3
+Task 4 is accessing a resource at time 4
+Task 4 is accessing a resource at time 5
+Task 5 is assigned to resource 1
+Task 6 is assigned to resource 2
+Task 6 is accessing a resource at time 7
+Task 6 is accessing a resource at time 8
+Task 6 is accessing a resource at time 9
+Task 7 is assigned to resource 3
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1422
+Num of clauses: 5937
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 0
+Task 0 is accessing a resource at time 1
+Task 0 is accessing a resource at time 2
+Task 0 is accessing a resource at time 3
+Task 0 starts non-preemptive access of resource 0 at time 0
+Task 1 is assigned to resource 1
+Task 2 is assigned to resource 2
+Task 3 is assigned to resource 3
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 4
+Task 6 is accessing a resource at time 0
+Task 6 starts non-preemptive access of resource 4 at time 0
+Task 7 is assigned to resource 5
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 583
+Num of clauses: 1437
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 0
+Task 0 is accessing a resource at time 1
+Task 0 is accessing a resource at time 2
+Task 0 starts non-preemptive access of resource 0 at time 0
+Task 1 is assigned to resource 1
+Task 1 is accessing a resource at time 8
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 12
+Task 3 is assigned to resource 2
+Task 3 is accessing a resource at time 0
+Task 3 starts non-preemptive access of resource 2 at time 0
+Task 4 is assigned to resource 3
+Task 4 is accessing a resource at time 6
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1504
+Num of clauses: 4776
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1105
+Num of clauses: 4725
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 2
+Task 5 is assigned to resource 3
+Task 6 is assigned to resource 4
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2290
+Num of clauses: 13449
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 11
+Task 1 is accessing a resource at time 12
+Task 1 is accessing a resource at time 13
+Task 1 starts non-preemptive access of resource 0 at time 11
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 0
+Task 2 is accessing a resource at time 1
+Task 2 is accessing a resource at time 2
+Task 2 is accessing a resource at time 3
+Task 2 starts non-preemptive access of resource 1 at time 0
+Task 3 is assigned to resource 2
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 4
+Task 4 is accessing a resource at time 5
+Task 4 is accessing a resource at time 6
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 3
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 starts non-preemptive access of resource 3 at time 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 4
+Task 9 is accessing a resource at time 9
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1878
+Num of clauses: 28565
+Task 0 is assigned to resource 5
+Task 0 is accessing a resource at time 11
+Task 0 starts non-preemptive access of resource 5 at time 11
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 8
+Task 2 is accessing a resource at time 3
+Task 2 is accessing a resource at time 4
+Task 2 is accessing a resource at time 5
+Task 2 is accessing a resource at time 6
+Task 2 is accessing a resource at time 7
+Task 2 starts non-preemptive access of resource 8 at time 3
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 12
+Task 3 is accessing a resource at time 13
+Task 3 is accessing a resource at time 14
+Task 3 is accessing a resource at time 15
+Task 3 starts non-preemptive access of resource 0 at time 12
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 8
+Task 4 is accessing a resource at time 9
+Task 4 is accessing a resource at time 10
+Task 4 is accessing a resource at time 11
+Task 4 starts non-preemptive access of resource 0 at time 8
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 5
+Task 5 is accessing a resource at time 6
+Task 5 is accessing a resource at time 7
+Task 5 starts non-preemptive access of resource 0 at time 5
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 7 is accessing a resource at time 0
+Task 7 is accessing a resource at time 1
+Task 7 is accessing a resource at time 2
+Task 7 is accessing a resource at time 3
+Task 7 is accessing a resource at time 4
+Task 7 starts non-preemptive access of resource 0 at time 0
+Task 8 is assigned to resource 1
+Task 8 is accessing a resource at time 4
+Task 8 is accessing a resource at time 5
+Task 8 is accessing a resource at time 6
+Task 8 is accessing a resource at time 7
+Task 8 is accessing a resource at time 8
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1156
+Num of clauses: 10057
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 5
+Task 1 is accessing a resource at time 6
+Task 1 is accessing a resource at time 7
+Task 1 is accessing a resource at time 8
+Task 1 is accessing a resource at time 9
+Task 1 starts non-preemptive access of resource 0 at time 5
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 0
+Task 2 starts non-preemptive access of resource 0 at time 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 12
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 1
+Task 6 is accessing a resource at time 6
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 527
+Num of clauses: 2255
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 7
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 2
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 588
+Num of clauses: 4867
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2185
+Num of clauses: 18947
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 1
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 5
+Task 2 is accessing a resource at time 6
+Task 2 is accessing a resource at time 7
+Task 2 starts non-preemptive access of resource 0 at time 5
+Task 3 is assigned to resource 2
+Task 3 is accessing a resource at time 9
+Task 3 is accessing a resource at time 10
+Task 3 is accessing a resource at time 11
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 2
+Task 4 is accessing a resource at time 3
+Task 4 is accessing a resource at time 4
+Task 4 starts non-preemptive access of resource 0 at time 2
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 2
+Task 7 is assigned to resource 3
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Task 9 is accessing a resource at time 0
+Task 9 is accessing a resource at time 1
+Task 9 starts non-preemptive access of resource 0 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1784
+Num of clauses: 14182
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 starts non-preemptive access of resource 0 at time 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 2
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1351
+Num of clauses: 8992
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 2
+Task 2 is accessing a resource at time 3
+Task 3 is assigned to resource 1
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 starts non-preemptive access of resource 1 at time 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 2
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 3
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2077
+Num of clauses: 12101
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 1
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 2
+Task 4 is assigned to resource 3
+Task 4 is accessing a resource at time 7
+Task 4 is accessing a resource at time 8
+Task 4 is accessing a resource at time 9
+Task 4 is accessing a resource at time 10
+Task 5 is assigned to resource 4
+Task 5 is accessing a resource at time 5
+Task 5 is accessing a resource at time 6
+Task 5 is accessing a resource at time 7
+Task 5 is accessing a resource at time 8
+Task 6 is assigned to resource 5
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1499
+Num of clauses: 10680
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 2
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 starts non-preemptive access of resource 2 at time 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 10
+Task 4 is accessing a resource at time 11
+Task 4 is accessing a resource at time 12
+Task 4 is accessing a resource at time 13
+Task 5 is assigned to resource 3
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 is accessing a resource at time 3
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1358
+Num of clauses: 9795
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 1
+Task 1 is accessing a resource at time 3
+Task 1 is accessing a resource at time 4
+Task 1 is accessing a resource at time 5
+Task 1 is accessing a resource at time 6
+Task 1 is accessing a resource at time 7
+Task 1 starts non-preemptive access of resource 1 at time 3
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 7
+Task 3 is accessing a resource at time 14
+Task 3 is accessing a resource at time 15
+Task 3 is accessing a resource at time 16
+Task 3 is accessing a resource at time 17
+Task 3 starts non-preemptive access of resource 7 at time 14
+Task 4 is assigned to resource 3
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 2
+Task 6 is accessing a resource at time 2
+Task 6 is accessing a resource at time 3
+Task 6 is accessing a resource at time 4
+Task 6 is accessing a resource at time 5
+Task 6 is accessing a resource at time 6
+Task 6 starts non-preemptive access of resource 2 at time 2
+Task 7 is assigned to resource 7
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1877
+Num of clauses: 10415
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 2
+Task 6 is assigned to resource 3
+Task 7 is assigned to resource 4
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 862
+Num of clauses: 5520
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 4
+Task 0 starts non-preemptive access of resource 0 at time 4
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 1
+Task 4 is accessing a resource at time 5
+Task 4 is accessing a resource at time 6
+Task 4 is accessing a resource at time 7
+Task 4 is accessing a resource at time 8
+Task 4 is accessing a resource at time 9
+Task 4 starts non-preemptive access of resource 1 at time 5
+Task 5 is assigned to resource 2
+Task 5 is accessing a resource at time 5
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 867
+Num of clauses: 4147
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 1
+Task 2 is assigned to resource 5
+Task 2 is accessing a resource at time 3
+Task 2 is accessing a resource at time 5
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 2
+Task 5 is assigned to resource 3
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 557
+Num of clauses: 2155
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 7
+Task 4 is assigned to resource 2
+Task 4 is accessing a resource at time 0
+Task 4 starts non-preemptive access of resource 2 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1782
+Num of clauses: 11838
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 5
+Task 0 is accessing a resource at time 6
+Task 0 starts non-preemptive access of resource 0 at time 5
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 13
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 8
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 is accessing a resource at time 4
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 2
+Task 5 is accessing a resource at time 2
+Task 5 is accessing a resource at time 3
+Task 5 is accessing a resource at time 4
+Task 5 is accessing a resource at time 5
+Task 5 is accessing a resource at time 6
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 3
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 750
+Num of clauses: 5751
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 starts non-preemptive access of resource 1 at time 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1877
+Num of clauses: 18786
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 6
+Task 0 is accessing a resource at time 7
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 8
+Task 1 is accessing a resource at time 9
+Task 1 is accessing a resource at time 10
+Task 1 is accessing a resource at time 11
+Task 1 is accessing a resource at time 12
+Task 1 starts non-preemptive access of resource 0 at time 8
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 2
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 4
+Task 4 is accessing a resource at time 5
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 1
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 823
+Num of clauses: 4975
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 1
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 13
+Task 2 is accessing a resource at time 14
+Task 2 is accessing a resource at time 15
+Task 2 is accessing a resource at time 16
+Task 2 starts non-preemptive access of resource 0 at time 13
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 2
+Task 5 is accessing a resource at time 0
+Task 5 is accessing a resource at time 1
+Task 5 is accessing a resource at time 2
+Task 5 starts non-preemptive access of resource 2 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2072
+Num of clauses: 15848
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 10
+Task 2 is accessing a resource at time 11
+Task 2 is accessing a resource at time 12
+Task 2 is accessing a resource at time 13
+Task 3 is assigned to resource 2
+Task 3 is accessing a resource at time 1
+Task 4 is assigned to resource 1
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 is accessing a resource at time 2
+Task 4 is accessing a resource at time 3
+Task 4 starts non-preemptive access of resource 1 at time 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 7 is accessing a resource at time 0
+Task 7 is accessing a resource at time 1
+Task 7 is accessing a resource at time 2
+Task 7 is accessing a resource at time 3
+Task 7 starts non-preemptive access of resource 0 at time 0
+Task 8 is assigned to resource 2
+Task 9 is assigned to resource 3
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1354
+Num of clauses: 10481
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 1
+Task 1 starts non-preemptive access of resource 0 at time 1
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 9
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 2
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2297
+Num of clauses: 15591
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 0
+Task 0 starts non-preemptive access of resource 0 at time 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 2
+Task 4 is assigned to resource 3
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 4
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1498
+Num of clauses: 14174
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 1
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1052
+Num of clauses: 5716
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 2
+Task 5 is assigned to resource 3
+Task 5 is accessing a resource at time 0
+Task 5 is accessing a resource at time 1
+Task 5 is accessing a resource at time 2
+Task 5 is accessing a resource at time 3
+Task 5 is accessing a resource at time 4
+Task 5 starts non-preemptive access of resource 3 at time 0
+Task 6 is assigned to resource 4
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 526
+Num of clauses: 2596
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 0
+Task 0 is accessing a resource at time 1
+Task 0 starts non-preemptive access of resource 0 at time 0
+Task 1 is assigned to resource 1
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 2
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1166
+Num of clauses: 7872
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 1
+Task 6 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2185
+Num of clauses: 22082
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 1
+Task 6 is accessing a resource at time 7
+Task 6 is accessing a resource at time 8
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 557
+Num of clauses: 2253
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 1
+Task 1 is accessing a resource at time 0
+Task 1 starts non-preemptive access of resource 1 at time 0
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 8
+Task 2 is accessing a resource at time 9
+Task 3 is assigned to resource 2
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 4 is assigned to resource 3
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 starts non-preemptive access of resource 3 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 590
+Num of clauses: 2187
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 0
+Task 2 is accessing a resource at time 1
+Task 2 starts non-preemptive access of resource 1 at time 0
+Task 3 is assigned to resource 2
+Task 4 is assigned to resource 3
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 594
+Num of clauses: 3383
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 1
+Task 2 is assigned to resource 2
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2296
+Num of clauses: 19631
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 1
+Task 7 is assigned to resource 9
+Task 7 is accessing a resource at time 5
+Task 7 is accessing a resource at time 11
+Task 8 is assigned to resource 2
+Task 9 is assigned to resource 0
+Task 9 is accessing a resource at time 0
+Task 9 starts non-preemptive access of resource 0 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1500
+Num of clauses: 10132
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 8
+Task 0 is accessing a resource at time 9
+Task 1 is assigned to resource 1
+Task 2 is assigned to resource 2
+Task 3 is assigned to resource 3
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 is accessing a resource at time 2
+Task 4 is accessing a resource at time 3
+Task 4 is accessing a resource at time 4
+Task 4 starts non-preemptive access of resource 0 at time 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1160
+Num of clauses: 5588
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 0
+Task 1 is accessing a resource at time 1
+Task 1 is accessing a resource at time 2
+Task 1 is accessing a resource at time 3
+Task 1 is accessing a resource at time 4
+Task 1 starts non-preemptive access of resource 0 at time 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 2
+Task 5 is assigned to resource 3
+Task 6 is assigned to resource 4
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1501
+Num of clauses: 11384
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 3
+Task 0 is accessing a resource at time 4
+Task 0 starts non-preemptive access of resource 0 at time 3
+Task 1 is assigned to resource 1
+Task 1 is accessing a resource at time 7
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 5
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 is accessing a resource at time 2
+Task 4 starts non-preemptive access of resource 0 at time 0
+Task 5 is assigned to resource 1
+Task 6 is assigned to resource 2
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1050
+Num of clauses: 4448
+Task 0 is assigned to resource 1
+Task 1 is assigned to resource 3
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 6
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 is accessing a resource at time 4
+Task 4 is assigned to resource 1
+Task 4 is accessing a resource at time 7
+Task 4 is accessing a resource at time 8
+Task 4 is accessing a resource at time 9
+Task 4 is accessing a resource at time 10
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 2
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 starts non-preemptive access of resource 2 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1877
+Num of clauses: 12452
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 19
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 starts non-preemptive access of resource 1 at time 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 4
+Task 4 is accessing a resource at time 5
+Task 4 is accessing a resource at time 6
+Task 5 is assigned to resource 2
+Task 5 is accessing a resource at time 0
+Task 5 is accessing a resource at time 1
+Task 5 is accessing a resource at time 2
+Task 5 is accessing a resource at time 3
+Task 5 starts non-preemptive access of resource 2 at time 0
+Task 6 is assigned to resource 3
+Task 6 is accessing a resource at time 5
+Task 6 is accessing a resource at time 6
+Task 7 is assigned to resource 4
+Task 7 is accessing a resource at time 0
+Task 7 is accessing a resource at time 1
+Task 7 is accessing a resource at time 2
+Task 7 is accessing a resource at time 3
+Task 7 starts non-preemptive access of resource 4 at time 0
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2178
+Num of clauses: 9968
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 2
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 3
+Task 5 is accessing a resource at time 7
+Task 5 is accessing a resource at time 8
+Task 5 is accessing a resource at time 9
+Task 6 is assigned to resource 4
+Task 6 is accessing a resource at time 6
+Task 6 is accessing a resource at time 7
+Task 6 is accessing a resource at time 8
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 5
+Task 9 is accessing a resource at time 6
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1106
+Num of clauses: 5867
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 3 is accessing a resource at time 5
+Task 3 is accessing a resource at time 6
+Task 3 is accessing a resource at time 7
+Task 3 is accessing a resource at time 8
+Task 3 is accessing a resource at time 9
+Task 3 starts non-preemptive access of resource 1 at time 5
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 611
+Num of clauses: 4372
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 7
+Task 0 is accessing a resource at time 8
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 9
+Task 2 is accessing a resource at time 10
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 is accessing a resource at time 4
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 1
+Task 4 is accessing a resource at time 5
+Task 4 is accessing a resource at time 6
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1877
+Num of clauses: 15508
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 0
+Task 0 is accessing a resource at time 1
+Task 0 is accessing a resource at time 2
+Task 0 starts non-preemptive access of resource 0 at time 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 2
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1430
+Num of clauses: 6291
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 6
+Task 1 is assigned to resource 1
+Task 1 is accessing a resource at time 9
+Task 1 is accessing a resource at time 10
+Task 1 is accessing a resource at time 11
+Task 1 is accessing a resource at time 12
+Task 2 is assigned to resource 2
+Task 2 is accessing a resource at time 0
+Task 2 is accessing a resource at time 1
+Task 2 is accessing a resource at time 2
+Task 2 is accessing a resource at time 3
+Task 2 starts non-preemptive access of resource 2 at time 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 9
+Task 3 is accessing a resource at time 15
+Task 4 is assigned to resource 3
+Task 4 is accessing a resource at time 8
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 0
+Task 5 is accessing a resource at time 1
+Task 5 is accessing a resource at time 2
+Task 5 starts non-preemptive access of resource 0 at time 0
+Task 6 is assigned to resource 4
+Task 6 is accessing a resource at time 6
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1873
+Num of clauses: 17285
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 0
+Task 1 is accessing a resource at time 1
+Task 1 is accessing a resource at time 2
+Task 1 starts non-preemptive access of resource 0 at time 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 9
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 1
+Task 6 is accessing a resource at time 5
+Task 6 starts non-preemptive access of resource 1 at time 5
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 745
+Num of clauses: 4767
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 7
+Task 1 is accessing a resource at time 8
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 10
+Task 2 is accessing a resource at time 11
+Task 2 is accessing a resource at time 12
+Task 2 is accessing a resource at time 13
+Task 2 is accessing a resource at time 14
+Task 2 starts non-preemptive access of resource 0 at time 10
+Task 3 is assigned to resource 1
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 starts non-preemptive access of resource 1 at time 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 starts non-preemptive access of resource 0 at time 0
+Task 5 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1157
+Num of clauses: 9410
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 0
+Task 0 is accessing a resource at time 1
+Task 0 is accessing a resource at time 2
+Task 0 is accessing a resource at time 3
+Task 0 starts non-preemptive access of resource 0 at time 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 1
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 starts non-preemptive access of resource 1 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 863
+Num of clauses: 6607
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 1
+Task 5 is accessing a resource at time 6
+Task 5 is accessing a resource at time 7
+Task 5 is accessing a resource at time 8
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1499
+Num of clauses: 10611
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 11
+Task 4 is assigned to resource 2
+Task 5 is assigned to resource 3
+Task 5 is accessing a resource at time 0
+Task 5 starts non-preemptive access of resource 3 at time 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 467
+Num of clauses: 2845
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 0
+Task 0 is accessing a resource at time 1
+Task 0 is accessing a resource at time 2
+Task 0 is accessing a resource at time 3
+Task 0 starts non-preemptive access of resource 0 at time 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 5
+Task 3 is accessing a resource at time 6
+Task 3 starts non-preemptive access of resource 0 at time 5
+Task 4 is assigned to resource 2
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 is accessing a resource at time 2
+Task 4 is accessing a resource at time 3
+Task 4 starts non-preemptive access of resource 2 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2296
+Num of clauses: 20149
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 14
+Task 0 is accessing a resource at time 15
+Task 0 is accessing a resource at time 16
+Task 0 is accessing a resource at time 17
+Task 0 is accessing a resource at time 18
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 4
+Task 1 is accessing a resource at time 5
+Task 1 is accessing a resource at time 6
+Task 1 is accessing a resource at time 7
+Task 1 is accessing a resource at time 8
+Task 1 starts non-preemptive access of resource 0 at time 4
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 1
+Task 4 is accessing a resource at time 7
+Task 4 is accessing a resource at time 8
+Task 4 is accessing a resource at time 9
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 is accessing a resource at time 3
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 2
+Task 7 is accessing a resource at time 6
+Task 7 is accessing a resource at time 7
+Task 7 is accessing a resource at time 8
+Task 7 is accessing a resource at time 9
+Task 8 is assigned to resource 2
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 592
+Num of clauses: 3520
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 874
+Num of clauses: 8356
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 5
+Task 0 is accessing a resource at time 6
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 0
+Task 1 starts non-preemptive access of resource 0 at time 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1503
+Num of clauses: 10939
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 2
+Task 5 is assigned to resource 3
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1160
+Num of clauses: 4548
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 1
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 2
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 3
+Task 6 is assigned to resource 4
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 747
+Num of clauses: 4452
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 7
+Task 0 is accessing a resource at time 8
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 0
+Task 1 is accessing a resource at time 1
+Task 1 starts non-preemptive access of resource 0 at time 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 588
+Num of clauses: 3019
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 2
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2297
+Num of clauses: 17722
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 1
+Task 6 is assigned to resource 2
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 3
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 611
+Num of clauses: 1449
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 5
+Task 0 is accessing a resource at time 6
+Task 0 is accessing a resource at time 7
+Task 0 is accessing a resource at time 8
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 5
+Task 3 is assigned to resource 1
+Task 3 is accessing a resource at time 7
+Task 3 is accessing a resource at time 8
+Task 3 is accessing a resource at time 9
+Task 4 is assigned to resource 2
+Task 4 is accessing a resource at time 3
+Task 4 is accessing a resource at time 4
+Task 4 is accessing a resource at time 5
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1050
+Num of clauses: 2533
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 0
+Task 2 is accessing a resource at time 1
+Task 2 is accessing a resource at time 2
+Task 2 is accessing a resource at time 3
+Task 2 starts non-preemptive access of resource 1 at time 0
+Task 3 is assigned to resource 2
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 starts non-preemptive access of resource 2 at time 0
+Task 4 is assigned to resource 3
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 is accessing a resource at time 2
+Task 4 is accessing a resource at time 3
+Task 4 is accessing a resource at time 4
+Task 4 starts non-preemptive access of resource 3 at time 0
+Task 5 is assigned to resource 4
+Task 6 is assigned to resource 5
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1501
+Num of clauses: 16780
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 8
+Task 1 is accessing a resource at time 9
+Task 1 is accessing a resource at time 10
+Task 1 is accessing a resource at time 11
+Task 1 starts non-preemptive access of resource 0 at time 8
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 14
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 5
+Task 3 is accessing a resource at time 6
+Task 3 is accessing a resource at time 7
+Task 3 starts non-preemptive access of resource 0 at time 5
+Task 4 is assigned to resource 1
+Task 4 is accessing a resource at time 0
+Task 4 starts non-preemptive access of resource 1 at time 0
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 14
+Task 5 is accessing a resource at time 15
+Task 5 is accessing a resource at time 16
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 525
+Num of clauses: 1576
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 15
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 3
+Task 1 is accessing a resource at time 8
+Task 1 is accessing a resource at time 9
+Task 1 is accessing a resource at time 10
+Task 1 is accessing a resource at time 11
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 0
+Task 2 is accessing a resource at time 1
+Task 2 is accessing a resource at time 2
+Task 2 is accessing a resource at time 3
+Task 2 is accessing a resource at time 4
+Task 2 starts non-preemptive access of resource 1 at time 0
+Task 3 is assigned to resource 2
+Task 4 is assigned to resource 3
+Task 4 is accessing a resource at time 6
+Task 4 is accessing a resource at time 7
+Task 4 is accessing a resource at time 8
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1492
+Num of clauses: 6821
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 7
+Task 1 is accessing a resource at time 8
+Task 1 is accessing a resource at time 9
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 0
+Task 2 is accessing a resource at time 1
+Task 2 is accessing a resource at time 2
+Task 2 starts non-preemptive access of resource 1 at time 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 2
+Task 5 is assigned to resource 3
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 4
+Task 7 is accessing a resource at time 7
+Task 7 is accessing a resource at time 8
+Task 7 is accessing a resource at time 9
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1430
+Num of clauses: 8106
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 8
+Task 3 is assigned to resource 2
+Task 4 is assigned to resource 3
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 starts non-preemptive access of resource 3 at time 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2294
+Num of clauses: 19082
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 5
+Task 7 is assigned to resource 0
+Task 7 is accessing a resource at time 0
+Task 7 is accessing a resource at time 1
+Task 7 is accessing a resource at time 2
+Task 7 is accessing a resource at time 3
+Task 7 starts non-preemptive access of resource 0 at time 0
+Task 8 is assigned to resource 1
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 475
+Num of clauses: 2400
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 2
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2297
+Num of clauses: 22499
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 is accessing a resource at time 3
+Task 6 is accessing a resource at time 4
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 1
+Task 8 is assigned to resource 2
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1784
+Num of clauses: 5571
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 2
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 3
+Task 6 is assigned to resource 4
+Task 6 is accessing a resource at time 6
+Task 6 is accessing a resource at time 7
+Task 6 is accessing a resource at time 8
+Task 7 is assigned to resource 5
+Task 8 is assigned to resource 6
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2178
+Num of clauses: 7649
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 11
+Task 2 is accessing a resource at time 12
+Task 3 is assigned to resource 2
+Task 3 is accessing a resource at time 6
+Task 3 is accessing a resource at time 7
+Task 4 is assigned to resource 3
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 is accessing a resource at time 2
+Task 4 is accessing a resource at time 3
+Task 4 is accessing a resource at time 4
+Task 4 starts non-preemptive access of resource 3 at time 0
+Task 5 is assigned to resource 4
+Task 5 is accessing a resource at time 3
+Task 5 is accessing a resource at time 4
+Task 5 is accessing a resource at time 5
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 6
+Task 6 is accessing a resource at time 7
+Task 6 is accessing a resource at time 8
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 5
+Task 9 is assigned to resource 6
+Task 9 is accessing a resource at time 6
+Task 9 is accessing a resource at time 7
+Task 9 is accessing a resource at time 8
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1352
+Num of clauses: 8598
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 1
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 2
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 554
+Num of clauses: 1999
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 7
+Task 1 is assigned to resource 1
+Task 1 is accessing a resource at time 0
+Task 1 is accessing a resource at time 1
+Task 1 is accessing a resource at time 2
+Task 1 is accessing a resource at time 3
+Task 1 is accessing a resource at time 4
+Task 1 starts non-preemptive access of resource 1 at time 0
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 14
+Task 2 is accessing a resource at time 15
+Task 3 is assigned to resource 2
+Task 3 is accessing a resource at time 11
+Task 3 is accessing a resource at time 12
+Task 4 is assigned to resource 3
+Task 4 is accessing a resource at time 6
+Task 4 is accessing a resource at time 7
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1782
+Num of clauses: 16101
+Task 0 is assigned to resource 1
+Task 1 is assigned to resource 1
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 4
+Task 5 is assigned to resource 1
+Task 5 is accessing a resource at time 3
+Task 5 is accessing a resource at time 10
+Task 5 is accessing a resource at time 11
+Task 5 is accessing a resource at time 12
+Task 5 is accessing a resource at time 13
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 5
+Task 6 is accessing a resource at time 6
+Task 7 is assigned to resource 0
+Task 7 is accessing a resource at time 0
+Task 7 is accessing a resource at time 1
+Task 7 is accessing a resource at time 2
+Task 7 is accessing a resource at time 3
+Task 7 starts non-preemptive access of resource 0 at time 0
+Task 8 is assigned to resource 8
+Task 8 is accessing a resource at time 2
+Task 8 is accessing a resource at time 9
+Task 8 is accessing a resource at time 10
+Task 8 is accessing a resource at time 11
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 870
+Num of clauses: 7248
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 4
+Task 0 is accessing a resource at time 5
+Task 0 is accessing a resource at time 6
+Task 0 is accessing a resource at time 7
+Task 0 is accessing a resource at time 8
+Task 0 starts non-preemptive access of resource 0 at time 4
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 3
+Task 1 starts non-preemptive access of resource 0 at time 3
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 2
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 is accessing a resource at time 2
+Task 4 starts non-preemptive access of resource 0 at time 0
+Task 5 is assigned to resource 1
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 616
+Num of clauses: 5250
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 4
+Task 0 is accessing a resource at time 5
+Task 0 is accessing a resource at time 6
+Task 0 starts non-preemptive access of resource 0 at time 4
+Task 1 is assigned to resource 1
+Task 1 is accessing a resource at time 6
+Task 1 is accessing a resource at time 7
+Task 1 is accessing a resource at time 8
+Task 1 is accessing a resource at time 9
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 0
+Task 2 is accessing a resource at time 1
+Task 2 is accessing a resource at time 2
+Task 2 is accessing a resource at time 3
+Task 2 starts non-preemptive access of resource 0 at time 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2072
+Num of clauses: 24300
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 1
+Task 1 is accessing a resource at time 2
+Task 1 starts non-preemptive access of resource 0 at time 1
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 0
+Task 5 starts non-preemptive access of resource 0 at time 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1878
+Num of clauses: 19728
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 8
+Task 2 is accessing a resource at time 9
+Task 2 is accessing a resource at time 10
+Task 2 is accessing a resource at time 11
+Task 2 starts non-preemptive access of resource 0 at time 8
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1499
+Num of clauses: 13448
+Task 0 is assigned to resource 6
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 6
+Task 1 is accessing a resource at time 7
+Task 1 is accessing a resource at time 8
+Task 1 is accessing a resource at time 9
+Task 1 starts non-preemptive access of resource 0 at time 6
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 4
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 5
+Task 3 starts non-preemptive access of resource 0 at time 5
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 is accessing a resource at time 3
+Task 6 is accessing a resource at time 4
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 826
+Num of clauses: 5772
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 1
+Task 1 is accessing a resource at time 12
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 4
+Task 2 starts non-preemptive access of resource 0 at time 4
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 13
+Task 3 is accessing a resource at time 14
+Task 3 is accessing a resource at time 15
+Task 3 is accessing a resource at time 16
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 0
+Task 5 is accessing a resource at time 1
+Task 5 is accessing a resource at time 2
+Task 5 is accessing a resource at time 3
+Task 5 starts non-preemptive access of resource 0 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1211
+Num of clauses: 8984
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 0
+Task 1 is accessing a resource at time 1
+Task 1 starts non-preemptive access of resource 0 at time 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1424
+Num of clauses: 10976
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 0
+Task 5 is accessing a resource at time 1
+Task 5 is accessing a resource at time 2
+Task 5 is accessing a resource at time 3
+Task 5 starts non-preemptive access of resource 0 at time 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1167
+Num of clauses: 8253
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 0
+Task 5 starts non-preemptive access of resource 0 at time 0
+Task 6 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 561
+Num of clauses: 5150
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 592
+Num of clauses: 4670
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1881
+Num of clauses: 18018
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 8
+Task 0 is accessing a resource at time 9
+Task 0 starts non-preemptive access of resource 0 at time 8
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 7
+Task 1 starts non-preemptive access of resource 0 at time 7
+Task 2 is assigned to resource 2
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 5
+Task 4 is accessing a resource at time 6
+Task 4 starts non-preemptive access of resource 0 at time 5
+Task 5 is assigned to resource 2
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 7 is accessing a resource at time 0
+Task 7 is accessing a resource at time 1
+Task 7 is accessing a resource at time 2
+Task 7 is accessing a resource at time 3
+Task 7 is accessing a resource at time 4
+Task 7 starts non-preemptive access of resource 0 at time 0
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1495
+Num of clauses: 13248
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 4
+Task 4 is accessing a resource at time 5
+Task 4 is accessing a resource at time 16
+Task 4 is accessing a resource at time 17
+Task 4 is accessing a resource at time 18
+Task 4 is accessing a resource at time 19
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 6
+Task 5 is accessing a resource at time 7
+Task 5 is accessing a resource at time 8
+Task 5 is accessing a resource at time 9
+Task 5 is accessing a resource at time 10
+Task 5 starts non-preemptive access of resource 0 at time 6
+Task 6 is assigned to resource 1
+Task 6 is accessing a resource at time 6
+Task 6 is accessing a resource at time 7
+Task 6 is accessing a resource at time 8
+Task 6 is accessing a resource at time 9
+Task 6 is accessing a resource at time 10
+Task 7 is assigned to resource 0
+Task 7 is accessing a resource at time 0
+Task 7 is accessing a resource at time 1
+Task 7 starts non-preemptive access of resource 0 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2073
+Num of clauses: 16530
+Task 0 is assigned to resource 4
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 4
+Task 3 is accessing a resource at time 5
+Task 3 is accessing a resource at time 6
+Task 3 is accessing a resource at time 7
+Task 3 is accessing a resource at time 8
+Task 3 starts non-preemptive access of resource 0 at time 4
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 is accessing a resource at time 3
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1493
+Num of clauses: 15216
+Task 0 is assigned to resource 1
+Task 0 is accessing a resource at time 12
+Task 0 is accessing a resource at time 13
+Task 0 is accessing a resource at time 14
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 1
+Task 1 is accessing a resource at time 2
+Task 1 is accessing a resource at time 3
+Task 1 starts non-preemptive access of resource 0 at time 1
+Task 2 is assigned to resource 2
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 starts non-preemptive access of resource 0 at time 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1111
+Num of clauses: 7686
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 0
+Task 5 is accessing a resource at time 1
+Task 5 is accessing a resource at time 2
+Task 5 starts non-preemptive access of resource 0 at time 0
+Task 6 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1787
+Num of clauses: 17856
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 5
+Task 1 starts non-preemptive access of resource 0 at time 5
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 is accessing a resource at time 2
+Task 4 is accessing a resource at time 3
+Task 4 is accessing a resource at time 4
+Task 4 starts non-preemptive access of resource 0 at time 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 10
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 618
+Num of clauses: 4805
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 12
+Task 0 is accessing a resource at time 13
+Task 0 is accessing a resource at time 14
+Task 0 is accessing a resource at time 15
+Task 0 is accessing a resource at time 16
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 0
+Task 1 is accessing a resource at time 1
+Task 1 is accessing a resource at time 2
+Task 1 is accessing a resource at time 3
+Task 1 is accessing a resource at time 4
+Task 1 starts non-preemptive access of resource 0 at time 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1499
+Num of clauses: 15400
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 13
+Task 6 is accessing a resource at time 14
+Task 6 is accessing a resource at time 15
+Task 6 is accessing a resource at time 16
+Task 6 is accessing a resource at time 17
+Task 7 is assigned to resource 0
+Task 7 is accessing a resource at time 0
+Task 7 is accessing a resource at time 1
+Task 7 is accessing a resource at time 2
+Task 7 is accessing a resource at time 3
+Task 7 is accessing a resource at time 4
+Task 7 starts non-preemptive access of resource 0 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1105
+Num of clauses: 9275
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 11
+Task 1 is accessing a resource at time 12
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 0
+Task 2 is accessing a resource at time 1
+Task 2 is accessing a resource at time 2
+Task 2 is accessing a resource at time 3
+Task 2 is accessing a resource at time 4
+Task 2 starts non-preemptive access of resource 0 at time 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 865
+Num of clauses: 8862
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 4
+Task 2 is accessing a resource at time 5
+Task 2 is accessing a resource at time 6
+Task 2 starts non-preemptive access of resource 0 at time 4
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 9
+Task 3 is accessing a resource at time 10
+Task 3 is accessing a resource at time 11
+Task 3 is accessing a resource at time 12
+Task 3 starts non-preemptive access of resource 0 at time 9
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 is accessing a resource at time 2
+Task 4 is accessing a resource at time 3
+Task 4 starts non-preemptive access of resource 0 at time 0
+Task 5 is assigned to resource 1
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 871
+Num of clauses: 8460
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 15
+Task 4 is accessing a resource at time 16
+Task 4 is accessing a resource at time 17
+Task 4 is accessing a resource at time 18
+Task 4 is accessing a resource at time 19
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 0
+Task 5 is accessing a resource at time 1
+Task 5 is accessing a resource at time 2
+Task 5 is accessing a resource at time 3
+Task 5 is accessing a resource at time 4
+Task 5 starts non-preemptive access of resource 0 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1105
+Num of clauses: 11088
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 10
+Task 0 is accessing a resource at time 11
+Task 0 is accessing a resource at time 12
+Task 0 starts non-preemptive access of resource 0 at time 10
+Task 1 is assigned to resource 1
+Task 1 is accessing a resource at time 10
+Task 1 is accessing a resource at time 11
+Task 1 is accessing a resource at time 12
+Task 1 is accessing a resource at time 13
+Task 1 is accessing a resource at time 14
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 5
+Task 2 is accessing a resource at time 6
+Task 2 is accessing a resource at time 7
+Task 2 is accessing a resource at time 8
+Task 2 is accessing a resource at time 9
+Task 2 starts non-preemptive access of resource 0 at time 5
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 is accessing a resource at time 4
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1425
+Num of clauses: 13112
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 14
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 503
+Num of clauses: 3735
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1497
+Num of clauses: 12168
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1423
+Num of clauses: 12720
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1422
+Num of clauses: 11696
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 1
+Task 0 is accessing a resource at time 2
+Task 0 is accessing a resource at time 3
+Task 0 is accessing a resource at time 4
+Task 0 starts non-preemptive access of resource 0 at time 1
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 583
+Num of clauses: 3180
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 1
+Task 0 is accessing a resource at time 2
+Task 0 is accessing a resource at time 3
+Task 0 starts non-preemptive access of resource 0 at time 1
+Task 1 is assigned to resource 2
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1504
+Num of clauses: 14608
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 1
+Task 2 is accessing a resource at time 2
+Task 2 starts non-preemptive access of resource 0 at time 1
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 7 is accessing a resource at time 0
+Task 7 starts non-preemptive access of resource 0 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1105
+Num of clauses: 10388
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2290
+Num of clauses: 22230
+Task 0 is assigned to resource 1
+Task 0 is accessing a resource at time 7
+Task 0 is accessing a resource at time 8
+Task 0 is accessing a resource at time 9
+Task 0 is accessing a resource at time 10
+Task 0 starts non-preemptive access of resource 1 at time 7
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 7
+Task 1 is accessing a resource at time 8
+Task 1 is accessing a resource at time 9
+Task 1 starts non-preemptive access of resource 0 at time 7
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 3
+Task 2 is accessing a resource at time 4
+Task 2 is accessing a resource at time 5
+Task 2 is accessing a resource at time 6
+Task 2 starts non-preemptive access of resource 0 at time 3
+Task 3 is assigned to resource 1
+Task 4 is assigned to resource 1
+Task 4 is accessing a resource at time 4
+Task 4 is accessing a resource at time 5
+Task 4 is accessing a resource at time 6
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 1
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1878
+Num of clauses: 29592
+Task 0 is assigned to resource 5
+Task 0 is accessing a resource at time 16
+Task 0 starts non-preemptive access of resource 5 at time 16
+Task 1 is assigned to resource 4
+Task 1 is accessing a resource at time 5
+Task 2 is assigned to resource 4
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 12
+Task 3 is accessing a resource at time 13
+Task 3 is accessing a resource at time 14
+Task 3 is accessing a resource at time 15
+Task 3 starts non-preemptive access of resource 0 at time 12
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 8
+Task 4 is accessing a resource at time 9
+Task 4 is accessing a resource at time 10
+Task 4 is accessing a resource at time 11
+Task 4 starts non-preemptive access of resource 0 at time 8
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 5
+Task 5 is accessing a resource at time 6
+Task 5 is accessing a resource at time 7
+Task 5 starts non-preemptive access of resource 0 at time 5
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 7 is accessing a resource at time 0
+Task 7 is accessing a resource at time 1
+Task 7 is accessing a resource at time 2
+Task 7 is accessing a resource at time 3
+Task 7 is accessing a resource at time 4
+Task 7 starts non-preemptive access of resource 0 at time 0
+Task 8 is assigned to resource 1
+Task 8 is accessing a resource at time 4
+Task 8 is accessing a resource at time 5
+Task 8 is accessing a resource at time 6
+Task 8 is accessing a resource at time 7
+Task 8 is accessing a resource at time 8
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1156
+Num of clauses: 11508
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 5
+Task 1 is accessing a resource at time 6
+Task 1 is accessing a resource at time 7
+Task 1 is accessing a resource at time 8
+Task 1 is accessing a resource at time 9
+Task 1 starts non-preemptive access of resource 0 at time 5
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 0
+Task 2 starts non-preemptive access of resource 0 at time 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 527
+Num of clauses: 3460
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 588
+Num of clauses: 5245
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2185
+Num of clauses: 25220
+Task 0 is assigned to resource 4
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 5
+Task 2 is accessing a resource at time 6
+Task 2 is accessing a resource at time 7
+Task 2 starts non-preemptive access of resource 0 at time 5
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 9
+Task 3 is accessing a resource at time 10
+Task 3 is accessing a resource at time 11
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 2
+Task 4 is accessing a resource at time 3
+Task 4 is accessing a resource at time 4
+Task 4 starts non-preemptive access of resource 0 at time 2
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 1
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Task 9 is accessing a resource at time 0
+Task 9 is accessing a resource at time 1
+Task 9 starts non-preemptive access of resource 0 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1784
+Num of clauses: 16794
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 starts non-preemptive access of resource 0 at time 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1351
+Num of clauses: 13120
+Task 0 is assigned to resource 2
+Task 1 is assigned to resource 1
+Task 2 is assigned to resource 1
+Task 2 is accessing a resource at time 2
+Task 2 is accessing a resource at time 3
+Task 2 is accessing a resource at time 4
+Task 2 is accessing a resource at time 5
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 is accessing a resource at time 4
+Task 3 is accessing a resource at time 5
+Task 3 starts non-preemptive access of resource 0 at time 2
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 1
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2077
+Num of clauses: 18300
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1499
+Num of clauses: 14336
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 4
+Task 3 is accessing a resource at time 5
+Task 3 is accessing a resource at time 6
+Task 3 is accessing a resource at time 7
+Task 3 starts non-preemptive access of resource 0 at time 4
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 10
+Task 4 is accessing a resource at time 11
+Task 4 is accessing a resource at time 12
+Task 4 is accessing a resource at time 13
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 is accessing a resource at time 3
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1358
+Num of clauses: 12408
+Task 0 is assigned to resource 5
+Task 1 is assigned to resource 2
+Task 1 is accessing a resource at time 3
+Task 1 is accessing a resource at time 4
+Task 1 is accessing a resource at time 5
+Task 1 is accessing a resource at time 6
+Task 1 is accessing a resource at time 7
+Task 1 starts non-preemptive access of resource 2 at time 3
+Task 2 is assigned to resource 7
+Task 2 is accessing a resource at time 8
+Task 2 is accessing a resource at time 9
+Task 2 is accessing a resource at time 10
+Task 2 starts non-preemptive access of resource 7 at time 8
+Task 3 is assigned to resource 7
+Task 3 is accessing a resource at time 14
+Task 3 is accessing a resource at time 15
+Task 3 is accessing a resource at time 16
+Task 3 is accessing a resource at time 17
+Task 3 starts non-preemptive access of resource 7 at time 14
+Task 4 is assigned to resource 4
+Task 5 is assigned to resource 7
+Task 6 is assigned to resource 7
+Task 6 is accessing a resource at time 2
+Task 6 is accessing a resource at time 3
+Task 6 is accessing a resource at time 4
+Task 6 is accessing a resource at time 5
+Task 6 is accessing a resource at time 6
+Task 6 starts non-preemptive access of resource 7 at time 2
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1877
+Num of clauses: 16029
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 862
+Num of clauses: 6378
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 4
+Task 0 starts non-preemptive access of resource 0 at time 4
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 867
+Num of clauses: 5928
+Task 0 is assigned to resource 4
+Task 1 is assigned to resource 3
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 3
+Task 2 is accessing a resource at time 5
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 557
+Num of clauses: 3420
+Task 0 is assigned to resource 4
+Task 1 is assigned to resource 4
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 4
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 7
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 starts non-preemptive access of resource 0 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1782
+Num of clauses: 16353
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 5
+Task 0 is accessing a resource at time 6
+Task 0 starts non-preemptive access of resource 0 at time 5
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 is accessing a resource at time 4
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 1
+Task 5 is accessing a resource at time 2
+Task 5 is accessing a resource at time 3
+Task 5 is accessing a resource at time 4
+Task 5 is accessing a resource at time 5
+Task 5 is accessing a resource at time 6
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 750
+Num of clauses: 7164
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1877
+Num of clauses: 20322
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 2
+Task 1 is accessing a resource at time 3
+Task 1 is accessing a resource at time 4
+Task 1 is accessing a resource at time 5
+Task 1 is accessing a resource at time 6
+Task 1 starts non-preemptive access of resource 0 at time 2
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 1
+Task 4 is accessing a resource at time 4
+Task 4 is accessing a resource at time 5
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 823
+Num of clauses: 6468
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 13
+Task 2 is accessing a resource at time 14
+Task 2 is accessing a resource at time 15
+Task 2 is accessing a resource at time 16
+Task 2 starts non-preemptive access of resource 0 at time 13
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 0
+Task 5 is accessing a resource at time 1
+Task 5 is accessing a resource at time 2
+Task 5 starts non-preemptive access of resource 0 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2072
+Num of clauses: 20620
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 14
+Task 3 is assigned to resource 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 is accessing a resource at time 4
+Task 3 is accessing a resource at time 5
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 4
+Task 4 is accessing a resource at time 5
+Task 4 is accessing a resource at time 6
+Task 4 is accessing a resource at time 7
+Task 4 starts non-preemptive access of resource 0 at time 4
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 7 is accessing a resource at time 0
+Task 7 is accessing a resource at time 1
+Task 7 is accessing a resource at time 2
+Task 7 is accessing a resource at time 3
+Task 7 starts non-preemptive access of resource 0 at time 0
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1354
+Num of clauses: 13064
+Task 0 is assigned to resource 1
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 1
+Task 1 starts non-preemptive access of resource 0 at time 1
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 9
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2297
+Num of clauses: 20760
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 0
+Task 0 starts non-preemptive access of resource 0 at time 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1498
+Num of clauses: 15848
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1052
+Num of clauses: 10605
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 0
+Task 5 is accessing a resource at time 1
+Task 5 is accessing a resource at time 2
+Task 5 is accessing a resource at time 3
+Task 5 is accessing a resource at time 4
+Task 5 starts non-preemptive access of resource 0 at time 0
+Task 6 is assigned to resource 1
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 526
+Num of clauses: 4085
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 0
+Task 0 is accessing a resource at time 1
+Task 0 starts non-preemptive access of resource 0 at time 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1166
+Num of clauses: 9114
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2185
+Num of clauses: 24840
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 557
+Num of clauses: 4195
+Task 0 is assigned to resource 4
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 2
+Task 1 starts non-preemptive access of resource 0 at time 2
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 8
+Task 2 is accessing a resource at time 9
+Task 3 is assigned to resource 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 starts non-preemptive access of resource 0 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 590
+Num of clauses: 5145
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 0
+Task 2 is accessing a resource at time 1
+Task 2 starts non-preemptive access of resource 0 at time 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 594
+Num of clauses: 5955
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2296
+Num of clauses: 24860
+Task 0 is assigned to resource 4
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 9
+Task 7 is accessing a resource at time 5
+Task 7 is accessing a resource at time 11
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Task 9 is accessing a resource at time 0
+Task 9 starts non-preemptive access of resource 0 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1500
+Num of clauses: 13072
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 is accessing a resource at time 2
+Task 4 is accessing a resource at time 3
+Task 4 is accessing a resource at time 4
+Task 4 starts non-preemptive access of resource 0 at time 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1160
+Num of clauses: 9793
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 0
+Task 1 is accessing a resource at time 1
+Task 1 is accessing a resource at time 2
+Task 1 is accessing a resource at time 3
+Task 1 is accessing a resource at time 4
+Task 1 starts non-preemptive access of resource 0 at time 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1501
+Num of clauses: 14808
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 3
+Task 0 is accessing a resource at time 4
+Task 0 starts non-preemptive access of resource 0 at time 3
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 is accessing a resource at time 2
+Task 4 starts non-preemptive access of resource 0 at time 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 1
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1050
+Num of clauses: 8078
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 starts non-preemptive access of resource 0 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1877
+Num of clauses: 19287
+Task 0 is assigned to resource 4
+Task 1 is assigned to resource 1
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 8
+Task 3 is accessing a resource at time 9
+Task 3 is accessing a resource at time 10
+Task 3 is accessing a resource at time 11
+Task 3 starts non-preemptive access of resource 0 at time 8
+Task 4 is assigned to resource 2
+Task 4 is accessing a resource at time 7
+Task 4 is accessing a resource at time 8
+Task 4 is accessing a resource at time 9
+Task 4 is accessing a resource at time 10
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 4
+Task 5 is accessing a resource at time 5
+Task 5 is accessing a resource at time 6
+Task 5 is accessing a resource at time 7
+Task 5 starts non-preemptive access of resource 0 at time 4
+Task 6 is assigned to resource 1
+Task 6 is accessing a resource at time 7
+Task 6 is accessing a resource at time 8
+Task 6 is accessing a resource at time 9
+Task 6 is accessing a resource at time 10
+Task 7 is assigned to resource 0
+Task 7 is accessing a resource at time 0
+Task 7 is accessing a resource at time 1
+Task 7 is accessing a resource at time 2
+Task 7 is accessing a resource at time 3
+Task 7 starts non-preemptive access of resource 0 at time 0
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2178
+Num of clauses: 16430
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1106
+Num of clauses: 6797
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 611
+Num of clauses: 5235
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 is accessing a resource at time 4
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1877
+Num of clauses: 18810
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 0
+Task 0 is accessing a resource at time 1
+Task 0 is accessing a resource at time 2
+Task 0 starts non-preemptive access of resource 0 at time 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1430
+Num of clauses: 9896
+Task 0 is assigned to resource 1
+Task 1 is assigned to resource 2
+Task 1 is accessing a resource at time 12
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 3
+Task 2 is accessing a resource at time 4
+Task 2 is accessing a resource at time 5
+Task 2 is accessing a resource at time 6
+Task 2 starts non-preemptive access of resource 0 at time 3
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 1
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 0
+Task 5 is accessing a resource at time 1
+Task 5 is accessing a resource at time 2
+Task 5 starts non-preemptive access of resource 0 at time 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1873
+Num of clauses: 19683
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 1
+Task 1 is accessing a resource at time 2
+Task 1 is accessing a resource at time 3
+Task 1 starts non-preemptive access of resource 0 at time 1
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 2
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 12
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 1
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 745
+Num of clauses: 5604
+Task 0 is assigned to resource 2
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 5
+Task 2 is accessing a resource at time 10
+Task 2 is accessing a resource at time 11
+Task 2 is accessing a resource at time 12
+Task 2 is accessing a resource at time 13
+Task 2 is accessing a resource at time 14
+Task 2 starts non-preemptive access of resource 5 at time 10
+Task 3 is assigned to resource 2
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 starts non-preemptive access of resource 2 at time 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 starts non-preemptive access of resource 0 at time 0
+Task 5 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1157
+Num of clauses: 10759
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 3
+Task 0 is accessing a resource at time 4
+Task 0 is accessing a resource at time 5
+Task 0 is accessing a resource at time 6
+Task 0 starts non-preemptive access of resource 0 at time 3
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 starts non-preemptive access of resource 0 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 863
+Num of clauses: 7164
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1499
+Num of clauses: 14720
+Task 0 is assigned to resource 1
+Task 1 is assigned to resource 3
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 14
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 3
+Task 5 starts non-preemptive access of resource 0 at time 3
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 467
+Num of clauses: 4015
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 6
+Task 0 is accessing a resource at time 7
+Task 0 is accessing a resource at time 8
+Task 0 is accessing a resource at time 9
+Task 0 starts non-preemptive access of resource 0 at time 6
+Task 1 is assigned to resource 2
+Task 2 is assigned to resource 1
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 10
+Task 3 is accessing a resource at time 11
+Task 3 starts non-preemptive access of resource 0 at time 10
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 is accessing a resource at time 2
+Task 4 is accessing a resource at time 3
+Task 4 starts non-preemptive access of resource 0 at time 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2296
+Num of clauses: 24040
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 14
+Task 0 is accessing a resource at time 15
+Task 0 is accessing a resource at time 16
+Task 0 is accessing a resource at time 17
+Task 0 is accessing a resource at time 18
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 4
+Task 1 is accessing a resource at time 5
+Task 1 is accessing a resource at time 6
+Task 1 is accessing a resource at time 7
+Task 1 is accessing a resource at time 8
+Task 1 starts non-preemptive access of resource 0 at time 4
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 is accessing a resource at time 3
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 1
+Task 7 is accessing a resource at time 6
+Task 7 is accessing a resource at time 7
+Task 7 is accessing a resource at time 8
+Task 7 is accessing a resource at time 9
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 592
+Num of clauses: 4735
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 874
+Num of clauses: 8724
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 0
+Task 1 starts non-preemptive access of resource 0 at time 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1503
+Num of clauses: 15912
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1160
+Num of clauses: 7126
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 747
+Num of clauses: 5370
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 0
+Task 1 is accessing a resource at time 1
+Task 1 starts non-preemptive access of resource 0 at time 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 588
+Num of clauses: 4410
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2297
+Num of clauses: 21730
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 0
+Task 3 is accessing a resource at time 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 starts non-preemptive access of resource 0 at time 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 611
+Num of clauses: 2815
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1050
+Num of clauses: 6041
+Task 0 is assigned to resource 3
+Task 1 is assigned to resource 2
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 6
+Task 2 is accessing a resource at time 7
+Task 2 is accessing a resource at time 8
+Task 2 is accessing a resource at time 9
+Task 2 starts non-preemptive access of resource 0 at time 6
+Task 3 is assigned to resource 1
+Task 3 is accessing a resource at time 2
+Task 3 is accessing a resource at time 3
+Task 3 is accessing a resource at time 4
+Task 3 starts non-preemptive access of resource 1 at time 2
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 is accessing a resource at time 2
+Task 4 is accessing a resource at time 3
+Task 4 is accessing a resource at time 4
+Task 4 starts non-preemptive access of resource 0 at time 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 1
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1501
+Num of clauses: 20664
+Task 0 is assigned to resource 1
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 8
+Task 1 is accessing a resource at time 9
+Task 1 is accessing a resource at time 10
+Task 1 is accessing a resource at time 11
+Task 1 starts non-preemptive access of resource 0 at time 8
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 17
+Task 3 is assigned to resource 0
+Task 3 is accessing a resource at time 5
+Task 3 is accessing a resource at time 6
+Task 3 is accessing a resource at time 7
+Task 3 starts non-preemptive access of resource 0 at time 5
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 3
+Task 4 starts non-preemptive access of resource 0 at time 3
+Task 5 is assigned to resource 0
+Task 5 is accessing a resource at time 14
+Task 5 is accessing a resource at time 15
+Task 5 is accessing a resource at time 16
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 525
+Num of clauses: 2560
+Task 0 is assigned to resource 4
+Task 0 is accessing a resource at time 15
+Task 1 is assigned to resource 4
+Task 1 is accessing a resource at time 3
+Task 1 is accessing a resource at time 8
+Task 1 is accessing a resource at time 9
+Task 1 is accessing a resource at time 10
+Task 1 is accessing a resource at time 11
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 0
+Task 2 is accessing a resource at time 1
+Task 2 is accessing a resource at time 2
+Task 2 is accessing a resource at time 3
+Task 2 is accessing a resource at time 4
+Task 2 starts non-preemptive access of resource 0 at time 0
+Task 3 is assigned to resource 3
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1492
+Num of clauses: 11624
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 7
+Task 1 is accessing a resource at time 8
+Task 1 is accessing a resource at time 9
+Task 2 is assigned to resource 0
+Task 2 is accessing a resource at time 0
+Task 2 is accessing a resource at time 1
+Task 2 is accessing a resource at time 2
+Task 2 starts non-preemptive access of resource 0 at time 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1430
+Num of clauses: 11056
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 starts non-preemptive access of resource 0 at time 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2294
+Num of clauses: 20980
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 7 is accessing a resource at time 0
+Task 7 is accessing a resource at time 1
+Task 7 is accessing a resource at time 2
+Task 7 is accessing a resource at time 3
+Task 7 starts non-preemptive access of resource 0 at time 0
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 475
+Num of clauses: 3540
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2297
+Num of clauses: 27110
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 is accessing a resource at time 3
+Task 6 is accessing a resource at time 4
+Task 6 starts non-preemptive access of resource 0 at time 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1784
+Num of clauses: 11862
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 2178
+Num of clauses: 15680
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 4 is accessing a resource at time 0
+Task 4 is accessing a resource at time 1
+Task 4 is accessing a resource at time 2
+Task 4 is accessing a resource at time 3
+Task 4 is accessing a resource at time 4
+Task 4 starts non-preemptive access of resource 0 at time 0
+Task 5 is assigned to resource 1
+Task 5 is accessing a resource at time 3
+Task 5 is accessing a resource at time 4
+Task 5 is accessing a resource at time 5
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 1352
+Num of clauses: 10720
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 0
+Task 7 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 554
+Num of clauses: 4000
+Task 0 is assigned to resource 0
+Task 1 is assigned to resource 0
+Task 1 is accessing a resource at time 0
+Task 1 is accessing a resource at time 1
+Task 1 is accessing a resource at time 2
+Task 1 is accessing a resource at time 3
+Task 1 is accessing a resource at time 4
+Task 1 starts non-preemptive access of resource 0 at time 0
+Task 2 is assigned to resource 0
+Task 3 is assigned to resource 0
+Task 4 is assigned to resource 0
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
+Num of variables: 10
+Num of clauses: 2
+Task 0 is assigned to resource 0
+Task 0 is accessing a resource at time 0
+Task 0 is accessing a resource at time 1
+Task 1 is assigned to resource 1
+Task 1 is accessing a resource at time 1
+Task 1 is accessing a resource at time 2
+Result added to Excel file: /Users/kieuvantuyen/Library/CloudStorage/OneDrive-tuyenkieuvan/Master/NCKH/SANPT/out/results_2024-09-08.xlsx
+
