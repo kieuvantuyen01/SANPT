@@ -25942,3 +25942,438 @@ Task 198 is assigned to resource 0
 Task 199 is assigned to resource 0
 Result added to Excel file: /home/thanghh15012003/SANPT/out/results_2024-09-10.xlsx
 
+Num of variables: 2049982
+Num of clauses: 127278400
+Task 0 is assigned to resource 123
+Task 0 is accessing a resource at time 2
+Task 0 is accessing a resource at time 3
+Task 0 is accessing a resource at time 4
+Task 0 is accessing a resource at time 5
+Task 0 is accessing a resource at time 6
+Task 0 is accessing a resource at time 7
+Task 0 starts non-preemptive access of resource 123 at time 2
+Task 1 is assigned to resource 0
+Task 2 is assigned to resource 4
+Task 2 is accessing a resource at time 24
+Task 2 is accessing a resource at time 25
+Task 2 is accessing a resource at time 26
+Task 2 is accessing a resource at time 27
+Task 2 is accessing a resource at time 28
+Task 3 is assigned to resource 4
+Task 3 is accessing a resource at time 8
+Task 4 is assigned to resource 6
+Task 4 is accessing a resource at time 2
+Task 4 is accessing a resource at time 3
+Task 4 is accessing a resource at time 4
+Task 4 is accessing a resource at time 5
+Task 4 is accessing a resource at time 6
+Task 4 is accessing a resource at time 7
+Task 4 is accessing a resource at time 8
+Task 4 is accessing a resource at time 9
+Task 4 starts non-preemptive access of resource 6 at time 2
+Task 5 is assigned to resource 0
+Task 6 is assigned to resource 55
+Task 6 is accessing a resource at time 0
+Task 6 is accessing a resource at time 1
+Task 6 is accessing a resource at time 2
+Task 6 is accessing a resource at time 3
+Task 6 is accessing a resource at time 4
+Task 6 is accessing a resource at time 5
+Task 6 is accessing a resource at time 6
+Task 6 starts non-preemptive access of resource 55 at time 0
+Task 7 is assigned to resource 1
+Task 7 is accessing a resource at time 28
+Task 8 is assigned to resource 0
+Task 9 is assigned to resource 11
+Task 10 is assigned to resource 0
+Task 11 is assigned to resource 5
+Task 11 is accessing a resource at time 0
+Task 11 is accessing a resource at time 1
+Task 11 is accessing a resource at time 2
+Task 11 is accessing a resource at time 3
+Task 11 is accessing a resource at time 4
+Task 11 is accessing a resource at time 5
+Task 11 is accessing a resource at time 6
+Task 11 is accessing a resource at time 7
+Task 11 is accessing a resource at time 8
+Task 11 is accessing a resource at time 9
+Task 11 starts non-preemptive access of resource 5 at time 0
+Task 12 is assigned to resource 3
+Task 12 is accessing a resource at time 9
+Task 12 is accessing a resource at time 10
+Task 12 is accessing a resource at time 11
+Task 12 is accessing a resource at time 12
+Task 12 is accessing a resource at time 13
+Task 12 is accessing a resource at time 14
+Task 12 is accessing a resource at time 15
+Task 12 starts non-preemptive access of resource 3 at time 9
+Task 13 is assigned to resource 0
+Task 14 is assigned to resource 0
+Task 15 is assigned to resource 1
+Task 16 is assigned to resource 0
+Task 17 is assigned to resource 140
+Task 18 is assigned to resource 24
+Task 18 is accessing a resource at time 8
+Task 18 is accessing a resource at time 9
+Task 19 is assigned to resource 0
+Task 20 is assigned to resource 0
+Task 21 is assigned to resource 0
+Task 22 is assigned to resource 0
+Task 23 is assigned to resource 0
+Task 24 is assigned to resource 0
+Task 25 is assigned to resource 0
+Task 26 is assigned to resource 0
+Task 27 is assigned to resource 0
+Task 28 is assigned to resource 6
+Task 28 is accessing a resource at time 16
+Task 28 is accessing a resource at time 17
+Task 28 is accessing a resource at time 18
+Task 28 is accessing a resource at time 19
+Task 28 is accessing a resource at time 20
+Task 28 is accessing a resource at time 21
+Task 29 is assigned to resource 4
+Task 29 is accessing a resource at time 0
+Task 29 is accessing a resource at time 1
+Task 29 is accessing a resource at time 2
+Task 29 is accessing a resource at time 3
+Task 29 is accessing a resource at time 4
+Task 29 is accessing a resource at time 5
+Task 29 is accessing a resource at time 6
+Task 29 is accessing a resource at time 7
+Task 29 starts non-preemptive access of resource 4 at time 0
+Task 30 is assigned to resource 3
+Task 30 is accessing a resource at time 0
+Task 30 is accessing a resource at time 1
+Task 30 is accessing a resource at time 2
+Task 30 is accessing a resource at time 3
+Task 30 is accessing a resource at time 4
+Task 30 is accessing a resource at time 5
+Task 30 is accessing a resource at time 6
+Task 30 is accessing a resource at time 7
+Task 30 is accessing a resource at time 8
+Task 30 starts non-preemptive access of resource 3 at time 0
+Task 31 is assigned to resource 1
+Task 31 is accessing a resource at time 12
+Task 31 is accessing a resource at time 13
+Task 31 is accessing a resource at time 14
+Task 31 is accessing a resource at time 15
+Task 31 is accessing a resource at time 16
+Task 31 is accessing a resource at time 17
+Task 31 is accessing a resource at time 18
+Task 31 starts non-preemptive access of resource 1 at time 12
+Task 32 is assigned to resource 1
+Task 32 is accessing a resource at time 42
+Task 32 is accessing a resource at time 43
+Task 32 is accessing a resource at time 44
+Task 33 is assigned to resource 0
+Task 34 is assigned to resource 0
+Task 35 is assigned to resource 1
+Task 36 is assigned to resource 49
+Task 37 is assigned to resource 0
+Task 38 is assigned to resource 2
+Task 38 is accessing a resource at time 0
+Task 38 is accessing a resource at time 1
+Task 38 is accessing a resource at time 2
+Task 38 is accessing a resource at time 3
+Task 38 is accessing a resource at time 4
+Task 38 is accessing a resource at time 5
+Task 38 is accessing a resource at time 6
+Task 38 starts non-preemptive access of resource 2 at time 0
+Task 39 is assigned to resource 0
+Task 40 is assigned to resource 0
+Task 41 is assigned to resource 0
+Task 42 is assigned to resource 0
+Task 43 is assigned to resource 0
+Task 44 is assigned to resource 0
+Task 45 is assigned to resource 0
+Task 46 is assigned to resource 0
+Task 47 is assigned to resource 0
+Task 48 is assigned to resource 0
+Task 49 is assigned to resource 0
+Task 50 is assigned to resource 0
+Task 51 is assigned to resource 0
+Task 52 is assigned to resource 0
+Task 53 is assigned to resource 0
+Task 54 is assigned to resource 0
+Task 55 is assigned to resource 0
+Task 56 is assigned to resource 5
+Task 56 is accessing a resource at time 15
+Task 56 is accessing a resource at time 16
+Task 56 is accessing a resource at time 17
+Task 56 is accessing a resource at time 18
+Task 56 is accessing a resource at time 19
+Task 56 is accessing a resource at time 20
+Task 56 is accessing a resource at time 21
+Task 57 is assigned to resource 8
+Task 58 is assigned to resource 0
+Task 58 is accessing a resource at time 10
+Task 58 is accessing a resource at time 11
+Task 58 is accessing a resource at time 12
+Task 59 is assigned to resource 0
+Task 60 is assigned to resource 3
+Task 60 is accessing a resource at time 18
+Task 60 is accessing a resource at time 19
+Task 60 is accessing a resource at time 20
+Task 60 is accessing a resource at time 21
+Task 60 is accessing a resource at time 22
+Task 60 is accessing a resource at time 23
+Task 60 is accessing a resource at time 24
+Task 60 is accessing a resource at time 25
+Task 60 is accessing a resource at time 26
+Task 60 is accessing a resource at time 27
+Task 61 is assigned to resource 0
+Task 62 is assigned to resource 0
+Task 63 is assigned to resource 0
+Task 64 is assigned to resource 0
+Task 65 is assigned to resource 0
+Task 66 is assigned to resource 3
+Task 66 is accessing a resource at time 38
+Task 66 is accessing a resource at time 39
+Task 67 is assigned to resource 0
+Task 67 is accessing a resource at time 13
+Task 67 is accessing a resource at time 14
+Task 67 is accessing a resource at time 15
+Task 67 is accessing a resource at time 16
+Task 67 is accessing a resource at time 17
+Task 67 is accessing a resource at time 18
+Task 67 is accessing a resource at time 19
+Task 67 is accessing a resource at time 20
+Task 67 is accessing a resource at time 21
+Task 67 is accessing a resource at time 22
+Task 67 starts non-preemptive access of resource 0 at time 13
+Task 68 is assigned to resource 0
+Task 69 is assigned to resource 1
+Task 70 is assigned to resource 68
+Task 71 is assigned to resource 54
+Task 71 is accessing a resource at time 14
+Task 71 is accessing a resource at time 15
+Task 71 is accessing a resource at time 16
+Task 71 is accessing a resource at time 17
+Task 71 is accessing a resource at time 18
+Task 71 starts non-preemptive access of resource 54 at time 14
+Task 72 is assigned to resource 99
+Task 73 is assigned to resource 0
+Task 74 is assigned to resource 0
+Task 75 is assigned to resource 0
+Task 76 is assigned to resource 0
+Task 77 is assigned to resource 0
+Task 78 is assigned to resource 0
+Task 79 is assigned to resource 0
+Task 80 is assigned to resource 0
+Task 81 is assigned to resource 8
+Task 81 is accessing a resource at time 5
+Task 81 is accessing a resource at time 6
+Task 81 is accessing a resource at time 7
+Task 82 is assigned to resource 0
+Task 83 is assigned to resource 0
+Task 84 is assigned to resource 0
+Task 85 is assigned to resource 0
+Task 86 is assigned to resource 0
+Task 87 is assigned to resource 4
+Task 87 is accessing a resource at time 9
+Task 87 is accessing a resource at time 10
+Task 87 is accessing a resource at time 11
+Task 87 is accessing a resource at time 12
+Task 87 is accessing a resource at time 13
+Task 87 is accessing a resource at time 14
+Task 87 is accessing a resource at time 15
+Task 87 is accessing a resource at time 16
+Task 87 is accessing a resource at time 17
+Task 87 is accessing a resource at time 18
+Task 88 is assigned to resource 0
+Task 89 is assigned to resource 0
+Task 90 is assigned to resource 0
+Task 91 is assigned to resource 0
+Task 92 is assigned to resource 0
+Task 93 is assigned to resource 0
+Task 94 is assigned to resource 0
+Task 95 is assigned to resource 0
+Task 96 is assigned to resource 0
+Task 97 is assigned to resource 0
+Task 98 is assigned to resource 0
+Task 99 is assigned to resource 42
+Task 100 is assigned to resource 133
+Task 101 is assigned to resource 0
+Task 102 is assigned to resource 0
+Task 103 is assigned to resource 0
+Task 104 is assigned to resource 0
+Task 105 is assigned to resource 0
+Task 106 is assigned to resource 0
+Task 107 is assigned to resource 0
+Task 108 is assigned to resource 0
+Task 109 is assigned to resource 0
+Task 110 is assigned to resource 0
+Task 111 is assigned to resource 0
+Task 112 is assigned to resource 0
+Task 113 is assigned to resource 1
+Task 114 is assigned to resource 11
+Task 115 is assigned to resource 0
+Task 116 is assigned to resource 0
+Task 117 is assigned to resource 0
+Task 118 is assigned to resource 1
+Task 118 is accessing a resource at time 0
+Task 118 is accessing a resource at time 1
+Task 118 is accessing a resource at time 2
+Task 118 is accessing a resource at time 3
+Task 118 is accessing a resource at time 4
+Task 118 is accessing a resource at time 5
+Task 118 is accessing a resource at time 6
+Task 118 is accessing a resource at time 7
+Task 118 starts non-preemptive access of resource 1 at time 0
+Task 119 is assigned to resource 0
+Task 120 is assigned to resource 0
+Task 121 is assigned to resource 89
+Task 121 is accessing a resource at time 8
+Task 121 is accessing a resource at time 9
+Task 121 is accessing a resource at time 10
+Task 121 is accessing a resource at time 11
+Task 121 is accessing a resource at time 12
+Task 121 is accessing a resource at time 13
+Task 121 is accessing a resource at time 14
+Task 121 starts non-preemptive access of resource 89 at time 8
+Task 122 is assigned to resource 0
+Task 123 is assigned to resource 0
+Task 124 is assigned to resource 0
+Task 125 is assigned to resource 0
+Task 126 is assigned to resource 0
+Task 127 is assigned to resource 0
+Task 127 is accessing a resource at time 39
+Task 127 is accessing a resource at time 40
+Task 127 is accessing a resource at time 41
+Task 127 is accessing a resource at time 42
+Task 127 is accessing a resource at time 43
+Task 127 starts non-preemptive access of resource 0 at time 39
+Task 128 is assigned to resource 0
+Task 129 is assigned to resource 0
+Task 130 is assigned to resource 2
+Task 130 is accessing a resource at time 30
+Task 130 is accessing a resource at time 31
+Task 130 is accessing a resource at time 32
+Task 130 is accessing a resource at time 33
+Task 130 is accessing a resource at time 34
+Task 130 is accessing a resource at time 35
+Task 130 is accessing a resource at time 36
+Task 130 is accessing a resource at time 37
+Task 130 is accessing a resource at time 38
+Task 131 is assigned to resource 0
+Task 132 is assigned to resource 0
+Task 133 is assigned to resource 1
+Task 133 is accessing a resource at time 34
+Task 133 is accessing a resource at time 35
+Task 133 is accessing a resource at time 36
+Task 133 is accessing a resource at time 37
+Task 133 is accessing a resource at time 38
+Task 133 is accessing a resource at time 39
+Task 133 is accessing a resource at time 40
+Task 133 is accessing a resource at time 41
+Task 134 is assigned to resource 0
+Task 135 is assigned to resource 0
+Task 136 is assigned to resource 0
+Task 137 is assigned to resource 46
+Task 138 is assigned to resource 0
+Task 139 is assigned to resource 94
+Task 140 is assigned to resource 141
+Task 141 is assigned to resource 133
+Task 142 is assigned to resource 0
+Task 143 is assigned to resource 0
+Task 144 is assigned to resource 84
+Task 144 is accessing a resource at time 4
+Task 144 is accessing a resource at time 5
+Task 144 is accessing a resource at time 6
+Task 144 is accessing a resource at time 7
+Task 144 is accessing a resource at time 8
+Task 144 is accessing a resource at time 9
+Task 144 is accessing a resource at time 10
+Task 144 is accessing a resource at time 11
+Task 144 is accessing a resource at time 12
+Task 144 starts non-preemptive access of resource 84 at time 4
+Task 145 is assigned to resource 0
+Task 146 is assigned to resource 0
+Task 147 is assigned to resource 0
+Task 148 is assigned to resource 0
+Task 149 is assigned to resource 0
+Task 150 is assigned to resource 0
+Task 150 is accessing a resource at time 27
+Task 150 is accessing a resource at time 28
+Task 150 is accessing a resource at time 29
+Task 150 is accessing a resource at time 30
+Task 150 is accessing a resource at time 31
+Task 150 is accessing a resource at time 32
+Task 150 is accessing a resource at time 33
+Task 150 starts non-preemptive access of resource 0 at time 27
+Task 151 is assigned to resource 0
+Task 152 is assigned to resource 0
+Task 153 is assigned to resource 0
+Task 154 is assigned to resource 0
+Task 155 is assigned to resource 0
+Task 156 is assigned to resource 0
+Task 157 is assigned to resource 0
+Task 158 is assigned to resource 0
+Task 159 is assigned to resource 0
+Task 160 is assigned to resource 0
+Task 161 is assigned to resource 0
+Task 162 is assigned to resource 0
+Task 163 is assigned to resource 0
+Task 164 is assigned to resource 0
+Task 165 is assigned to resource 0
+Task 166 is assigned to resource 0
+Task 167 is assigned to resource 0
+Task 168 is assigned to resource 0
+Task 169 is assigned to resource 2
+Task 169 is accessing a resource at time 9
+Task 169 is accessing a resource at time 10
+Task 169 is accessing a resource at time 11
+Task 169 is accessing a resource at time 12
+Task 170 is assigned to resource 0
+Task 171 is assigned to resource 0
+Task 172 is assigned to resource 0
+Task 173 is assigned to resource 7
+Task 173 is accessing a resource at time 7
+Task 173 is accessing a resource at time 8
+Task 173 is accessing a resource at time 9
+Task 173 is accessing a resource at time 10
+Task 174 is assigned to resource 0
+Task 175 is assigned to resource 0
+Task 176 is assigned to resource 0
+Task 177 is assigned to resource 0
+Task 177 is accessing a resource at time 0
+Task 177 is accessing a resource at time 1
+Task 177 is accessing a resource at time 2
+Task 177 is accessing a resource at time 3
+Task 177 is accessing a resource at time 4
+Task 177 is accessing a resource at time 5
+Task 177 is accessing a resource at time 6
+Task 177 is accessing a resource at time 7
+Task 177 starts non-preemptive access of resource 0 at time 0
+Task 178 is assigned to resource 0
+Task 179 is assigned to resource 0
+Task 180 is assigned to resource 0
+Task 181 is assigned to resource 0
+Task 182 is assigned to resource 0
+Task 183 is assigned to resource 0
+Task 184 is assigned to resource 0
+Task 185 is assigned to resource 2
+Task 185 is accessing a resource at time 18
+Task 185 is accessing a resource at time 19
+Task 185 is accessing a resource at time 20
+Task 185 is accessing a resource at time 21
+Task 185 is accessing a resource at time 22
+Task 185 is accessing a resource at time 23
+Task 185 is accessing a resource at time 24
+Task 185 is accessing a resource at time 25
+Task 186 is assigned to resource 0
+Task 187 is assigned to resource 0
+Task 188 is assigned to resource 0
+Task 189 is assigned to resource 0
+Task 190 is assigned to resource 0
+Task 191 is assigned to resource 0
+Task 192 is assigned to resource 0
+Task 193 is assigned to resource 0
+Task 194 is assigned to resource 0
+Task 195 is assigned to resource 0
+Task 196 is assigned to resource 0
+Task 197 is assigned to resource 19
+Task 198 is assigned to resource 85
+Task 199 is assigned to resource 0
+Result added to Excel file: /home/thanghh15012003/SANPT/out/results_2024-09-10.xlsx
+
