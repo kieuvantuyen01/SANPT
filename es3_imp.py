@@ -3,6 +3,7 @@ from datetime import datetime
 from openpyxl import load_workbook, Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
 from zipfile import BadZipFile
+import sys
 
 # from pysat.formula import CNF
 from pysat.solvers import Glucose3, Solver
@@ -284,7 +285,7 @@ def process_input_files(input_folder, resources=2):
     # return results
 
 # Main execution
-input_folder = "input/small"
+input_folder = "input/" + sys.argv[1]
 process_input_files(input_folder)
 
 log_file.close()

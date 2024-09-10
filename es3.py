@@ -3,7 +3,7 @@ from datetime import datetime
 from openpyxl import load_workbook, Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
 from zipfile import BadZipFile
-
+import sys
 # from pysat.formula import CNF
 from pysat.solvers import Glucose3, Solver
 # import time
@@ -249,7 +249,7 @@ def solve_es3(tasks, resources):
 
     return res, solve_time, num_variables, num_clauses
     
-def process_input_files(input_folder, resources=2):
+def process_input_files(input_folder, resources=200):
     global id_counter, type
 
     # results = {}
@@ -262,7 +262,8 @@ def process_input_files(input_folder, resources=2):
                 print(f"tasks: {tasks}")
 
             print(f"Processing {filename}...")
-            res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
+            # res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
+            res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
             # results[filename] = {
             #     "result": res,
             #     "time": float(solve_time),
@@ -284,7 +285,7 @@ def process_input_files(input_folder, resources=2):
     # return results
 
 # Main execution
-input_folder = "input/small"
+input_folder = "input/" + sys.argv[1]
 process_input_files(input_folder)
 
 log_file.close()
