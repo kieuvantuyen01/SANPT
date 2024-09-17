@@ -12,6 +12,7 @@ from itertools import product
 from threading import Timer
 import os
 import ast
+import time
 
 sat_solver = Glucose3
 time_budget = 600  # Set your desired time budget in seconds
@@ -225,20 +226,24 @@ def solve_es3(tasks, resources):
     # with Solver(name="glucose4") as solver:
     sat_solver = Glucose3(use_timer=True)
     
+    start_time = time.time()
     u, z = encode_problem_es3(tasks, resources)
 
     # start_time = time.time()
+
+
+    # timer = Timer(time_budget, interrupt, [sat_solver])
+    # timer.start()
+    result = sat_solver.solve_limited(expect_interrupt = True)
+    
+    solve_time = time.time() - start_time
+    # solve_time = float(format(sat_solver.time(), ".6f"))
+
     num_variables = sat_solver.nof_vars()
     num_clauses = sat_solver.nof_clauses()
 
     print_to_console_and_log(f"Num of variables: {num_variables}")
     print_to_console_and_log(f"Num of clauses: {num_clauses}")
-
-    timer = Timer(time_budget, interrupt, [sat_solver])
-    timer.start()
-    result = sat_solver.solve_limited(expect_interrupt = True)
-
-    solve_time = float(format(sat_solver.time(), ".6f"))
 
     res = ""
     if result is True:
@@ -259,13 +264,13 @@ def solve_es3(tasks, resources):
                         print_to_console_and_log(f"Task {i+1} is accessing a resource at time {t}")
                         # print(f"z{i}{t}")
             if not validate_solution(tasks, model, u, z, resources):
-                timer.cancel()
+                # timer.cancel()
                 sys.exit(1)
     else:
         print_to_console_and_log("UNSAT")
         res = "UNSAT"
 
-    timer.cancel()
+    # timer.cancel()
     sat_solver.delete()
 
     return res, solve_time, num_variables, num_clauses
@@ -300,8 +305,8 @@ def process_input_files(input_folder, resources=200):
     # return results
 
 # Main execution
-input_folder = "input/" + sys.argv[1]
-# input_folder = "input_4"
+# input_folder = "input/" + sys.argv[1]
+input_folder = "input_3"
 process_input_files(input_folder)
 
 log_file.close()

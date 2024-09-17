@@ -8,6 +8,7 @@ from ortools.linear_solver import pywraplp
 from itertools import product
 import os
 import ast
+import time
 
 time_budget = 600  # Set your desired time budget in seconds
 type = "es3_improved_mip"
@@ -198,6 +199,7 @@ def validate_solution(tasks, solver, u, z, y, resources):
     return True
 
 def solve_es3(tasks, resources):
+    start_time = time.time()
     solver, u, z, y = encode_problem_es3(tasks, resources)
     if not solver:
         return "ERROR", 0, 0, 0
@@ -205,8 +207,11 @@ def solve_es3(tasks, resources):
     solver.set_time_limit(time_budget * 1000)  # Set time limit in milliseconds
 
     status = solver.Solve()
+    solve_time = time.time() - start_time
 
-    solve_time = solver.wall_time() / 1000.0  # Convert to seconds
+    print(f"Solve time: {solve_time}")
+
+    # solve_time = solver.wall_time() / 1000.0  # Convert to seconds
     num_variables = solver.NumVariables()
     num_constraints = solver.NumConstraints()
 
@@ -247,8 +252,8 @@ def process_input_files(input_folder, resources=200):
                 print(f"tasks: {tasks}")
 
             print_to_console_and_log(f"Processing {filename}...")
-            res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
-            # res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
+            # res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
+            res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
             # results[filename] = {
             #     "result": res,
             #     "time": float(solve_time),
@@ -271,7 +276,7 @@ def process_input_files(input_folder, resources=200):
 
 # Main execution
 # input_folder = "input/" + sys.argv[1]
-input_folder = "input/small"
+input_folder = "input_3"
 process_input_files(input_folder)
 
 log_file.close()
