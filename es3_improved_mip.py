@@ -98,6 +98,30 @@ def encode_problem_es3(tasks, resources):
 
     # Constraints
 
+    # Overlapping: check each pair of tasks to see if they are overlap time
+    for i in range(len(tasks)):
+        for ip in range(i + 1, len(tasks)):
+            if check_overlap(tasks[i], tasks[ip]):
+                for j in range(resources):
+                    solver.Add(u[i, j] + u[ip, j] <= 1)
+
+    # Symmetry breaking 1: Assign the tasks to resources if have r_max <= d_min (min of all tasks)
+    d_min = min(task[2] for task in tasks)
+    fixed_tasks = []
+    for i in range(len(tasks)):
+        if tasks[i][2] - tasks[i][1] <= d_min:
+            fixed_tasks.append(i)
+    # Assign each task in fixed_tasks to a resource
+    for j, i in enumerate(fixed_tasks):
+        if j < resources:
+            solver.Add(u[i, j] == 1)
+
+    # Symmetry breaking 2: if each task i has t in range(r_max, d_min), then z[i][t] = True
+    for i in range(len(tasks)):
+        for t in range(tasks[i][2] - tasks[i][1], tasks[i][0] + tasks[i][1]):
+            if t < tasks[i][2]:  # Ensure we don't go beyond the task's deadline
+                solver.Add(z[i, t] == 1)
+
     # D1 and D2: Task i should access exactly one resource
     for i in range(len(tasks)):
         solver.Add(sum(u[i, j] for j in range(resources)) == 1)
@@ -129,9 +153,6 @@ def encode_problem_es3(tasks, resources):
     for i in range(len(tasks)):
         for t in range(tasks[i][2]):
             solver.Add(z[i, t] == sum(y[i, j, t] for j in range(resources)))
-
-    # Symmetry breaking and other constraints
-    # ... (add any additional constraints you need)
 
     return solver, u, z, y
 
@@ -250,7 +271,7 @@ def process_input_files(input_folder, resources=200):
 
 # Main execution
 # input_folder = "input/" + sys.argv[1]
-input_folder = "input/large"
+input_folder = "input/small"
 process_input_files(input_folder)
 
 log_file.close()
