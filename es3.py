@@ -80,7 +80,7 @@ def encode_problem_es3(tasks, resources):
     u = [[i * resources + j + 1 for j in range(resources)] for i in range(len(tasks))]
 
     # Variables z[i][t] for task i accessing some resource at time t
-    z = [[len(tasks) * resources + i * tasks[i][2] + t + 1 for t in range(tasks[i][2])] for i in range(len(tasks))]
+    z = [[len(tasks) * resources + i * max_time + t + 1 for t in range(tasks[i][2])] for i in range(len(tasks))]
 
     # Variables D[i][j][t] for non-preemptive access of resource j by task i starting at time t
     D = [[[len(tasks) * (resources + max_time) + i * resources * max_time + j * max_time + t + 1 
@@ -154,32 +154,23 @@ def encode_problem_es3(tasks, resources):
         sat_solver.add_clause(clause)
         # print(f"Added clause D41: {clause_str}")
 
-        # # At most one start time
-        # for j in range(resources):
-        #     for t in range(tasks[i][0], tasks[i][2] - tasks[i][1]):
-        #         for jp in range(j + 1, resources):
-        #             for tp in range(t + 1, tasks[i][2] - tasks[i][1] + 1):
-        #                 if tp < max_time:
-        #                     sat_solver.add_clause([-D[i][j][t], -D[i][jp][tp]])
-        #                     print(f"Added clause D42: -D{i+1}{j+1}{t} -D{i+1}{jp+1}{tp}")
-
     # D5: Linking start variable to z and u variables
     for i in range(len(tasks)):
         for j in range(resources):
             for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1):
                 # Reverse implication
                 clause = [D[i][j][t]]
-                clause.extend([-u[i][j]])
+                clause.append(-u[i][j])
                 clause_str = []
                 clause_str.append(f"D{i+1}{j+1}{t}")
                 clause_str.append(f"-u{i+1}{j+1}")
 
                 # If D[i][j][t] is true, the task must hold the resource for its entire duration
                 for tp in range(t, t + tasks[i][1]):
-                    if tp < max_time:
-                        sat_solver.add_clause([-D[i][j][t], z[i][tp]])
-                        clause.append(-z[i][tp])
-                        clause_str.append(f"-z{i+1}{tp}")
+                    # if tp < max_time:
+                    sat_solver.add_clause([-D[i][j][t], z[i][tp]])
+                    clause.append(-z[i][tp])
+                    clause_str.append(f"-z{i+1}{tp}")
                         # print(f"Added clause D50: -D{i+1}{j+1}{t} z{i+1}{tp}")
                 sat_solver.add_clause([-D[i][j][t], u[i][j]])
                 # print(f"Added clause D51: -D{i+1}{j+1}{t} u{i+1}{j+1}")
@@ -193,98 +184,21 @@ def encode_problem_es3(tasks, resources):
 
                 # If D[i][j][t] is true, the task must not hold the resource after t + e_i - 1
                 for tp in range(t + tasks[i][1], tasks[i][2]):
-                    if tp < max_time:
-                        sat_solver.add_clause([-D[i][j][t], -z[i][tp]])
-                        clause.append(z[i][tp])
-                        clause_str.append(f"z{i+1}{tp}")
+                    # if tp < max_time:
+                    sat_solver.add_clause([-D[i][j][t], -z[i][tp]])
+                    clause.append(z[i][tp])
+                    clause_str.append(f"z{i+1}{tp}")
                         # print(f"Added clause D53: -D{i+1}{j+1}{t} -z{i+1}{tp}")
 
                 sat_solver.add_clause(clause)
                 # print(f"Added clause D54: {clause_str}")
-
-    # Add all clauses are True
-    # u01
-    # z07
-    # u15
-    # z16
-    # z17
-    # u23
-    # z21
-    # z22
-    # z23
-    # z24
-    # z25
-    # u32
-    # z33
-    # z34
-    # z35
-    # z36
-    # u41
-    # z44
-    # z45
-    # u50
-    # z51
-    # z52
-    # z53
-    # z54
-    # z55
-    # u65
-    # z65
-    # u76
-    # z70
-    # z71
-    # z72
-    # z73
-    # u87
-    # z82
-    # z83
-    # z84
-
-    # sat_solver.add_clause([D[0][1][1]])
-    # sat_solver.add_clause([D[0][1][7]])
-    # sat_solver.add_clause([D[1][5][6]])
-    # sat_solver.add_clause([-D[1][5][3]])
-    # sat_solver.add_clause([u[0][1]])
-    # sat_solver.add_clause([z[0][7]])
-    # sat_solver.add_clause([u[1][5]])
-    # sat_solver.add_clause([z[1][6]])
-    # sat_solver.add_clause([z[1][7]])
-    # sat_solver.add_clause([u[2][3]])
-    # sat_solver.add_clause([z[2][1]])
-    # sat_solver.add_clause([z[2][2]])
-    # sat_solver.add_clause([z[2][3]])
-    # sat_solver.add_clause([z[2][4]])
-    # sat_solver.add_clause([z[2][5]])
-    # sat_solver.add_clause([u[3][2]])
-    # sat_solver.add_clause([z[3][3]])
-    # sat_solver.add_clause([z[3][4]])
-    # sat_solver.add_clause([z[3][5]])
-    # sat_solver.add_clause([z[3][6]])
-    # sat_solver.add_clause([u[4][1]])
-    # sat_solver.add_clause([z[4][4]])
-    # sat_solver.add_clause([z[4][5]])
-    # sat_solver.add_clause([u[5][0]])
-    # sat_solver.add_clause([z[5][1]])
-    # sat_solver.add_clause([z[5][2]])
-    # sat_solver.add_clause([z[5][3]])
-    # sat_solver.add_clause([u[6][5]])
-    # sat_solver.add_clause([z[6][5]])
-    # sat_solver.add_clause([u[7][6]])
-    # sat_solver.add_clause([z[7][0]])
-    # sat_solver.add_clause([z[7][1]])
-    # sat_solver.add_clause([z[7][2]])
-    # sat_solver.add_clause([z[7][3]])
-    # sat_solver.add_clause([u[8][7]])
-    # sat_solver.add_clause([z[8][2]])
-    # sat_solver.add_clause([z[8][3]])
-    # sat_solver.add_clause([z[8][4]])
 
     return u, z, D
 
 def interrupt(solver):
     solver.interrupt()
 
-def validate_solution(tasks, model, u, z, resources):
+def validate_solution(tasks, model, u, z, D, resources):
     task_resource = {}
     task_times = {}
     resource_usage = {j: [] for j in range(resources)}
@@ -320,6 +234,12 @@ def validate_solution(tasks, model, u, z, resources):
         if len(task_times[i]) != task[1] or any(task_times[i][j+1] - task_times[i][j] != 1 for j in range(len(task_times[i])-1)):
             print_to_console_and_log(f"Error: Task {i+1} execution is not continuous or doesn't match execution time")
             return False
+
+        # Check if task is non-preemptive
+        for t in range(task[0], task[2] - task[1] + 1):
+            if model[D[i][task_resource[i]][t] - 1] == 0:
+                print_to_console_and_log(f"Error: Task {i+1} is preempted at time {t}")
+                return False
 
     # Check if any resource is used by multiple tasks at the same time
     for j, times in resource_usage.items():
@@ -363,18 +283,18 @@ def solve_es3(tasks, resources):
             for i in range(len(tasks)):
                 for j in range(resources):
                     if model[u[i][j] - 1] > 0:
-                        # print_to_console_and_log(f"Task {i+1} is assigned to resource {j+1}")
-                        print(f"u{i}{j}")
+                        print_to_console_and_log(f"Task {i+1} is assigned to resource {j+1}")
+                        # print(f"u{i}{j}")
                 for t in range(tasks[i][0], tasks[i][2]):
                     if model[z[i][t] - 1] > 0:
-                        # print_to_console_and_log(f"Task {i+1} is accessing a resource at time {t}")
-                        print(f"z{i}{t}")
+                        print_to_console_and_log(f"Task {i+1} is accessing a resource at time {t}")
+                        # print(f"z{i}{t}")
                 for j in range(resources):
                     for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1):
                         if model[D[i][j][t] - 1] > 0:
-                            # print_to_console_and_log(f"Task {i+1} starts non-preemptive access of resource {j+1} at time {t}")
-                            print(f"D{i}{j}{t}")
-            if not validate_solution(tasks, model, u, z, resources):
+                            print_to_console_and_log(f"Task {i+1} starts non-preemptive access of resource {j+1} at time {t}")
+                            # print(f"D{i}{j}{t}")
+            if not validate_solution(tasks, model, u, z, D, resources):
                 timer.cancel()
                 sys.exit(1)
     else:
@@ -399,14 +319,8 @@ def process_input_files(input_folder, resources=200):
                 print(f"tasks: {tasks}")
 
             print(f"Processing {filename}...")
-            res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
-            # res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
-            # results[filename] = {
-            #     "result": res,
-            #     "time": float(solve_time),
-            #     "num_variables": num_variables,
-            #     "num_clauses": num_clauses
-            # }
+            # res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
+            res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
             result_dict = {
                 "ID": id_counter,
                 "Problem": os.path.basename(filename),
@@ -422,21 +336,8 @@ def process_input_files(input_folder, resources=200):
     # return results
 
 # Main execution
-# input_folder = "input/" + sys.argv[1]
-input_folder = "input_4"
+input_folder = "input/" + sys.argv[1]
+# input_folder = "input_4"
 process_input_files(input_folder)
 
 log_file.close()
-
-# export results to excel
-
-# # Print summary of results
-# print("\nSummary of results:")
-# # Print sum time of satisfiable results, sum number of variables, sum number of clauses of all problems
-# satisfiable_results = [result for result in results.values() if result["result"] == "SAT"]
-# sum_of_time = sum(result["time"] for result in satisfiable_results)
-# sum_of_variables = sum(result["num_variables"] for result in results.values())
-# sum_of_clauses = sum(result["num_clauses"] for result in results.values())
-# print(f"Average time of satisfiable results: {sum_of_time:.6f} s")
-# print(f"Average number of variables: {sum_of_variables}")
-# print(f"Average number of clauses: {sum_of_clauses}")
