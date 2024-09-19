@@ -275,8 +275,8 @@ def process_input_files(input_folder, resources=200):
     # return results
 
 # Main execution
-# input_folder = "input/" + sys.argv[1]
-input_folder = "input_3"
+input_folder = "input/" + sys.argv[1]
+# input_folder = "input_3"
 process_input_files(input_folder)
 
 log_file.close()

@@ -6,7 +6,7 @@ from zipfile import BadZipFile
 import sys
 # from pysat.formula import CNF
 from pysat.solvers import Glucose3, Solver
-# import time
+import time
 from threading import Timer
 import os
 import ast
@@ -255,21 +255,22 @@ def solve_es3(tasks, resources):
 
     # with Solver(name="glucose4") as solver:
     sat_solver = Glucose3(use_timer=True)
-    
+    start_time = time.time()
     u, z, D = encode_problem_es3(tasks, resources)
 
-    # start_time = time.time()
+    timer = Timer(time_budget, interrupt, [sat_solver])
+    timer.start()
+    result = sat_solver.solve_limited(expect_interrupt = True)
+
+    solve_time = time.time() - start_time
+
     num_variables = sat_solver.nof_vars()
     num_clauses = sat_solver.nof_clauses()
 
     print_to_console_and_log(f"Num of variables: {num_variables}")
     print_to_console_and_log(f"Num of clauses: {num_clauses}")
 
-    timer = Timer(time_budget, interrupt, [sat_solver])
-    timer.start()
-    result = sat_solver.solve_limited(expect_interrupt = True)
-
-    solve_time = float(format(sat_solver.time(), ".6f"))
+    # solve_time = float(format(sat_solver.time(), ".6f"))
 
     res = ""
     if result:
