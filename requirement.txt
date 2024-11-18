@@ -2,3 +2,4 @@ pandas
 datetime
 openpyxl
 python-sat
+ortools

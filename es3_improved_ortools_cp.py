@@ -3,17 +3,15 @@ import pandas as pd
 from datetime import datetime
 from openpyxl import load_workbook, Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
-from openpyxl.utils.exceptions import InvalidFileException
 from zipfile import BadZipFile
-import cplex
+from ortools.sat.python import cp_model
 from itertools import product
 import os
 import ast
 import time
-from collections import defaultdict
 
 time_budget = 600  # Set your desired time budget in seconds
-type = "es3_improved_cplex"
+type = "es3_improved_ortools_cp"
 id_counter = 1
 
 # Open the log file in append mode
@@ -37,8 +35,7 @@ def write_to_xlsx(result_dict):
     if os.path.exists(excel_file_path):
         try:
             book = load_workbook(excel_file_path)
-        except (BadZipFile, InvalidFileException, KeyError):
-            print_to_console_and_log(f"Error: The existing file {excel_file_path} is not a valid Excel file. Creating a new one.")
+        except BadZipFile:
             book = Workbook()  # Create a new workbook if the file is not a valid Excel file
 
         # Check if the 'Results' sheet exists
@@ -75,46 +72,37 @@ def check_overlap(task1, task2):
     return False
 
 def encode_problem_es3(tasks, resources):
-    cpx = cplex.Cplex()
-    cpx.set_results_stream(None)
-    cpx.set_log_stream(None)
-
+    model = cp_model.CpModel()
+    
     max_time = max(task[2] for task in tasks)
 
     # Variables u[i][j] for task i accessing resource j
-    u = []
+    u = {}
     for i in range(len(tasks)):
         for j in range(resources):
-            u.append(f'u_{i}_{j}')
+            u[i, j] = model.NewBoolVar(f'u_{i}_{j}')
 
     # Variables z[i][t] for task i accessing some resource at time t
-    z = []
+    z = {}
     for i in range(len(tasks)):
         for t in range(tasks[i][2]):
-            z.append(f'z_{i}_{t}')
+            z[i, t] = model.NewBoolVar(f'z_{i}_{t}')
 
-    # Add variables
-    cpx.variables.add(names=u + z, types=[cpx.variables.type.binary] * (len(u) + len(z)))
+    # New variables y[i,j,t] to represent z[i,t] * u[i,j]
+    y = {}
+    for i in range(len(tasks)):
+        for j in range(resources):
+            for t in range(tasks[i][2]):
+                y[i, j, t] = model.NewBoolVar(f'y_{i}_{j}_{t}')
 
-    # Use a dictionary to store unique constraints
-    constraints = defaultdict(int)
-
-    # Helper function to add constraints
-    def add_constraint(ind, val, sense, rhs):
-        # Sort the indices and values together
-        sorted_pairs = tuple(sorted(zip(ind, val)))
-        # Create a hashable representation of the constraint
-        constraint = (sorted_pairs, sense, rhs)
-        constraints[constraint] += 1
-        if constraints[constraint] > 1:
-            print(f"Duplicate constraint found: {constraint}")
+    # Constraints
 
     # Overlapping: check each pair of tasks to see if they are overlap time
     for i in range(len(tasks)):
         for ip in range(i + 1, len(tasks)):
             if check_overlap(tasks[i], tasks[ip]):
                 for j in range(resources):
-                    add_constraint([f'u_{i}_{j}', f'u_{ip}_{j}'], [1.0, 1.0], 'L', 1.0)
+                    model.Add(u[i, j] + u[ip, j] <= 1)
 
     # Symmetry breaking 1: Assign the tasks to resources if have r_max <= d_min (min of all tasks)
     d_min = min(task[2] for task in tasks)
@@ -125,85 +113,59 @@ def encode_problem_es3(tasks, resources):
     # Assign each task in fixed_tasks to a resource
     for j, i in enumerate(fixed_tasks):
         if j < resources:
-            add_constraint([f'u_{i}_{j}'], [1.0], 'E', 1.0)
+            model.Add(u[i, j] == 1)
 
     # Symmetry breaking 2: if each task i has t in range(r_max, d_min), then z[i][t] = True
     for i in range(len(tasks)):
         for t in range(tasks[i][2] - tasks[i][1], tasks[i][0] + tasks[i][1]):
-            if t < tasks[i][2]:
-                add_constraint([f'z_{i}_{t}'], [1.0], 'E', 1.0)
+            if t < tasks[i][2]:  # Ensure we don't go beyond the task's deadline
+                model.Add(z[i, t] == 1)
 
-    # D1: Task i should not access two resources at the same time
+    # D1 and D2: Task i should access exactly one resource
     for i in range(len(tasks)):
-        for j in range(resources):
-            for jp in range(j + 1, resources):
-                add_constraint([f'u_{i}_{j}', f'u_{i}_{jp}'], [1.0, 1.0], 'L', 1.0)
-
-    # D2: Each task must get some resource
-    for i in range(len(tasks)):
-        add_constraint([f'u_{i}_{j}' for j in range(resources)], [1.0] * resources, 'E', 1.0)
+        model.Add(sum(u[i, j] for j in range(resources)) == 1)
 
     # D3: A resource can only be held by one task at a time
+    for j in range(resources):
+        for t in range(max_time):
+            model.Add(sum(y[i, j, t] for i in range(len(tasks)) if t < tasks[i][2]) <= 1)
+
+    # Linearization constraints for y[i,j,t] = z[i,t] * u[i,j]
     for i in range(len(tasks)):
-        for ip in range(i + 1, len(tasks)):
-            for j in range(resources):
-                for t in range(max(tasks[i][0], tasks[ip][0]), min(tasks[i][2], tasks[ip][2])):
-                    add_constraint([f'z_{i}_{t}', f'u_{i}_{j}', f'z_{ip}_{t}', f'u_{ip}_{j}'], [1.0, 1.0, 1.0, 1.0], 'L', 3.0)
+        for j in range(resources):
+            for t in range(tasks[i][2]):
+                model.Add(y[i, j, t] <= z[i, t])
+                model.Add(y[i, j, t] <= u[i, j])
+                model.Add(y[i, j, t] >= z[i, t] + u[i, j] - 1)
 
     # C3: Non-preemptive resource access
     for i in range(len(tasks)):
-        ind = [f'z_{i}_{t}' for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1)]
-        val = [1.0] * len(ind)
-        add_constraint(ind, val, 'E', 1.0)
+        model.Add(sum(z[i, t] for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1)) == 1)
 
     # C4 and C5: Continuous execution
     for i in range(len(tasks)):
-        # C41 and C42 remain the same
-        for t in range(tasks[i][0] + 1, tasks[i][0] + tasks[i][1]):
-            add_constraint([f'z_{i}_{tasks[i][0]}', f'z_{i}_{t}'], [-1.0, 1.0], 'G', 0.0)
+        for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1):
+            model.Add(sum(z[i, tp] for tp in range(t, min(t + tasks[i][1], tasks[i][2]))) >= 
+                       tasks[i][1] * z[i, t])
 
-        for t in range(tasks[i][0] + tasks[i][1], tasks[i][2]):
-            add_constraint([f'z_{i}_{tasks[i][0]}', f'z_{i}_{t}'], [-1.0, -1.0], 'L', 0.0)
+    # Linking z and y variables
+    for i in range(len(tasks)):
+        for t in range(tasks[i][2]):
+            model.Add(z[i, t] == sum(y[i, j, t] for j in range(resources)))
 
-        # Modified C51 and C52
-        for t in range(tasks[i][0], tasks[i][2] - tasks[i][1]):
-            next_t = t + 1
-            for tpp in range(next_t + 1, min(t + tasks[i][1] + 1, tasks[i][2])):
-                add_constraint([f'z_{i}_{t}', f'z_{i}_{next_t}', f'z_{i}_{tpp}'], [1.0, -1.0, 1.0], 'G', 0.0)
+    return model, u, z, y
 
-            for tpp in range(t + tasks[i][1] + 1, tasks[i][2]):
-                add_constraint([f'z_{i}_{t}', f'z_{i}_{next_t}', f'z_{i}_{tpp}'], [1.0, -1.0, -1.0], 'L', 1.0)
-
-    # After generating all constraints, add the unique ones to the model
-    for constraint, count in constraints.items():
-        ind_val, sense, rhs = constraint
-        ind, val = zip(*ind_val)
-        try:
-            cpx.linear_constraints.add(
-                lin_expr=[cplex.SparsePair(ind=ind, val=val)],
-                senses=[sense],
-                rhs=[rhs]
-            )
-        except cplex.exceptions.CplexError as e:
-            print(f"Error adding constraint: {constraint}")
-            print(f"Error message: {str(e)}")
-
-    print(f"Total number of unique constraints: {len(constraints)}")
-    print(f"Constraints with duplicates: {sum(1 for count in constraints.values() if count > 1)}")
-
-    return cpx, u, z
-
-def validate_solution(tasks, cpx, u, z, resources):
+def validate_solution(tasks, solver, u, z, y, resources):
     task_resource = {}
     task_times = {}
     resource_usage = {j: [] for j in range(resources)}
 
     for i, task in enumerate(tasks):
         for j in range(resources):
-            if cpx.solution.get_values(f'u_{i}_{j}') > 0.5:
+            if solver.Value(u[i, j]) == 1:
                 task_resource[i] = j
         
-        task_times[i] = [t for t in range(task[0], task[2]) if cpx.solution.get_values(f'z_{i}_{t}') > 0.5]
+        task_times[i] = [t for t in range(task[0], task[2]) if solver.Value(z[i, t]) == 1]
         
         if task_resource.get(i) is not None:
             resource_usage[task_resource[i]].extend(task_times[i])
@@ -236,60 +198,43 @@ def validate_solution(tasks, cpx, u, z, resources):
 
 def solve_es3(tasks, resources):
     start_time = time.time()
-    cpx, u, z = encode_problem_es3(tasks, resources)
-    if not cpx:
-        return "ERROR", 0, 0, 0
-
-    cpx.parameters.timelimit.set(time_budget)
-
-    try:
-        cpx.solve()
-    except cplex.exceptions.CplexSolverError as e:
-        print(f"Exception during solve: {e}")
-
+    model, u, z, y = encode_problem_es3(tasks, resources)
+    
+    # Create CP-SAT solver
+    solver = cp_model.CpSolver()
+    solver.parameters.max_time_in_seconds = time_budget
+    
+    # Solve the model
+    status = solver.Solve(model)
     solve_time = time.time() - start_time
 
     print(f"Solve time: {solve_time}")
 
-    num_variables = cpx.variables.get_num()
-    num_constraints = cpx.linear_constraints.get_num()
+    # Use model.Proto() to access number of variables and constraints
+    num_variables = len(model.Proto().variables)
+    num_constraints = len(model.Proto().constraints)
 
     print_to_console_and_log(f"Num of variables: {num_variables}")
     print_to_console_and_log(f"Num of constraints: {num_constraints}")
 
-    status = cpx.solution.get_status()
-    status_string = cpx.solution.get_status_string()
-    print_to_console_and_log(f"Solution status: {status} ({status_string})")
-
-    if status == cpx.solution.status.optimal:
-        print_to_console_and_log("Optimal solution found.")
+    if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
+        print_to_console_and_log("Solution found.")
         res = "SAT"
-    elif status == cpx.solution.status.feasible:
-        print_to_console_and_log("Feasible solution found.")
-        res = "SAT"
-    elif status == cpx.solution.status.MIP_optimal:
-        print_to_console_and_log("MIP solution is optimal.")
-        res = "SAT"
-    elif status == cpx.solution.status.infeasible:
-        print_to_console_and_log("Problem is infeasible.")
-        res = "UNSAT"
-    elif status in [cpx.solution.status.abort_time_limit, cpx.solution.status.abort_dettime_limit]:
-        print_to_console_and_log("Solver timed out.")
-        res = "TIMEOUT"
-    else:
-        print_to_console_and_log(f"Unexpected status: {status_string}")
-        res = "UNKNOWN"
-
-    if res == "SAT":
         for i in range(len(tasks)):
             for j in range(resources):
-                if cpx.solution.get_values(f'u_{i}_{j}') > 0.5:
+                if solver.Value(u[i, j]) == 1:
                     print_to_console_and_log(f"Task {i+1} is assigned to resource {j+1}")
             for t in range(tasks[i][0], tasks[i][2]):
-                if cpx.solution.get_values(f'z_{i}_{t}') > 0.5:
+                if solver.Value(z[i, t]) == 1:
                     print_to_console_and_log(f"Task {i+1} is accessing a resource at time {t}")
-        if not validate_solution(tasks, cpx, u, z, resources):
+        if not validate_solution(tasks, solver, u, z, y, resources):
             sys.exit(1)
+    elif status == cp_model.INFEASIBLE:
+        print_to_console_and_log("Problem is infeasible.")
+        res = "UNSAT"
+    else:
+        print_to_console_and_log("Solver timed out.")
+        res = "TIMEOUT"
 
     return res, solve_time, num_variables, num_constraints
 
@@ -306,8 +251,8 @@ def process_input_files(input_folder, resources=200):
                 print(f"tasks: {tasks}")
 
             print_to_console_and_log(f"Processing {filename}...")
-            res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
-            # res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
+            # res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
+            res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
             # results[filename] = {
             #     "result": res,
             #     "time": float(solve_time),
@@ -334,4 +279,3 @@ input_folder = "input/" + sys.argv[1]
 process_input_files(input_folder)
 
 log_file.close()
-

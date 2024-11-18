@@ -117,15 +117,15 @@ def encode_problem_es3(tasks, resources):
     # Variables z[i][t] for task i accessing some resource at time t
     z = [[len(tasks) * resources + i * max_time + t + 1 for t in range(tasks[i][2])] for i in range(len(tasks))]
 
-    # Calculate id_variable
-    id_variable = len(tasks) * resources + len(tasks) * max_time
-
     # Variables s[i][t] for task i starts accessing resource at time t
     # z[i][tasks[i][0]] <-> s[i][tasks[i][0]]
     # -z[i][tasks[i][0]] ^ z[i][tasks[i][0] + 1] <-> s[i][tasks[i][0]+1]   
     # ...
     # -z[i][tasks[i][2] - tasks[i][1] - 1] ^ z[i][tasks[i][2] - tasks[i][1]] <-> s[i][tasks[i][2] - tasks[i][1]]
     s = [[len(tasks) * resources + len(tasks) * max_time + i * max_time + t + 1 for t in range(tasks[i][2])] for i in range(len(tasks))]
+
+    # Calculate id_variable
+    id_variable = len(tasks) * resources + len(tasks) * max_time + len(tasks) * max_time
 
     # Overlapping: check each pair of tasks to see if they are overlap time, u_i1j -> -u_i2j
     for i in range(len(tasks)):
@@ -283,11 +283,10 @@ def validate_solution(tasks, model, u, z, s, resources):
             return False
         
         # Check if task is non-preemptive
-        for t in range(task[0], task[2] - task[1] + 1):
-            if model[s[i][t] - 1] > 0:
-                if t > 0 and model[s[i][t-1] - 1] > 0:
-                    print_to_console_and_log(f"Error: Task {i+1} is preempted at time {t}")
-                    return False
+        start_times = [t for t in range(task[0], task[2] - task[1] + 1) if model[s[i][t] - 1] > 0]
+        if len(start_times) != 1:
+            print_to_console_and_log(f"Error: Task {i+1} has {len(start_times)} start times (should be exactly 1)")
+            return False
 
     # Check if any resource is used by multiple tasks at the same time
     for j, times in resource_usage.items():
@@ -366,8 +365,8 @@ def process_input_files(input_folder, resources=200):
                 print(f"tasks: {tasks}")
 
             print_to_console_and_log(f"Processing {filename}...")
-            # res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
-            res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
+            res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
+            # res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
 
             result_dict = {
                 "ID": id_counter,
@@ -385,7 +384,7 @@ def process_input_files(input_folder, resources=200):
 
 # Main execution
 input_folder = "input/" + sys.argv[1]
-# input_folder = "input_4"
+# input_folder = "input_1"
 process_input_files(input_folder)
 
 log_file.close()

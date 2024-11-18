@@ -4,23 +4,15 @@ from datetime import datetime
 from openpyxl import load_workbook, Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
 from zipfile import BadZipFile
-from typing import List
-
-# from pysat.formula import CNF
-from pysat.solvers import Glucose3, Solver
-from itertools import product
+from docplex.cp.model import CpoModel
+from threading import Thread, Event
 import time
-from threading import Timer, Thread, Event
 import os
 import ast
-from pypblib import pblib
-from pypblib.pblib import PBConfig, Pb2cnf
 
-sat_solver = Glucose3
 time_budget = 600  # Set your desired time budget in seconds
-type = "es3_improved_pb"
+type = "es3_improved_cplex_cp"
 id_counter = 1
-id_variable: int
 
 # Open the log file in append mode
 log_file = open('console.log', 'a')
@@ -58,40 +50,12 @@ def write_to_xlsx(result_dict):
 
     print_to_console_and_log(f"Result added to Excel file: {os.path.abspath(excel_file_path)}\n")
 
+
 # Define a custom print function that writes to both console and log file
 def print_to_console_and_log(*args, **kwargs):
     print(*args, **kwargs)
     print(*args, file = log_file, **kwargs)
     log_file.flush()
-
-def exactly_k(var: List[int], k):
-    global id_variable
-
-    pbConfig = PBConfig()
-    pbConfig.set_PB_Encoder(pblib.PB_BDD)
-
-    # Create a Pb2cnf object
-    pb2 = Pb2cnf(pbConfig)
-
-    # Create a list to hold the formula
-    formula = []
-
-    # Create a list to hold the weights are 1
-    weights = [1] * len(var)
-
-    # Encode the AtLeastK and AtMostK constraints
-    # max_var = pb2.encode_at_least_k(var, k, formula, id_variable + 1)
-    # max_var = pb2.encode_at_most_k(var, k, formula, max_var + 1)
-
-    # encode_both()
-    max_var = pb2.encode_both(weights, var, k, k, formula, id_variable + 1)
-
-    for clause in formula:
-        sat_solver.add_clause(clause)
-        # print(f"Added clause: {clause}")
-
-    # Update the global variable id_variable based on the new variables introduced by the encoding
-    id_variable = max_var
 
 def check_overlap(task1, task2):
     # Suppose: task1 = (r1, e1, d1), task2 = (r2, e2, d2)
@@ -108,130 +72,134 @@ def check_overlap(task1, task2):
     return False
 
 def encode_problem_es3(tasks, resources):
-    global id_variable
+    # Create CP model
+    model = CpoModel()
+    constraint_count = 0  # Add counter for constraints
+    
     max_time = max(task[2] for task in tasks)
 
-    # Variables u[i][j] for task i accessing resource j
-    u = [[i * resources + j + 1 for j in range(resources)] for i in range(len(tasks))]
+    # Variables u[i][j] for task i accessing resource j (like in SAT model)
+    u = [[model.binary_var(name=f'u_{i}_{j}') for j in range(resources)] 
+         for i in range(len(tasks))]
 
-    # Variables z[i][t] for task i accessing some resource at time t
-    z = [[len(tasks) * resources + i * max_time + t + 1 for t in range(tasks[i][2])] for i in range(len(tasks))]
+    # Variables z[i][t] for task i accessing some resource at time t (like in SAT model)
+    z = [[model.binary_var(name=f'z_{i}_{t}') for t in range(tasks[i][2])]
+         for i in range(len(tasks))]
 
-    # Calculate id_variable
-    id_variable = len(tasks) * resources + len(tasks) * max_time
+    # Create interval variables for each task
+    intervals = []
+    for i, task in enumerate(tasks):
+        interval = model.interval_var(
+            size=task[1],
+            start=[task[0], task[2] - task[1]],
+            end=[task[0] + task[1], task[2]],
+            name=f'task_{i}'
+        )
+        intervals.append(interval)
 
-    # Overlapping: check each pair of tasks to see if they are overlap time, u_i1j -> -u_i2j
+    # Overlapping constraints (D0)
     for i in range(len(tasks)):
         for ip in range(i + 1, len(tasks)):
             if check_overlap(tasks[i], tasks[ip]):
                 for j in range(resources):
-                    sat_solver.add_clause([-u[i][j], -u[ip][j]])
-                    # print(f"Added clause D0: -u{i+1}{j+1} -u{ip+1}{j+1}")
+                    model.add(u[i][j] + u[ip][j] <= 1)
+                    constraint_count += 1
 
-    # Symmetry breaking 1: Assign the tasks to resources if have r_max <= d_min (min of all tasks)
+    # Symmetry breaking 1 (S1)
     d_min = min(task[2] for task in tasks)
     fixed_tasks = []
     for i in range(len(tasks)):
         if tasks[i][2] - tasks[i][1] <= d_min:
             fixed_tasks.append(i)
-    # Assign each task in fixed_tasks to a resource
     for j, i in enumerate(fixed_tasks):
         if j < resources:
-            sat_solver.add_clause([u[i][j]])
-        # print(f"Added clause S1: u{i+1}{j+1}")
-    
-    # Symmetry breaking 2: if each task i has t in range(r_max, d_min), then z[i][t] = True
-    # for j in range(resources):
+            model.add(u[i][j] == 1)
+            constraint_count += 1
+
+    # Symmetry breaking 2 (S2)
     for i in range(len(tasks)):
         for t in range(tasks[i][2] - tasks[i][1], tasks[i][0] + tasks[i][1]):
-            sat_solver.add_clause([z[i][t]])
-            # print(f"Added clause S2: -u{i+1}{j+1}, z{i+1}{t}")
+            if t < tasks[i][2]:
+                model.add(z[i][t] == 1)
+                constraint_count += 1
 
-    # # D1: Task i should not access two resources at the same time
-    # for i in range(len(tasks)):
-    #     for j in range(resources):
-    #         for jp in range(j + 1, resources):
-    #             sat_solver.add_clause([-u[i][j], -u[i][jp]])
-    #             # print(f"Added clause D1: -u{i+1}{j+1} -u{i+1}{jp+1}")
-
-    # # D2: Each task must get some resource
-    # for i in range(len(tasks)):
-    #     # sat_solver.add_clause([u[i][j] for j in range(resources)])
-    #     # print(f"Added clause: u{i}0 u{i}1")
-    #     clause = []
-    #     clause_str = []
-    #     for j in range(resources):
-    #         clause.append(u[i][j])
-    #         clause_str.append(f"u{i+1}{j+1}")
-    #     sat_solver.add_clause(clause)
-    #     # print(f"Added clause D2: {clause_str}")
-
-    # D1, D2: Each task should access exactly one resource
+    # D1: Task i should not access two resources at the same time
     for i in range(len(tasks)):
-        u_list = []
-        for j in range(resources):
-            u_list.append(u[i][j])
-        # print(f"u_list: {u_list}")
-        exactly_k(u_list, 1)
+        model.add(sum(u[i][j] for j in range(resources)) == 1)
+        constraint_count += 1
 
-     # D3: A resource can only be held by one task at a time
+    # D3: Resource conflicts
     for i in range(len(tasks)):
         for ip in range(i + 1, len(tasks)):
             for j in range(resources):
                 for t in range(tasks[i][0], min(tasks[i][2], tasks[ip][2])):
-                    sat_solver.add_clause([-z[i][t], -u[i][j], -z[ip][t], -u[ip][j]])
-                    # print(f"Added clause D3: -z{i+1}{t} -u{i+1}{j+1} -z{ip+1}{t} -u{ip+1}{j+1}")
-    
-    for i in range(len(tasks)):
-        clause = []
-        clause_str = []
-        for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1):
-            clause.append(z[i][t])
-            clause_str.append(f"z{i+1}{t}")
-        sat_solver.add_clause(clause)
-        # print(f"Added clause C3: {clause_str}")
+                    model.add(z[i][t] + u[i][j] + z[ip][t] + u[ip][j] <= 3)
+                    constraint_count += 1
 
-    # check each pair z_i^t and z_i^t+1, if u_ij ^ -z_i^t ^ z_i^t+1 -> ^ z_list[j]
+    # C3: Task must start within its time window
     for i in range(len(tasks)):
+        model.add(sum(z[i][t] for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1)) >= 1)
+        constraint_count += 1
+
+    # C4 and C5: Continuous execution constraints
+    for i in range(len(tasks)):
+        # C41 and C42: Initial execution propagation
         for t in range(tasks[i][0] + 1, tasks[i][0] + tasks[i][1]):
-            sat_solver.add_clause([-z[i][tasks[i][0]], z[i][t]])
-            # print(f"Added clause C41: -z{i+1}{tasks[i][0]} z{i+1}{t}")
+            model.add(-z[i][tasks[i][0]] + z[i][t] >= 0)
+            constraint_count += 1
 
-        for t in range (tasks[i][0] + tasks[i][1], tasks[i][2]):
-            sat_solver.add_clause([-z[i][tasks[i][0]], -z[i][t]])
-            # print(f"Added clause C42: -z{i+1}{tasks[i][0]} -z{i+1}{t}")
+        for t in range(tasks[i][0] + tasks[i][1], tasks[i][2]):
+            model.add(-z[i][tasks[i][0]] - z[i][t] >= -1)
+            constraint_count += 1
 
+        # C51 and C52: Continuous execution
         for t in range(tasks[i][0], tasks[i][2] - tasks[i][1]):
-            for tpp in range(t+1, t + tasks[i][1] + 1):
-                if tpp < max_time:
-                    sat_solver.add_clause([z[i][t], -z[i][t+1], z[i][tpp]])
-                    # print(f"Added clause C51: z{i+1}{t}, -z{i+1}{t+1}, z{i+1}{tpp}")
+            next_t = t + 1
+            for tpp in range(next_t + 1, min(t + tasks[i][1] + 1, tasks[i][2])):
+                model.add(z[i][t] - z[i][next_t] + z[i][tpp] >= 0)
+                constraint_count += 1
 
             for tpp in range(t + tasks[i][1] + 1, tasks[i][2]):
-                if tpp < max_time:
-                    sat_solver.add_clause([z[i][t], -z[i][t+1], -z[i][tpp]])
-                    # print(f"Added clause C52: z{i+1}{t}, -z{i+1}{t+1}, -z{i+1}{tpp}")
+                model.add(z[i][t] - z[i][next_t] - z[i][tpp] >= -1)
+                constraint_count += 1
 
-    # sat_solver.add_clause([z[1][3]])
-    return u, z
+    # Link interval variables with z variables
+    for i in range(len(tasks)):
+        for t in range(tasks[i][0], tasks[i][2]):
+            model.add(model.presence_of(intervals[i]) == 1)
+            model.add(
+                (model.start_of(intervals[i]) <= t) & 
+                (t < model.end_of(intervals[i])) == 
+                z[i][t]
+            )
+            constraint_count += 2
 
+    return model, u, z, intervals, constraint_count
 def solve_with_timeout(tasks, resources, result_container, finished_event):
-    global sat_solver
-    sat_solver = Glucose3()
-    
     try:
-        u, z = encode_problem_es3(tasks, resources)
-        result = sat_solver.solve()
+        # Encode and solve the problem
+        model, u, z, intervals, constraint_count = encode_problem_es3(tasks, resources)
+        model.set_parameters(TimeLimit=time_budget)
+        solution = model.solve()
         
-        if result:
-            model = sat_solver.get_model()
+        if solution:
             result_container['status'] = 'SAT'
-            result_container['model'] = model
+            result_container['solution'] = solution
             result_container['u'] = u
-            result_container['z'] = z
+            result_container['intervals'] = intervals
+            result_container['constraint_count'] = constraint_count
         else:
             result_container['status'] = 'UNSAT'
+            result_container['constraint_count'] = constraint_count
             
+        # Calculate number of variables
+        num_variables = (
+            len(tasks) * resources +  # u variables
+            sum(task[2] for task in tasks) +  # z variables
+            len(tasks)  # interval variables
+        )
+        result_container['num_variables'] = num_variables
+        
     except Exception as e:
         result_container['status'] = 'ERROR'
         result_container['error'] = str(e)
@@ -239,8 +207,6 @@ def solve_with_timeout(tasks, resources, result_container, finished_event):
     finished_event.set()
 
 def solve_es3(tasks, resources):
-    global sat_solver
-    
     result_container = {}
     finished_event = Event()
     
@@ -253,75 +219,76 @@ def solve_es3(tasks, resources):
     solve_time = time.time() - start_time
     
     if not finished:
-        sat_solver.interrupt()
         solver_thread.join()  # Wait for thread to clean up
+        print_to_console_and_log("Time out")
         return "Time out", solve_time, 0, 0
         
     if result_container.get('status') == 'SAT':
-        model = result_container['model']
+        solution = result_container['solution']
         u = result_container['u']
-        z = result_container['z']
+        intervals = result_container['intervals']
         
-        print("SAT")
+        print_to_console_and_log("Solution found")
+        
+        # Print solution details
         for i in range(len(tasks)):
+            interval = intervals[i]
+            start_time = solution.get_var_solution(interval).get_start()
             for j in range(resources):
-                if model[u[i][j] - 1] > 0:
+                if solution.get_value(u[i][j]) > 0.5:
                     print_to_console_and_log(f"Task {i+1} is assigned to resource {j+1}")
-            for t in range(tasks[i][0], tasks[i][2]):
-                if model[z[i][t] - 1] > 0:
-                    print_to_console_and_log(f"Task {i+1} is accessing a resource at time {t}")
+                    print_to_console_and_log(f"Task {i+1} starts at time {start_time}")
         
-        if not validate_solution(tasks, model, u, z, resources):
+        if not validate_solution(tasks, solution, u, intervals, resources):
             sys.exit(1)
-        
-        return "SAT", solve_time, sat_solver.nof_vars(), sat_solver.nof_clauses()
+            
+        return "SAT", solve_time, result_container['num_variables'], result_container['constraint_count']
     
     elif result_container.get('status') == 'UNSAT':
-        print_to_console_and_log("UNSAT")
-        return "UNSAT", solve_time, sat_solver.nof_vars(), sat_solver.nof_clauses()
+        print_to_console_and_log("No solution found")
+        return "UNSAT", solve_time, result_container['num_variables'], result_container['constraint_count']
     
     else:
         print_to_console_and_log(f"Error: {result_container.get('error')}")
         return "ERROR", solve_time, 0, 0
 
-def validate_solution(tasks, model, u, z, resources):
+def validate_solution(tasks, solution, u, intervals, resources):
     task_resource = {}
     task_times = {}
     resource_usage = {j: [] for j in range(resources)}
 
     for i, task in enumerate(tasks):
+        interval = intervals[i]
+        start_time = solution.get_var_solution(interval).get_start()
+        end_time = solution.get_var_solution(interval).get_end()
+        
         for j in range(resources):
-            if model[u[i][j] - 1] > 0:
+            if solution.get_value(u[i][j]) > 0.5:
                 task_resource[i] = j
         
-        task_times[i] = [t for t in range(task[0], task[2]) if model[z[i][t] - 1] > 0]
+        task_times[i] = list(range(start_time, end_time))
         
         if task_resource.get(i) is not None:
             resource_usage[task_resource[i]].extend(task_times[i])
 
     # Check constraints
     for i, task in enumerate(tasks):
-        # Check if task is assigned to exactly one resource
         if i not in task_resource:
             print_to_console_and_log(f"Error: Task {i} is not assigned to any resource")
             return False
 
-        # Check if task starts after its release time
         if task_times[i][0] < task[0]:
             print_to_console_and_log(f"Error: Task {i+1} starts before its release time")
             return False
 
-        # Check if task finishes before its deadline
         if task_times[i][-1] >= task[2]:
             print_to_console_and_log(f"Error: Task {i+1} finishes after its deadline")
             return False
 
-        # Check if task execution is continuous and matches the execution time
-        if len(task_times[i]) != task[1] or any(task_times[i][j+1] - task_times[i][j] != 1 for j in range(len(task_times[i])-1)):
-            print_to_console_and_log(f"Error: Task {i+1} execution is not continuous or doesn't match execution time")
+        if len(task_times[i]) != task[1]:
+            print_to_console_and_log(f"Error: Task {i+1} execution time doesn't match required time")
             return False
 
-    # Check if any resource is used by multiple tasks at the same time
     for j, times in resource_usage.items():
         if len(times) != len(set(times)):
             print_to_console_and_log(f"Error: Resource {j+1} is used by multiple tasks at the same time")
@@ -343,8 +310,8 @@ def process_input_files(input_folder, resources=200):
                 print(f"tasks: {tasks}")
 
             print_to_console_and_log(f"Processing {filename}...")
-            res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
-            # res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
+            res, solve_time, num_variables, num_constraints = solve_es3(tasks, num_tasks)
+            # res, solve_time, num_variables, num_constraints = solve_es3(tasks, resources)
             result_dict = {
                 "ID": id_counter,
                 "Problem": os.path.basename(filename),
@@ -352,7 +319,7 @@ def process_input_files(input_folder, resources=200):
                 "Time": solve_time,
                 "Result": res,
                 "Variables": num_variables,
-                "Clauses": num_clauses
+                "Clauses": num_constraints
             }
             write_to_xlsx(result_dict)
             id_counter += 1
@@ -360,8 +327,8 @@ def process_input_files(input_folder, resources=200):
     # return results
 
 # Main execution
-# input_folder = "input/" + sys.argv[1]
-input_folder = "input_4"
+input_folder = "input/" + sys.argv[1]
+# input_folder = "input_1"
 process_input_files(input_folder)
 
 log_file.close()

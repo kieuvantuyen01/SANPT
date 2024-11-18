@@ -4,14 +4,18 @@ from datetime import datetime
 from openpyxl import load_workbook, Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
 from zipfile import BadZipFile
-from ortools.linear_solver import pywraplp
+
+# from pysat.formula import CNF
+from pysat.solvers import Cadical103 as Cadical, Solver
 from itertools import product
+import time
+from threading import Thread, Event
 import os
 import ast
-import time
 
+sat_solver = Cadical
 time_budget = 600  # Set your desired time budget in seconds
-type = "es3_improved_mip"
+type = "es3_improved_SB_cadical"
 id_counter = 1
 
 # Open the log file in append mode
@@ -72,39 +76,21 @@ def check_overlap(task1, task2):
     return False
 
 def encode_problem_es3(tasks, resources):
-    solver = pywraplp.Solver.CreateSolver('SCIP')
-    if not solver:
-        return None
-
     max_time = max(task[2] for task in tasks)
 
     # Variables u[i][j] for task i accessing resource j
-    u = {}
-    for i in range(len(tasks)):
-        for j in range(resources):
-            u[i, j] = solver.IntVar(0, 1, f'u_{i}_{j}')
+    u = [[i * resources + j + 1 for j in range(resources)] for i in range(len(tasks))]
 
     # Variables z[i][t] for task i accessing some resource at time t
-    z = {}
-    for i in range(len(tasks)):
-        for t in range(tasks[i][2]):
-            z[i, t] = solver.IntVar(0, 1, f'z_{i}_{t}')
+    z = [[len(tasks) * resources + i * max_time + t + 1 for t in range(tasks[i][2])] for i in range(len(tasks))]
 
-    # New variables y[i,j,t] to represent z[i,t] * u[i,j]
-    y = {}
-    for i in range(len(tasks)):
-        for j in range(resources):
-            for t in range(tasks[i][2]):
-                y[i, j, t] = solver.IntVar(0, 1, f'y_{i}_{j}_{t}')
-
-    # Constraints
-
-    # Overlapping: check each pair of tasks to see if they are overlap time
+    # Overlapping: check each pair of tasks to see if they are overlap time, u_i1j -> -u_i2j
     for i in range(len(tasks)):
         for ip in range(i + 1, len(tasks)):
             if check_overlap(tasks[i], tasks[ip]):
                 for j in range(resources):
-                    solver.Add(u[i, j] + u[ip, j] <= 1)
+                    sat_solver.add_clause([-u[i][j], -u[ip][j]])
+                    # print(f"Added clause D0: -u{i+1}{j+1} -u{ip+1}{j+1}")
 
     # Symmetry breaking 1: Assign the tasks to resources if have r_max <= d_min (min of all tasks)
     d_min = min(task[2] for task in tasks)
@@ -115,81 +101,114 @@ def encode_problem_es3(tasks, resources):
     # Assign each task in fixed_tasks to a resource
     for j, i in enumerate(fixed_tasks):
         if j < resources:
-            solver.Add(u[i, j] == 1)
-
+            sat_solver.add_clause([u[i][j]])
+        # print(f"Added clause S1: u{i+1}{j+1}")
+    
     # Symmetry breaking 2: if each task i has t in range(r_max, d_min), then z[i][t] = True
+    # for j in range(resources):
     for i in range(len(tasks)):
         for t in range(tasks[i][2] - tasks[i][1], tasks[i][0] + tasks[i][1]):
-            if t < tasks[i][2]:  # Ensure we don't go beyond the task's deadline
-                solver.Add(z[i, t] == 1)
+            sat_solver.add_clause([z[i][t]])
+            # print(f"Added clause S2: -u{i+1}{j+1}, z{i+1}{t}")
 
-    # D1 and D2: Task i should access exactly one resource
-    for i in range(len(tasks)):
-        solver.Add(sum(u[i, j] for j in range(resources)) == 1)
-
-    # D3: A resource can only be held by one task at a time
-    for j in range(resources):
-        for t in range(max_time):
-            solver.Add(sum(y[i, j, t] for i in range(len(tasks)) if t < tasks[i][2]) <= 1)
-
-    # Linearization constraints for y[i,j,t] = z[i,t] * u[i,j]
+    # D1: Task i should not access two resources at the same time
     for i in range(len(tasks)):
         for j in range(resources):
-            for t in range(tasks[i][2]):
-                solver.Add(y[i, j, t] <= z[i, t])
-                solver.Add(y[i, j, t] <= u[i, j])
-                solver.Add(y[i, j, t] >= z[i, t] + u[i, j] - 1)
+            for jp in range(j + 1, resources):
+                sat_solver.add_clause([-u[i][j], -u[i][jp]])
+                # print(f"Added clause D1: -u{i+1}{j+1} -u{i+1}{jp+1}")
 
-    # C3: Non-preemptive resource access
+    # D2: Each task must get some resource
     for i in range(len(tasks)):
-        solver.Add(sum(z[i, t] for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1)) == 1)
+        # sat_solver.add_clause([u[i][j] for j in range(resources)])
+        # print(f"Added clause: u{i}0 u{i}1")
+        clause = []
+        clause_str = []
+        for j in range(resources):
+            clause.append(u[i][j])
+            clause_str.append(f"u{i+1}{j+1}")
+        sat_solver.add_clause(clause)
+        # print(f"Added clause D2: {clause_str}")
 
-    # C4 and C5: Continuous execution
+     # D3: A resource can only be held by one task at a time
     for i in range(len(tasks)):
+        for ip in range(i + 1, len(tasks)):
+            for j in range(resources):
+                for t in range(tasks[i][0], min(tasks[i][2], tasks[ip][2])):
+                    sat_solver.add_clause([-z[i][t], -u[i][j], -z[ip][t], -u[ip][j]])
+                    # print(f"Added clause D3: -z{i+1}{t} -u{i+1}{j+1} -z{ip+1}{t} -u{ip+1}{j+1}")
+    
+    for i in range(len(tasks)):
+        clause = []
+        clause_str = []
         for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1):
-            solver.Add(sum(z[i, tp] for tp in range(t, min(t + tasks[i][1], tasks[i][2]))) >= 
-                       tasks[i][1] * z[i, t])
+            clause.append(z[i][t])
+            clause_str.append(f"z{i+1}{t}")
+        sat_solver.add_clause(clause)
+        # print(f"Added clause C3: {clause_str}")
 
-    # Linking z and y variables
+    # check each pair z_i^t and z_i^t+1, if u_ij ^ -z_i^t ^ z_i^t+1 -> ^ z_list[j]
     for i in range(len(tasks)):
-        for t in range(tasks[i][2]):
-            solver.Add(z[i, t] == sum(y[i, j, t] for j in range(resources)))
+        for t in range(tasks[i][0] + 1, tasks[i][0] + tasks[i][1]):
+            sat_solver.add_clause([-z[i][tasks[i][0]], z[i][t]])
+            # print(f"Added clause C41: -z{i+1}{tasks[i][0]} z{i+1}{t}")
 
-    return solver, u, z, y
+        for t in range (tasks[i][0] + tasks[i][1], tasks[i][2]):
+            sat_solver.add_clause([-z[i][tasks[i][0]], -z[i][t]])
+            # print(f"Added clause C42: -z{i+1}{tasks[i][0]} -z{i+1}{t}")
 
-def validate_solution(tasks, solver, u, z, y, resources):
+        for t in range(tasks[i][0], tasks[i][2] - tasks[i][1]):
+            for tpp in range(t+1, t + tasks[i][1] + 1):
+                if tpp < max_time:
+                    sat_solver.add_clause([z[i][t], -z[i][t+1], z[i][tpp]])
+                    # print(f"Added clause C51: z{i+1}{t}, -z{i+1}{t+1}, z{i+1}{tpp}")
+
+            for tpp in range(t + tasks[i][1] + 1, tasks[i][2]):
+                if tpp < max_time:
+                    sat_solver.add_clause([z[i][t], -z[i][t+1], -z[i][tpp]])
+                    # print(f"Added clause C52: z{i+1}{t}, -z{i+1}{t+1}, -z{i+1}{tpp}")
+
+    # sat_solver.add_clause([z[1][3]])
+    return u, z
+
+def validate_solution(tasks, model, u, z, resources):
     task_resource = {}
     task_times = {}
     resource_usage = {j: [] for j in range(resources)}
 
     for i, task in enumerate(tasks):
         for j in range(resources):
-            if u[i, j].solution_value() > 0.5:
+            if model[u[i][j] - 1] > 0:
                 task_resource[i] = j
         
-        task_times[i] = [t for t in range(task[0], task[2]) if z[i, t].solution_value() > 0.5]
+        task_times[i] = [t for t in range(task[0], task[2]) if model[z[i][t] - 1] > 0]
         
         if task_resource.get(i) is not None:
             resource_usage[task_resource[i]].extend(task_times[i])
 
     # Check constraints
     for i, task in enumerate(tasks):
+        # Check if task is assigned to exactly one resource
         if i not in task_resource:
             print_to_console_and_log(f"Error: Task {i} is not assigned to any resource")
             return False
 
+        # Check if task starts after its release time
         if task_times[i][0] < task[0]:
             print_to_console_and_log(f"Error: Task {i+1} starts before its release time")
             return False
 
+        # Check if task finishes before its deadline
         if task_times[i][-1] >= task[2]:
             print_to_console_and_log(f"Error: Task {i+1} finishes after its deadline")
             return False
 
+        # Check if task execution is continuous and matches the execution time
         if len(task_times[i]) != task[1] or any(task_times[i][j+1] - task_times[i][j] != 1 for j in range(len(task_times[i])-1)):
             print_to_console_and_log(f"Error: Task {i+1} execution is not continuous or doesn't match execution time")
             return False
 
+    # Check if any resource is used by multiple tasks at the same time
     for j, times in resource_usage.items():
         if len(times) != len(set(times)):
             print_to_console_and_log(f"Error: Resource {j+1} is used by multiple tasks at the same time")
@@ -198,47 +217,96 @@ def validate_solution(tasks, solver, u, z, y, resources):
     print_to_console_and_log("Solution is valid!")
     return True
 
+def solve_with_timeout(tasks, resources, result_container, finished_event):
+    global sat_solver
+    sat_solver = Cadical()
+    
+    try:
+        u, z = encode_problem_es3(tasks, resources)
+        result = sat_solver.solve()
+        
+        num_variables = sat_solver.nof_vars()
+        num_clauses = sat_solver.nof_clauses()
+        
+        print_to_console_and_log(f"Num of variables: {num_variables}")
+        print_to_console_and_log(f"Num of clauses: {num_clauses}")
+        
+        if result is True:
+            model = sat_solver.get_model()
+            if model is None:
+                result_container['status'] = 'TIMEOUT'
+            else:
+                result_container['status'] = 'SAT'
+                result_container['model'] = model
+                result_container['u'] = u
+                result_container['z'] = z
+        else:
+            result_container['status'] = 'UNSAT'
+            
+        result_container['variables'] = num_variables
+        result_container['clauses'] = num_clauses
+            
+    except Exception as e:
+        result_container['status'] = 'ERROR'
+        result_container['error'] = str(e)
+    
+    finished_event.set()
+
 def solve_es3(tasks, resources):
+    global sat_solver
+    
+    result_container = {}
+    finished_event = Event()
+    
     start_time = time.time()
-    solver, u, z, y = encode_problem_es3(tasks, resources)
-    if not solver:
-        return "ERROR", 0, 0, 0
-
-    solver.set_time_limit(time_budget * 1000)  # Set time limit in milliseconds
-
-    status = solver.Solve()
+    solver_thread = Thread(target=solve_with_timeout, args=(tasks, resources, result_container, finished_event))
+    solver_thread.start()
+    
+    # Wait for either completion or timeout
+    finished = finished_event.wait(timeout=time_budget)
     solve_time = time.time() - start_time
-
-    print(f"Solve time: {solve_time}")
-
-    # solve_time = solver.wall_time() / 1000.0  # Convert to seconds
-    num_variables = solver.NumVariables()
-    num_constraints = solver.NumConstraints()
-
-    print_to_console_and_log(f"Num of variables: {num_variables}")
-    print_to_console_and_log(f"Num of constraints: {num_constraints}")
-
-    if status == pywraplp.Solver.OPTIMAL or status == pywraplp.Solver.FEASIBLE:
-        print_to_console_and_log("Solution found.")
-        res = "SAT"
+    
+    if not finished:
+        sat_solver.interrupt()
+        solver_thread.join()
+        sat_solver.delete()
+        return "Time out", solve_time, 0, 0
+    
+    num_variables = result_container.get('variables', 0)
+    num_clauses = result_container.get('clauses', 0)
+    
+    if result_container.get('status') == 'SAT':
+        model = result_container['model']
+        u = result_container['u']
+        z = result_container['z']
+        
+        print("SAT")
         for i in range(len(tasks)):
             for j in range(resources):
-                if u[i, j].solution_value() > 0.5:
+                if model[u[i][j] - 1] > 0:
                     print_to_console_and_log(f"Task {i+1} is assigned to resource {j+1}")
             for t in range(tasks[i][0], tasks[i][2]):
-                if z[i, t].solution_value() > 0.5:
+                if model[z[i][t] - 1] > 0:
                     print_to_console_and_log(f"Task {i+1} is accessing a resource at time {t}")
-        if not validate_solution(tasks, solver, u, z, y, resources):
+        
+        if not validate_solution(tasks, model, u, z, resources):
+            sat_solver.delete()
             sys.exit(1)
-    elif status == pywraplp.Solver.INFEASIBLE:
-        print_to_console_and_log("Problem is infeasible.")
-        res = "UNSAT"
+        
+        sat_solver.delete()
+        return "SAT", solve_time, num_variables, num_clauses
+    
+    elif result_container.get('status') == 'UNSAT':
+        print_to_console_and_log("UNSAT")
+        sat_solver.delete()
+        return "UNSAT", solve_time, num_variables, num_clauses
+    
     else:
-        print_to_console_and_log("Solver timed out.")
-        res = "TIMEOUT"
-
-    return res, solve_time, num_variables, num_constraints
-
+        if result_container.get('status') == 'ERROR':
+            print_to_console_and_log(f"Error: {result_container.get('error')}")
+        sat_solver.delete()
+        return "ERROR", solve_time, 0, 0
+  
 def process_input_files(input_folder, resources=200):
     global id_counter, type
 
@@ -254,12 +322,6 @@ def process_input_files(input_folder, resources=200):
             print_to_console_and_log(f"Processing {filename}...")
             # res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
             res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
-            # results[filename] = {
-            #     "result": res,
-            #     "time": float(solve_time),
-            #     "num_variables": num_variables,
-            #     "num_clauses": num_clauses
-            # }
             result_dict = {
                 "ID": id_counter,
                 "Problem": os.path.basename(filename),
@@ -275,8 +337,8 @@ def process_input_files(input_folder, resources=200):
     # return results
 
 # Main execution
-input_folder = "input/" + sys.argv[1]
-# input_folder = "input_3"
+# input_folder = "input/" + sys.argv[1]
+input_folder = "input_4"
 process_input_files(input_folder)
 
 log_file.close()
