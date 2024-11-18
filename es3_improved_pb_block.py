@@ -150,40 +150,6 @@ def block_encoding(X, k, var_index):
     
     return clauses, current_var_index
 
-# def encode_all_zero_block(X, n, k, var_index):
-#     """Encode block All Zero using auxiliary variables"""
-#     clauses = []
-#     r_vars = []  # Store all r variables
-
-#     # Add the last variable
-#     if n >= k+1:
-#         r_vars.append(-X[n])
-    
-#     # First clause: -Xn-1 ^ -Xn -> R1
-#     if n >= k+2:
-#         r1 = var_index
-#         clauses.append([X[-2], X[-1], r1])
-#         clauses.append([-X[-2], -r1])
-#         clauses.append([-X[-1], -r1])
-#         r_vars.append(r1)
-#         current_r = r1  # Initialize current_r
-    
-#     # For remaining variables
-#     for i in range(n-2, k, -1):
-#         new_r = var_index + 1
-#         var_index += 1
-#         # -Xn-m-1 ^ Rm -> Rm+1
-#         clauses.append([X[i], -current_r, new_r])
-#         # Xn-m-1 -> -Rm+1
-#         clauses.append([-X[i], -new_r])
-#         # -Rm -> -Rm+1
-#         clauses.append([current_r, -new_r])
-#         current_r = new_r
-#         r_vars.append(new_r)
-    
-#     r_vars.reverse()
-#     return clauses, var_index + 1, r_vars
-
 def encode_all_zero_block(X, n, k, var_index):
     """Encode block All Zero using auxiliary variables"""
     clauses = []
@@ -218,6 +184,40 @@ def encode_all_zero_block(X, n, k, var_index):
     r_vars.reverse()
     return clauses, var_index + 1, r_vars
 
+# def encode_all_zero_block(X, n, k, var_index):
+#     """Encode block All Zero using auxiliary variables"""
+#     clauses = []
+#     r_vars = []  # Store all r variables
+
+#     # Add the last variable
+#     if n >= k+1:
+#         r_vars.append(-X[n])
+    
+#     # First clause: -Xn-1 ^ -Xn -> R1
+#     if n >= k+2:
+#         r1 = var_index
+#         clauses.append([X[-2], X[-1], r1])
+#         clauses.append([-X[-2], -r1])
+#         clauses.append([-X[-1], -r1])
+#         r_vars.append(r1)
+#         current_r = r1  # Initialize current_r
+    
+#     # For remaining variables
+#     for i in range(n-2, k, -1):
+#         new_r = var_index + 1
+#         var_index += 1
+#         # -Xn-m-1 ^ Rm -> Rm+1
+#         clauses.append([X[i], -current_r, new_r])
+#         # Xn-m-1 -> -Rm+1
+#         clauses.append([-X[i], -new_r])
+#         # -Rm -> -Rm+1
+#         clauses.append([current_r, -new_r])
+#         current_r = new_r
+#         r_vars.append(new_r)
+    
+#     r_vars.reverse()
+#     return clauses, var_index + 1, r_vars
+
 def encode_left_all_one_block(X, n, k, var_index):
     clauses = []
     r_vars = []
@@ -240,7 +240,7 @@ def encode_left_all_one_block(X, n, k, var_index):
             continue
             
         r1 = var_index
-        # clauses.append([-X[end_id-1], -X[end_id], r1])
+        clauses.append([-X[end_id-1], -X[end_id], r1])
         clauses.append([X[end_id-1], -r1])
         clauses.append([X[end_id], -r1])
         r_vars_tmp.append(r1)
@@ -249,7 +249,7 @@ def encode_left_all_one_block(X, n, k, var_index):
         for i in range(end_id-2, start_id-1, -1):
             new_r = var_index + 1
             var_index += 1
-            # clauses.append([-X[i], -current_r, new_r])
+            clauses.append([-X[i], -current_r, new_r])
             clauses.append([X[i], -new_r])
             clauses.append([current_r, -new_r])
             current_r = new_r
@@ -287,7 +287,7 @@ def encode_right_all_one_block(X, n, k, var_index):
             continue
 
         r1 = var_index
-        # clauses.append([-X[start_id], -X[start_id+1], r1])
+        clauses.append([-X[start_id], -X[start_id+1], r1])
         clauses.append([X[start_id], -r1])
         clauses.append([X[start_id+1], -r1])
         r_vars.append(r1)
@@ -296,7 +296,7 @@ def encode_right_all_one_block(X, n, k, var_index):
         for i in range(start_id+2, end_id+1):
             new_r = var_index + 1
             var_index += 1
-            # clauses.append([-X[i], -current_r, new_r])
+            clauses.append([-X[i], -current_r, new_r])
             clauses.append([X[i], -new_r])
             clauses.append([current_r, -new_r])
             current_r = new_r
@@ -311,7 +311,7 @@ def encode_right_all_one_block(X, n, k, var_index):
         r_vars.append(X[start_id])
         if start_id+1 <= n:
             r1 = var_index
-            # clauses.append([-X[start_id], -X[start_id+1], r1])
+            clauses.append([-X[start_id], -X[start_id+1], r1])
             clauses.append([X[start_id], -r1])
             clauses.append([X[start_id+1], -r1])
             r_vars.append(r1)
@@ -320,7 +320,7 @@ def encode_right_all_one_block(X, n, k, var_index):
         for i in range(start_id+2, n+1):
             new_r = var_index + 1
             var_index += 1
-            # clauses.append([-X[i], -current_r, new_r])
+            clauses.append([-X[i], -current_r, new_r])
             clauses.append([X[i], -new_r])
             clauses.append([current_r, -new_r])
             current_r = new_r
@@ -532,6 +532,7 @@ def solve_es3(tasks, resources):
     if not finished:
         sat_solver.interrupt()
         solver_thread.join()  # Wait for thread to clean up
+        sat_solver.delete()
         return "Time out", solve_time, 0, 0
         
     if result_container.get('status') == 'SAT':
@@ -551,14 +552,17 @@ def solve_es3(tasks, resources):
         if not validate_solution(tasks, model, u, z, resources):
             sys.exit(1)
         
+        sat_solver.delete()
         return "SAT", solve_time, sat_solver.nof_vars(), sat_solver.nof_clauses()
     
     elif result_container.get('status') == 'UNSAT':
         print_to_console_and_log("UNSAT")
+        sat_solver.delete()
         return "UNSAT", solve_time, sat_solver.nof_vars(), sat_solver.nof_clauses()
     
     else:
         print_to_console_and_log(f"Error: {result_container.get('error')}")
+        sat_solver.delete()
         return "ERROR", solve_time, 0, 0
     
 def process_input_files(input_folder, resources=200):
@@ -574,8 +578,8 @@ def process_input_files(input_folder, resources=200):
                 print(f"tasks: {tasks}")
 
             print_to_console_and_log(f"Processing {filename}...")
-            # res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
-            res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
+            res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
+            # res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
             result_dict = {
                 "ID": id_counter,
                 "Problem": os.path.basename(filename),
@@ -592,7 +596,7 @@ def process_input_files(input_folder, resources=200):
 
 # Main execution
 # input_folder = "input/" + sys.argv[1]
-input_folder = "input_4"
+input_folder = "input/small"
 process_input_files(input_folder)
 
 log_file.close()

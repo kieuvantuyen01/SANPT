@@ -255,6 +255,7 @@ def solve_es3(tasks, resources):
     if not finished:
         sat_solver.interrupt()
         solver_thread.join()  # Wait for thread to clean up
+        sat_solver.delete()
         return "Time out", solve_time, 0, 0
         
     if result_container.get('status') == 'SAT':
@@ -274,14 +275,17 @@ def solve_es3(tasks, resources):
         if not validate_solution(tasks, model, u, z, resources):
             sys.exit(1)
         
+        sat_solver.delete()
         return "SAT", solve_time, sat_solver.nof_vars(), sat_solver.nof_clauses()
     
     elif result_container.get('status') == 'UNSAT':
         print_to_console_and_log("UNSAT")
+        sat_solver.delete()
         return "UNSAT", solve_time, sat_solver.nof_vars(), sat_solver.nof_clauses()
     
     else:
         print_to_console_and_log(f"Error: {result_container.get('error')}")
+        sat_solver.delete()
         return "ERROR", solve_time, 0, 0
 
 def validate_solution(tasks, model, u, z, resources):
@@ -343,8 +347,8 @@ def process_input_files(input_folder, resources=200):
                 print(f"tasks: {tasks}")
 
             print_to_console_and_log(f"Processing {filename}...")
-            res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
-            # res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
+            # res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
+            res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
             result_dict = {
                 "ID": id_counter,
                 "Problem": os.path.basename(filename),

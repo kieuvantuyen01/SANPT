@@ -252,12 +252,12 @@ def validate_solution(tasks, model, u, z, D, resources):
 
 def solve_with_timeout(tasks, resources, result_container, finished_event):
     global sat_solver
-    sat_solver = Glucose3(use_timer=True)
+    sat_solver = Glucose3()
     
     try:
         # Move encoding and solving into this function
         u, z, D = encode_problem_es3(tasks, resources)
-        result = sat_solver.solve_limited(expect_interrupt=True)
+        result = sat_solver.solve()
         
         if result is True:
             model = sat_solver.get_model()
@@ -275,9 +275,7 @@ def solve_with_timeout(tasks, resources, result_container, finished_event):
     except Exception as e:
         result_container['status'] = 'ERROR'
         result_container['error'] = str(e)
-    finally:
-        sat_solver.delete()
-    
+
     finished_event.set()
 
 def solve_es3(tasks, resources):
@@ -321,15 +319,18 @@ def solve_es3(tasks, resources):
             
         num_variables = sat_solver.nof_vars()
         num_clauses = sat_solver.nof_clauses()
+        sat_solver.delete()
         return "SAT", solve_time, num_variables, num_clauses
         
     elif result_container.get('status') == 'UNSAT':
         print_to_console_and_log("UNSAT")
         num_variables = sat_solver.nof_vars()
         num_clauses = sat_solver.nof_clauses()
+        sat_solver.delete()
         return "UNSAT", solve_time, num_variables, num_clauses
     else:
         print_to_console_and_log(f"Error: {result_container.get('error', 'Unknown error')}")
+        sat_solver.delete()
         return result_container.get('status', 'ERROR'), solve_time, 0, 0
     
 def process_input_files(input_folder, resources=200):
@@ -362,8 +363,8 @@ def process_input_files(input_folder, resources=200):
     # return results
 
 # Main execution
-input_folder = "input/" + sys.argv[1]
-# input_folder = "input_4"
+# input_folder = "input/" + sys.argv[1]
+input_folder = "input/small"
 process_input_files(input_folder)
 
 log_file.close()

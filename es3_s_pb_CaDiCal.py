@@ -304,7 +304,7 @@ def solve_with_timeout(tasks, resources, result_container, finished_event):
     try:
         # Move encoding and solving into this function
         u, z, s = encode_problem_es3(tasks, resources)
-        result = sat_solver.solve_limited(expect_interrupt=True)
+        result = sat_solver.solve()
         
         if result is True:
             model = sat_solver.get_model()
@@ -322,8 +322,7 @@ def solve_with_timeout(tasks, resources, result_container, finished_event):
     except Exception as e:
         result_container['status'] = 'ERROR'
         result_container['error'] = str(e)
-    finally:
-        sat_solver.delete()
+
     
     finished_event.set()
 
@@ -342,6 +341,7 @@ def solve_es3(tasks, resources):
     if not finished:
         sat_solver.interrupt()
         solver_thread.join()  # Wait for thread to clean up
+        sat_solver.delete()
         return "TIMEOUT", solve_time, 0, 0
         
     if result_container.get('status') == 'SAT':
@@ -367,15 +367,19 @@ def solve_es3(tasks, resources):
             
         num_variables = sat_solver.nof_vars()
         num_clauses = sat_solver.nof_clauses()
+
+        sat_solver.delete()
         return "SAT", solve_time, num_variables, num_clauses
         
     elif result_container.get('status') == 'UNSAT':
         print_to_console_and_log("UNSAT")
         num_variables = sat_solver.nof_vars()
         num_clauses = sat_solver.nof_clauses()
+        sat_solver.delete()
         return "UNSAT", solve_time, num_variables, num_clauses
     else:
         print_to_console_and_log(f"Error: {result_container.get('error', 'Unknown error')}")
+        sat_solver.delete()
         return result_container.get('status', 'ERROR'), solve_time, 0, 0
 
 def process_input_files(input_folder, resources=200):
