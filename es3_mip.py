@@ -251,8 +251,8 @@ def process_input_files(input_folder, resources=200):
                 print(f"tasks: {tasks}")
 
             print_to_console_and_log(f"Processing {filename}...")
-            # res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
-            res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
+            res, solve_time, num_variables, num_clauses = solve_es3(tasks, num_tasks)
+            # res, solve_time, num_variables, num_clauses = solve_es3(tasks, resources)
 
             result_dict = {
                 "ID": id_counter,
@@ -269,8 +269,8 @@ def process_input_files(input_folder, resources=200):
     # return results
 
 # Main execution
-input_folder = "input/" + sys.argv[1]
-# input_folder = "input_3"
+# input_folder = "input/" + sys.argv[1]
+input_folder = "input/small"
 process_input_files(input_folder)
 
 log_file.close()

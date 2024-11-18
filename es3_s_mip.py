@@ -8,6 +8,8 @@ from ortools.linear_solver import pywraplp
 from itertools import product
 import os
 import ast
+from threading import Thread, Event
+import time  # Add time import
 
 time_budget = 600  # Set your desired time budget in seconds
 type = "es3_s_mip"
@@ -212,25 +214,59 @@ def validate_solution(tasks, solver, u, z, s, y, resources):
     print_to_console_and_log("Solution is valid!")
     return True
 
+def solve_with_timeout(tasks, resources, result_container, finished_event):
+    try:
+        # Move encoding and solving into this function
+        solver, u, z, s, y = encode_problem_es3(tasks, resources)
+        if not solver:
+            result_container['status'] = 'ERROR'
+            return
+
+        solver.set_time_limit(time_budget * 1000)
+        status = solver.Solve()
+
+        if status == pywraplp.Solver.OPTIMAL or status == pywraplp.Solver.FEASIBLE:
+            result_container['status'] = 'SAT'
+            result_container['solver'] = solver
+            result_container['u'] = u
+            result_container['z'] = z
+            result_container['s'] = s 
+            result_container['y'] = y
+        elif status == pywraplp.Solver.INFEASIBLE:
+            result_container['status'] = 'UNSAT'
+        else:
+            result_container['status'] = 'TIMEOUT'
+            
+    except Exception as e:
+        result_container['status'] = 'ERROR'
+        result_container['error'] = str(e)
+    
+    finished_event.set()
+
 def solve_es3(tasks, resources):
-    solver, u, z, s, y = encode_problem_es3(tasks, resources)
-    if not solver:
-        return "ERROR", 0, 0, 0
-
-    solver.set_time_limit(time_budget * 1000)  # Set time limit in milliseconds
-
-    status = solver.Solve()
-
-    solve_time = solver.wall_time() / 1000.0  # Convert to seconds
-    num_variables = solver.NumVariables()
-    num_constraints = solver.NumConstraints()
-
-    print_to_console_and_log(f"Num of variables: {num_variables}")
-    print_to_console_and_log(f"Num of constraints: {num_constraints}")
-
-    if status == pywraplp.Solver.OPTIMAL or status == pywraplp.Solver.FEASIBLE:
+    result_container = {}
+    finished_event = Event()
+    
+    start_time = time.time()
+    solver_thread = Thread(target=solve_with_timeout, args=(tasks, resources, result_container, finished_event))
+    solver_thread.start()
+    
+    # Wait for either completion or timeout
+    finished = finished_event.wait(timeout=time_budget)
+    solve_time = time.time() - start_time
+    
+    if not finished:
+        solver_thread.join()  # Wait for thread to clean up
+        return "TIMEOUT", solve_time, 0, 0
+        
+    if result_container.get('status') == 'SAT':
+        solver = result_container['solver']
+        u = result_container['u']
+        z = result_container['z']
+        s = result_container['s']
+        y = result_container['y']
+        
         print_to_console_and_log("Solution found.")
-        res = "SAT"
         for i in range(len(tasks)):
             for j in range(resources):
                 if u[i, j].solution_value() > 0.5:
@@ -241,16 +277,20 @@ def solve_es3(tasks, resources):
             for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1):
                 if s[i, t].solution_value() > 0.5:
                     print_to_console_and_log(f"Task {i+1} starts non-preemptive access at time {t}")
+                    
         if not validate_solution(tasks, solver, u, z, s, y, resources):
             sys.exit(1)
-    elif status == pywraplp.Solver.INFEASIBLE:
+            
+        num_variables = solver.NumVariables()
+        num_constraints = solver.NumConstraints()
+        return "SAT", solve_time, num_variables, num_constraints
+        
+    elif result_container.get('status') == 'UNSAT':
         print_to_console_and_log("Problem is infeasible.")
-        res = "UNSAT"
+        return "UNSAT", solve_time, 0, 0
     else:
-        print_to_console_and_log("Solver timed out.")
-        res = "TIMEOUT"
-
-    return res, solve_time, num_variables, num_constraints
+        print_to_console_and_log("Solver failed or timed out.")
+        return result_container.get('status', 'ERROR'), solve_time, 0, 0
 
 def process_input_files(input_folder, resources=200):
     global id_counter, type

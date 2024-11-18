@@ -6,8 +6,8 @@ from zipfile import BadZipFile
 import sys
 # from pysat.formula import CNF
 from pysat.solvers import Glucose3, Solver
-# import time
-from threading import Timer
+import time
+from threading import Timer, Thread, Event
 import os
 import ast
 
@@ -250,61 +250,87 @@ def validate_solution(tasks, model, u, z, D, resources):
     print_to_console_and_log("Solution is valid!")
     return True
 
-def solve_es3(tasks, resources):
+def solve_with_timeout(tasks, resources, result_container, finished_event):
     global sat_solver
-
-    # with Solver(name="glucose4") as solver:
     sat_solver = Glucose3(use_timer=True)
     
-    u, z, D = encode_problem_es3(tasks, resources)
-
-    # start_time = time.time()
-    num_variables = sat_solver.nof_vars()
-    num_clauses = sat_solver.nof_clauses()
-
-    print_to_console_and_log(f"Num of variables: {num_variables}")
-    print_to_console_and_log(f"Num of clauses: {num_clauses}")
-
-    timer = Timer(time_budget, interrupt, [sat_solver])
-    timer.start()
-    result = sat_solver.solve_limited(expect_interrupt = True)
-
-    solve_time = float(format(sat_solver.time(), ".6f"))
-
-    res = ""
-    if result:
-        model = sat_solver.get_model()
-        if model is None:
-            print("Time out")
-            res = "Time out"
+    try:
+        # Move encoding and solving into this function
+        u, z, D = encode_problem_es3(tasks, resources)
+        result = sat_solver.solve_limited(expect_interrupt=True)
+        
+        if result is True:
+            model = sat_solver.get_model()
+            if model is None:
+                result_container['status'] = 'TIMEOUT'
+            else:
+                result_container['status'] = 'SAT'
+                result_container['model'] = model
+                result_container['u'] = u
+                result_container['z'] = z
+                result_container['D'] = D
         else:
-            print("SAT")
-            res = "SAT"
-            for i in range(len(tasks)):
-                for j in range(resources):
-                    if model[u[i][j] - 1] > 0:
-                        print_to_console_and_log(f"Task {i+1} is assigned to resource {j+1}")
-                        # print(f"u{i}{j}")
-                for t in range(tasks[i][0], tasks[i][2]):
-                    if model[z[i][t] - 1] > 0:
-                        print_to_console_and_log(f"Task {i+1} is accessing a resource at time {t}")
-                        # print(f"z{i}{t}")
-                for j in range(resources):
-                    for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1):
-                        if model[D[i][j][t] - 1] > 0:
-                            print_to_console_and_log(f"Task {i+1} starts non-preemptive access of resource {j+1} at time {t}")
-                            # print(f"D{i}{j}{t}")
-            if not validate_solution(tasks, model, u, z, D, resources):
-                timer.cancel()
-                sys.exit(1)
+            result_container['status'] = 'UNSAT'
+            
+    except Exception as e:
+        result_container['status'] = 'ERROR'
+        result_container['error'] = str(e)
+    finally:
+        sat_solver.delete()
+    
+    finished_event.set()
+
+def solve_es3(tasks, resources):
+    result_container = {}
+    finished_event = Event()
+    
+    start_time = time.time()
+    solver_thread = Thread(target=solve_with_timeout, args=(tasks, resources, result_container, finished_event))
+    solver_thread.start()
+    
+    # Wait for either completion or timeout
+    finished = finished_event.wait(timeout=time_budget)
+    solve_time = time.time() - start_time
+    
+    if not finished:
+        sat_solver.interrupt()
+        solver_thread.join()  # Wait for thread to clean up
+        return "TIMEOUT", solve_time, 0, 0
+        
+    if result_container.get('status') == 'SAT':
+        model = result_container['model']
+        u = result_container['u']
+        z = result_container['z']
+        D = result_container['D']
+        
+        print_to_console_and_log("SAT")
+        for i in range(len(tasks)):
+            for j in range(resources):
+                if model[u[i][j] - 1] > 0:
+                    print_to_console_and_log(f"Task {i+1} is assigned to resource {j+1}")
+            for t in range(tasks[i][0], tasks[i][2]):
+                if model[z[i][t] - 1] > 0:
+                    print_to_console_and_log(f"Task {i+1} is accessing a resource at time {t}")
+            for j in range(resources):
+                for t in range(tasks[i][0], tasks[i][2] - tasks[i][1] + 1):
+                    if model[D[i][j][t] - 1] > 0:
+                        print_to_console_and_log(f"Task {i+1} starts non-preemptive access of resource {j+1} at time {t}")
+                    
+        if not validate_solution(tasks, model, u, z, D, resources):
+            sys.exit(1)
+            
+        num_variables = sat_solver.nof_vars()
+        num_clauses = sat_solver.nof_clauses()
+        return "SAT", solve_time, num_variables, num_clauses
+        
+    elif result_container.get('status') == 'UNSAT':
+        print_to_console_and_log("UNSAT")
+        num_variables = sat_solver.nof_vars()
+        num_clauses = sat_solver.nof_clauses()
+        return "UNSAT", solve_time, num_variables, num_clauses
     else:
-        print("UNSAT")
-        res = "UNSAT"
-
-    timer.cancel()
-    sat_solver.delete()
-
-    return res, solve_time, num_variables, num_clauses
+        print_to_console_and_log(f"Error: {result_container.get('error', 'Unknown error')}")
+        return result_container.get('status', 'ERROR'), solve_time, 0, 0
     
 def process_input_files(input_folder, resources=200):
     global id_counter, type
